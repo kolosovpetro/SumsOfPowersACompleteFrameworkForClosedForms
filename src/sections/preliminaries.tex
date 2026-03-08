@@ -136,3 +136,22 @@
     This completes the proof.
   \end{proof}
 \end{proposition}
+\begin{lemma}[Centered hockey-stick identity]
+  For integer $n\geq1$, and arbitrary integers $k,r$
+  \begin{align*}
+    \sum_{j=1}^{n} \binom{j + \frac{k}{2} +r}{k}
+    = \binom{n + \frac{k}{2} + r +1}{k+1} - \binom{\frac{k}{2} + r +1}{k+1}.
+  \end{align*}
+  \begin{proof}
+    By setting $j=1 + \tfrac{k}{2} +r$, and $b=n+ \tfrac{k}{2} +r$ yields
+    \begin{align*}
+      \tsum_{j=1}^{n} \tbinom{j + \tfrac{k}{2} +r}{k} =
+      \tsum_{j=1 + \tfrac{k}{2} +r}^{n+ \tfrac{k}{2} +r} \tbinom{j}{k}.
+    \end{align*}
+    By Generalized hockey-stick identity~\eqref{prop:generalized-hockey-stick-identity},
+    \begin{align*}
+      \tsum_{j=1 + \tfrac{k}{2} +r}^{n+ \tfrac{k}{2} +r} \tbinom{j}{k}
+      = \tbinom{n + \tfrac{k}{2} + r +1}{k+1} - \tbinom{\tfrac{k}{2} + r +1}{k+1}.
+    \end{align*}
+  \end{proof}
+\end{lemma}
