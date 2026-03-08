@@ -3,11 +3,11 @@
   \label{def:multifold-sums-of-powers-recurrence}
   For non-negative integers $r,n,m$
   \begin{align*}
-    \KnuthRFoldSum{0}{n}{m}   &= n^m \\
+    \KnuthRFoldSum{0}{n}{m}   &= n^m, \\
     \KnuthRFoldSum{1}{n}{m}   &= \KnuthRFoldSum{0}{1}{m}
-    + \KnuthRFoldSum{0}{2}{m} + \cdots + \KnuthRFoldSum{0}{n}{m} \\
+    + \KnuthRFoldSum{0}{2}{m} + \cdots + \KnuthRFoldSum{0}{n}{m}, \\
     \KnuthRFoldSum{r+1}{n}{m} &= \KnuthRFoldSum{r}{1}{m}
-    + \KnuthRFoldSum{r}{2}{m} + \cdots + \KnuthRFoldSum{r}{n}{m}
+    + \KnuthRFoldSum{r}{2}{m} + \cdots + \KnuthRFoldSum{r}{n}{m}.
   \end{align*}
 \end{definition}
 \begin{definition}[Central factorials]
@@ -18,16 +18,22 @@
       0, \quad & \mathrm{if \; } k < 0, \\
       1, \quad & \mathrm{if \; } k = 0, \\
       n \left( n + \frac{k}{2} -1 \right)\left( n + \frac{k}{2} -2 \right)
-      \cdots \left( n - \frac{k}{2} +1 \right) = n \prod_{j=1}^{k-1}
-      \left( n + \frac{k}{2} -j \right), \quad & \mathrm{if \; } k>0.
+      \cdots \left( n - \frac{k}{2} +1 \right)
+      = n \prod_{j=1}^{k-1} \left( n + \frac{k}{2} -j \right), \quad & \mathrm{if \; } k>0.
     \end{cases}
   \end{align*}
 \end{definition}
 \begin{proposition}[Central Newton's formula]
+  For arbitrary integers $x$, and $t$
   \label{prop:newtons-interpolation-formula-in-central-differences}
   \begin{align*}
     f(x)
-    = \sum_{k=0}^{\infty} \frac{\centralFactorial{(x-t)}{k}}{k!} \delta^{k} f(t)
+    = \sum_{k=0}^{\infty} \frac{\centralFactorial{(x-t)}{k}}{k!} \delta^{k} f(t),
+  \end{align*}
+  where $\delta^{k} f(t)$ denotes central finite difference of $f(t)$,
+  defined by
+  \begin{align*}
+    \delta^{k} f(t) = \tsum_{j=0}^{k} (-1)^j \tbinom{k}{j} f(t+\tfrac{k}{2} - j).
   \end{align*}
   \begin{proof}
     See~\cite[p. 462]{butzer1989central}.
@@ -39,19 +45,22 @@
   \begin{align*}
     \centralFactorial{n}{k} =
     \begin{cases}
-      0, \quad & \mathrm{if \; } k<0 \\
-      1, \quad & \mathrm{if \; } k=0 \\
-      n \fallingFactorial{n+\frac{k}{2}-1}{k-1}, \quad & \mathrm{if \; } k>0
+      0, \quad & \mathrm{if \; } k<0, \\
+      1, \quad & \mathrm{if \; } k=0, \\
+      n \fallingFactorial{n+\frac{k}{2}-1}{k-1}, \quad & \mathrm{if \; } k>0.
     \end{cases}
   \end{align*}
-  where $\fallingFactorial{n+\frac{k}{2}-1}{k-1}$ are falling factorials.
+  where
+  $\fallingFactorial{n+\frac{k}{2}-1}{k-1}
+  = \prod_{j=1}^{k-1} \left( n + \frac{k}{2} -j \right)$
+  are falling factorials.
 \end{lemma}
 \begin{lemma}[Binomial form of central factorials]
   \label{lem:binomial-form-of-central-factorials}
-  For integers $n$ and $k \geq 1$
+  For integers $n$ and $k \geq 1$,
   \begin{align*}
     \frac{\centralFactorial{n}{k}}{k!}
-    = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}
+    = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}.
   \end{align*}
   \begin{proof}
     We have
@@ -59,7 +68,7 @@
       \frac{\centralFactorial{n}{k}}{k!}
       &= \frac{n}{k!}\fallingFactorial{n+\frac{k}{2}-1}{k-1}
       = \frac{n}{k (k-1)!} \fallingFactorial{n+\frac{k}{2}-1}{k-1}
-      = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}
+      = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1},
     \end{align*}
     because of the identity in falling factorials
     $\frac{\fallingFactorial{x}{n}}{n!} = \binom{x}{n}$,
@@ -67,11 +76,11 @@
   \end{proof}
 \end{lemma}
 \begin{lemma}[Halved central factorials]
-  For integers $n,k$
+  For integers $n,k$,
   \begin{align*}
     \frac{\centralFactorial{n}{k}}{k!}
     = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}
-    = \frac{1}{2} \binom{n+\frac{k}{2}}{k} + \frac{1}{2} \binom{n+\frac{k}{2}-1}{k}
+    = \frac{1}{2} \binom{n+\frac{k}{2}}{k} + \frac{1}{2} \binom{n+\frac{k}{2}-1}{k}.
   \end{align*}
   \begin{proof}
     We have $\binom{a}{k} = \frac{a}{k} \binom{a-1}{k-1}$.
@@ -103,6 +112,27 @@
   \label{prop:newtons-formula-for-powers}
   For integers $n,m \geq 0$, and an arbitrary integer $t$,
   \begin{align*}
-    n^m = \sum_{k=0}^{m} \frac{\centralFactorial{(n-t)}{k}}{k!} \delta^{k} t^m
+    n^m = \sum_{k=0}^{m} \frac{\centralFactorial{(n-t)}{k}}{k!} \delta^{k} t^m.
   \end{align*}
+\end{proposition}
+\begin{proposition}[Generalized hockey-stick identity]
+  \label{prop:generalized-hockey-stick-identity}
+  For integers $a,b$ and $j$,
+  \begin{align*}
+    \sum_{k=a}^{b} \binom{k}{j} = \binom{b+1}{j+1} - \binom{a}{j+1}.
+  \end{align*}
+  \begin{proof}
+    We have,
+    $\sum_{k=a}^{b} \binom{k}{j} = \binom{a}{j} + \binom{a+1}{j} + \cdots + \binom{b}{j}$,
+    which means that,
+    $\sum_{k=a}^{b} \binom{k}{j} =
+    \left( \sum_{k=0}^{b} \binom{k}{j} \right) - \left( \sum_{k=0}^{a-1} \binom{k}{j} \right)$.
+    By hockey stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$ yields,
+    \begin{align*}
+      \tsum_{k=a}^{b} \tbinom{k}{j}
+      = \left( \tsum_{k=0}^{b} \tbinom{k}{j} \right) - \left( \tsum_{k=0}^{a-1} \tbinom{k}{j} \right)
+      = \tbinom{b+1}{j+1} - \tbinom{a}{j+1}.
+    \end{align*}
+    This completes the proof.
+  \end{proof}
 \end{proposition}
