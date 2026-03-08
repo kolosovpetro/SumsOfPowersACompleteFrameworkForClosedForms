@@ -74,6 +74,10 @@ ValidateNegatedBinomialCenteredSumOfPowers::usage=""
 
 ValidateHalvedCentralBinomials::usage=""
 
+HalvedCentralFactorialPowers::usage=""
+
+ValidateHalvedCentralFactorialPowers::usage=""
+
 (*END: Definitions *)
 
 (* =========================================================================DOCS END=================================================================== *)
@@ -282,10 +286,13 @@ NegatedBinomialCenteredSumOfPowers[r_, n_, m_, t_] :=
 
 ValidateNegatedBinomialCenteredSumOfPowers[max_] := Table[MultifoldSumOfPowersRecurrence[r, n, m] - NegatedBinomialCenteredSumOfPowers[r, n, m, t], {n, 0, max}, {m, 0, max}, {t, 0, max}, {r, 0, max}] //Flatten
 ValidateHalvedCentralBinomials[max_] := Table[CentralFactorial[n, k] / k! - 1/2 * (Binomial[n + k/2, k] + Binomial[n+k/2-1, k]), {n, 0, max}, {k, 0, max}] //Flatten;
+HalvedCentralFactorialPowers[n_, m_, t_]:= 1/2 * Sum[(Binomial[n-t+k/2, k] + Binomial[n-t+k/2-1, k]) * CentralDifference[t, m, k], {k, 0, m}];
+ValidateHalvedCentralFactorialPowers[max_] := Table[n^m - HalvedCentralFactorialPowers[n, m, t], {n, 0, max}, {m, 0, max}, {t, -max, max}] //Flatten;
 (*END: Definitions *)
 
 End[ ]
 EndPackage[ ]
+
 
 
 

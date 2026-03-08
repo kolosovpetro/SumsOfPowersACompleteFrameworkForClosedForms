@@ -56,32 +56,31 @@
   = \prod_{j=1}^{k-1} \left( n + \frac{k}{2} -j \right)$
   are falling factorials.
 \end{lemma}
-\begin{lemma}[Binomial form of central factorials]
-  \label{lem:binomial-form-of-central-factorials}
-  For integers $n$ and $k \geq 1$,
-  \begin{align*}
-    \frac{\centralFactorial{n}{k}}{k!}
-    = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}.
-  \end{align*}
-  \begin{proof}
-    We have
-    \begin{align*}
-      \frac{\centralFactorial{n}{k}}{k!}
-      &= \frac{n}{k!}\fallingFactorial{n+\frac{k}{2}-1}{k-1}
-      = \frac{n}{k (k-1)!} \fallingFactorial{n+\frac{k}{2}-1}{k-1}
-      = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1},
-    \end{align*}
-    because of the identity in falling factorials
-    $\frac{\fallingFactorial{x}{n}}{n!} = \binom{x}{n}$,
-    and Lemma~\eqref{lem:central-factorials-in-terms-of-falling}.
-  \end{proof}
-\end{lemma}
+% \begin{lemma}[Binomial form of central factorials]
+%   \label{lem:binomial-form-of-central-factorials}
+%   For integers $n$ and $k \geq 1$,
+%   \begin{align*}
+%     \frac{\centralFactorial{n}{k}}{k!}
+%     = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}.
+%   \end{align*}
+%   \begin{proof}
+%     We have
+%     \begin{align*}
+%       \frac{\centralFactorial{n}{k}}{k!}
+%       &= \frac{n}{k!}\fallingFactorial{n+\frac{k}{2}-1}{k-1}
+%       = \frac{n}{k (k-1)!} \fallingFactorial{n+\frac{k}{2}-1}{k-1}
+%       = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1},
+%     \end{align*}
+%     because of the identity in falling factorials
+%     $\frac{\fallingFactorial{x}{n}}{n!} = \binom{x}{n}$,
+%     and Lemma~\eqref{lem:central-factorials-in-terms-of-falling}.
+%   \end{proof}
+% \end{lemma}
 \begin{lemma}[Halved central factorials]
   \label{lem:halved-central-factorials}
   For integers $n,k\geq 0$,
   \begin{align*}
     \frac{\centralFactorial{n}{k}}{k!}
-    = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}
     = \frac{1}{2} \binom{n+\frac{k}{2}}{k} + \frac{1}{2} \binom{n+\frac{k}{2}-1}{k}.
   \end{align*}
   \begin{proof}
@@ -115,6 +114,16 @@
   For integers $n,m \geq 0$, and an arbitrary integer $t$,
   \begin{align*}
     n^m = \sum_{k=0}^{m} \frac{\centralFactorial{(n-t)}{k}}{k!} \delta^{k} t^m.
+  \end{align*}
+\end{proposition}
+\begin{proposition}[Halved central factorial powers]
+  \label{prop:halved-central-factorial-powers}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    n^m = \frac{1}{2} \sum_{k=0}^{m}
+    \left[
+      \binom{n-t+\frac{k}{2}}{k} + \binom{n-t+\frac{k}{2}-1}{k}
+    \right] \delta^{k} t^m
   \end{align*}
 \end{proposition}
 % \begin{proposition}[Generalized hockey-stick identity]
