@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-BeginPackage["CentralDifferences`"]
+BeginPackage["ANovelFormulaForSumsOfPowersUsingCentralFactorials`"]
 
 (*BEGIN: Definitions *)
 CentralDifference::usage=""
@@ -71,6 +71,8 @@ ValidateBinomialMultifoldCenteredSumsOfPowers::usage=""
 NegatedBinomialCenteredSumOfPowers::usage=""
 
 ValidateNegatedBinomialCenteredSumOfPowers::usage=""
+
+ValidateHalvedCentralBinomials::usage=""
 
 (*END: Definitions *)
 
@@ -279,11 +281,13 @@ NegatedBinomialCenteredSumOfPowers[r_, n_, m_, t_] :=
   ];
 
 ValidateNegatedBinomialCenteredSumOfPowers[max_] := Table[MultifoldSumOfPowersRecurrence[r, n, m] - NegatedBinomialCenteredSumOfPowers[r, n, m, t], {n, 0, max}, {m, 0, max}, {t, 0, max}, {r, 0, max}] //Flatten
-
+ValidateHalvedCentralBinomials[max_] := Table[CentralFactorial[n, k] / k! - 1/2 * (Binomial[n + k/2, k] + Binomial[n+k/2-1, k]), {n, 0, max}, {k, 0, max}] //Flatten;
 (*END: Definitions *)
 
 End[ ]
 EndPackage[ ]
+
+
 
 
 

@@ -11,6 +11,7 @@
   \end{align*}
 \end{definition}
 \begin{definition}[Central factorials]
+  \label{def:central-factorials}
   For integers $n,k$
   \begin{align*}
     \centralFactorial{n}{k} =
@@ -76,7 +77,8 @@
   \end{proof}
 \end{lemma}
 \begin{lemma}[Halved central factorials]
-  For integers $n,k$,
+  \label{lem:halved-central-factorials}
+  For integers $n,k\geq 0$,
   \begin{align*}
     \frac{\centralFactorial{n}{k}}{k!}
     = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}
@@ -115,43 +117,44 @@
     n^m = \sum_{k=0}^{m} \frac{\centralFactorial{(n-t)}{k}}{k!} \delta^{k} t^m.
   \end{align*}
 \end{proposition}
-\begin{proposition}[Generalized hockey-stick identity]
-  \label{prop:generalized-hockey-stick-identity}
-  For integers $a,b$ and $j$,
-  \begin{align*}
-    \sum_{k=a}^{b} \binom{k}{j} = \binom{b+1}{j+1} - \binom{a}{j+1}.
-  \end{align*}
-  \begin{proof}
-    We have,
-    $\sum_{k=a}^{b} \binom{k}{j} = \binom{a}{j} + \binom{a+1}{j} + \cdots + \binom{b}{j}$,
-    which means that,
-    $\sum_{k=a}^{b} \binom{k}{j} =
-    \left( \sum_{k=0}^{b} \binom{k}{j} \right) - \left( \sum_{k=0}^{a-1} \binom{k}{j} \right)$.
-    By hockey stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$ yields,
-    \begin{align*}
-      \tsum_{k=a}^{b} \tbinom{k}{j}
-      = \left( \tsum_{k=0}^{b} \tbinom{k}{j} \right) - \left( \tsum_{k=0}^{a-1} \tbinom{k}{j} \right)
-      = \tbinom{b+1}{j+1} - \tbinom{a}{j+1}.
-    \end{align*}
-    This completes the proof.
-  \end{proof}
-\end{proposition}
-\begin{lemma}[Centered hockey-stick identity]
-  For integer $n\geq1$, and arbitrary integers $k,r$
-  \begin{align*}
-    \sum_{j=1}^{n} \binom{j + \frac{k}{2} +r}{k}
-    = \binom{n + \frac{k}{2} + r +1}{k+1} - \binom{\frac{k}{2} + r +1}{k+1}.
-  \end{align*}
-  \begin{proof}
-    By setting $j=1 + \tfrac{k}{2} +r$, and $b=n+ \tfrac{k}{2} +r$ yields
-    \begin{align*}
-      \tsum_{j=1}^{n} \tbinom{j + \tfrac{k}{2} +r}{k} =
-      \tsum_{j=1 + \tfrac{k}{2} +r}^{n+ \tfrac{k}{2} +r} \tbinom{j}{k}.
-    \end{align*}
-    By Generalized hockey-stick identity~\eqref{prop:generalized-hockey-stick-identity},
-    \begin{align*}
-      \tsum_{j=1 + \tfrac{k}{2} +r}^{n+ \tfrac{k}{2} +r} \tbinom{j}{k}
-      = \tbinom{n + \tfrac{k}{2} + r +1}{k+1} - \tbinom{\tfrac{k}{2} + r +1}{k+1}.
-    \end{align*}
-  \end{proof}
-\end{lemma}
+% \begin{proposition}[Generalized hockey-stick identity]
+%   \label{prop:generalized-hockey-stick-identity}
+%   For integers $a,b$ and $j$,
+%   \begin{align*}
+%     \sum_{k=a}^{b} \binom{k}{j} = \binom{b+1}{j+1} - \binom{a}{j+1}.
+%   \end{align*}
+%   \begin{proof}
+%     We have,
+%     $\sum_{k=a}^{b} \binom{k}{j} = \binom{a}{j} + \binom{a+1}{j} + \cdots + \binom{b}{j}$,
+%     which means that,
+%     $\sum_{k=a}^{b} \binom{k}{j} =
+%     \left( \sum_{k=0}^{b} \binom{k}{j} \right) - \left( \sum_{k=0}^{a-1} \binom{k}{j} \right)$.
+%     By hockey stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$ yields,
+%     \begin{align*}
+%       \tsum_{k=a}^{b} \tbinom{k}{j}
+%       = \left( \tsum_{k=0}^{b} \tbinom{k}{j} \right) - \left( \tsum_{k=0}^{a-1} \tbinom{k}{j} \right)
+%       = \tbinom{b+1}{j+1} - \tbinom{a}{j+1}.
+%     \end{align*}
+%     This completes the proof.
+%   \end{proof}
+% \end{proposition}
+% \begin{lemma}[Centered hockey-stick identity]
+%   For integers $n\geq1$, and arbitrary integers $k,r$
+%   \begin{align*}
+%     \sum_{j=1}^{n} \binom{j + \frac{k}{2} +r}{k}
+%     = \binom{n + \frac{k}{2} + r +1}{k+1} - \binom{\frac{k}{2} + r +1}{k+1}.
+%   \end{align*}
+%   \begin{proof}
+%     By setting $j=1 + \tfrac{k}{2} +r$, and $b=n+ \tfrac{k}{2} +r$ yields
+%     \begin{align*}
+%       \tsum_{j=1}^{n} \tbinom{j + \tfrac{k}{2} +r}{k} =
+%       \tsum_{j=1 + \tfrac{k}{2} +r}^{n+ \tfrac{k}{2} +r} \tbinom{j}{k}.
+%     \end{align*}
+%     By Generalized hockey-stick identity~\eqref{prop:generalized-hockey-stick-identity},
+%     \begin{align*}
+%       \tsum_{j=1 + \tfrac{k}{2} +r}^{n+ \tfrac{k}{2} +r} \tbinom{j}{k}
+%       = \tbinom{n + \tfrac{k}{2} + r +1}{k+1} - \tbinom{\tfrac{k}{2} + r +1}{k+1}.
+%     \end{align*}
+%     Thus, the claim follows.
+%   \end{proof}
+% \end{lemma}
