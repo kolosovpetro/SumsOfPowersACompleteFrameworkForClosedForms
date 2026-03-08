@@ -28,17 +28,17 @@
   %showframe    % draw the page frame (useful for checking margins)
 }
 
-%% Figures and captions
-\usepackage{float}
-\usepackage[font=small,labelfont=bf]{caption}
-\usepackage{graphicx}
+% %% Figures and captions
+% \usepackage{float}
+% \usepackage[font=small,labelfont=bf]{caption}
+% \usepackage{graphicx}
 
-% display line numbers
-\usepackage{lineno}
-\linenumbers
+% % display line numbers
+% \usepackage{lineno}
+% \linenumbers
 
-% draw the page frame (useful for checking margins)
-\geometry{showframe}
+% % draw the page frame (useful for checking margins)
+% \geometry{showframe}
 
 % margins and layout
 \linespread{1.7}
@@ -47,8 +47,8 @@
 % \raggedbottom
 % \apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
 
-\newcommand \coeffA [3][A] {{\mathbf{#1}}_{#2,#3}}
-\newcommand \polynomialP [4][P]{{\mathbf{#1}}^{#2}_{#3}(#4)}
+% \newcommand \coeffA [3][A] {{\mathbf{#1}}_{#2,#3}}
+% \newcommand \polynomialP [4][P]{{\mathbf{#1}}^{#2}_{#3}(#4)}
 
 %\newcommand \anglePower [2]{\langle #1 \rangle \sp{#2}}
 %\newcommand \curvePower [2]{\{#1\}\sp{#2}}
@@ -65,11 +65,11 @@
 \newcommand{\eulerian}[2]{\genfrac{\langle}{\rangle}{0pt}{}{#1}{#2}} % Eulerian
 \newcommand \bernoulli [2][B] {{#1}_{#2}}
 
-% for llceil coeffcient
-\newcommand{\nobarfrac}{\genfrac{}{}{0pt}{}}
-\def\llceil{\left\lceil\kern-3.5pt\left\lceil}
-\def\rrfloor{\right\rfloor\kern-3.5pt\right\rfloor}
-\newcommand \llceilCoefficient [3] {\llceil \nobarfrac{#1}{#2} \rrfloor_{#3}}
+% % for llceil coeffcient
+% \newcommand{\nobarfrac}{\genfrac{}{}{0pt}{}}
+% \def\llceil{\left\lceil\kern-3.5pt\left\lceil}
+% \def\rrfloor{\right\rfloor\kern-3.5pt\right\rfloor}
+% \newcommand \llceilCoefficient [3] {\llceil \nobarfrac{#1}{#2} \rrfloor_{#3}}
 
 % Ordinary derivatives
 \newcommand{\od}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
@@ -112,39 +112,39 @@
 \input{metadata/msc2010.tex}
 \input{metadata/keywords.tex}
 \input{metadata/hypersetup.tex}
-\address{DevOps Engineer}
-\email{kolosovp94@gmail.com}
-\urladdr{https://kolosovpetro.github.io}
+% \address{DevOps Engineer}
+% \email{kolosovp94@gmail.com}
+% \urladdr{https://kolosovpetro.github.io}
 
 \begin{document}
 
-\begin{abstract}
-  \input{sections/abstract}
-\end{abstract}
+% \begin{abstract}
+%   \input{sections/abstract}
+% \end{abstract}
 
-\maketitle
+% \maketitle
 
-\freefootnote{DOI: \url{https://doi.org/10.5281/zenodo.18040979}}
+% \freefootnote{DOI: \url{https://doi.org/10.5281/zenodo.18040979}}
 
-\tableofcontents
+% \tableofcontents
 
 
 \section{Introduction} \label{sec:introduction}
 \input{sections/01_introduction}
 
 
-\section*{Conclusions}
-\input{sections/conclusions}
+% \section*{Conclusions}
+% \input{sections/conclusions}
 
 
-\section*{Acknowledgements}
-\input{sections/acknowledgements}
+% \section*{Acknowledgements}
+% \input{sections/acknowledgements}
 
-\bibliographystyle{unsrt}
-\bibliography{ANovelFormulaForSumsOfPowersUsingCentralFactorials}
+% \bibliographystyle{unsrt}
+% \bibliography{ANovelFormulaForSumsOfPowersUsingCentralFactorials}
 
-\clearpage
+% \clearpage
 
-\input{metadata/footer}
+% \input{metadata/footer}
 
 \end{document}

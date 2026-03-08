@@ -1,95 +1,79 @@
 (* ::Package:: *)
 
-BeginPackage["ANovelFormulaForSumsOfPowersUsingCentralFactorials`"]
+BeginPackage["CentralDifferences`"]
 
 (*BEGIN: Definitions *)
-A::usage="A[n, k] returns the real coefficient A of non-negative integers n, k such that n <= k."
-PrintTriangleA::usage="PrintTriangleA[m] prints triangle of coefficients A for given non negative integer m."
-OddPowerIdentity::usage="Validates odd power identity."
-OddPowerIdentitySimplified::usage="Validates odd power identity expanded form."
-BivariateSumT::usage="Defines bivariate sum T(m,n,k)."
-TriangleFormBivariateSumT::usage="Prints Tm in the form of triangle."
-TableFormBivariateSumT::usage="Prints Tm in the form of table."
-T::usage="Coefficient T(d,r) see Application 2: Examples of coefficients A."
+CentralDifference::usage=""
+CentralFactorial::usage=""
+FallingFactorial::usage=""
+CentralFactorialNumber2ndKind::usage=""
+RiordanPowerIdentity::usage=""
+NewtonsFormulaForCentralDifferencesShifted::usage=""
+MultifoldSumOfPowersRecurrence::usage=""
+
+ValidateCentralFactorialsInTermsOfFalling::usage=""
+
+ValidateBinomialFormOfCentralFactorials::usage=""
+
+NewtonsFormulaForPowersInZero::usage=""
+ValidateNewtonsFormulaForPowersInZero::usage=""
+
+OrdinarySumsOfOddPowersInCentralDifferences::usage=""
+ValidateOrdinarySumsOfOddPowersInCentralDifferences::usage=""
+
+MultifoldSumsOfOddPowersInCentralDifferences::usage=""
+ValidateMultifoldSumsOfOddPowersInCentralDifferences::usage=""
+
+NewtonsFormulaForPowers::usage=""
+ValidateNewtonsFormulaForPowers::usage=""
+
+PowersInCentralBinomialForm::usage=""
+ValidatePowersInCentralBinomialForm::usage=""
+
+EvenPowersInCentralBinomialForm::usage=""
+
+ValidateBinomialDecomposition::usage=""
+
+ValidateCentralBinomialDecomposition::usage=""
+
+CenteredOrdinarySumsOfPowers::usage=""
+
+ValidateCenteredOrdinarySumsOfPowers::usage=""
+
+CenteredDecompositionOfPowerSums::usage=""
+
+ValidateCenteredDecompositionOfPowerSums::usage=""
+
+ValidateCenteredHockeyStickIdentity::usage=""
+
+ClosedFormOfCenteredSumsOfPowers::usage=""
+
+ValidateClosedFormOfCenteredSumsOfPowers::usage=""
+
+SimplifiedCenteredSumsOfPowers::usage=""
+
+ValidateSimplifiedCenteredSumsOfPowers::usage=""
+
+DoubleCenteredSumsOfPowers::usage=""
+
+ValidateDoubleCenteredSumsOfPowers::usage=""
+
+MultifoldCenteredSumsOfPowers::usage=""
+
+ValidateMultifoldCenteredSumsOfPowers::usage=""
+
+ValidateMultifoldSumOfZeroPowers::usage=""
+
+BinomialMultifoldCenteredSumsOfPowers::usage=""
+
+ValidateBinomialMultifoldCenteredSumsOfPowers::usage=""
+
+NegatedBinomialCenteredSumOfPowers::usage=""
+
+ValidateNegatedBinomialCenteredSumOfPowers::usage=""
+
 (*END: Definitions *)
 
-(*BEGIN: Faulhaber's coefficients *)
-FaulhaberCoefficients::usage="Faulhaber coefficients https://arxiv.org/pdf/math/9207222 page 14."
-(*END: Faulhaber's coefficients *)
-
-(*BEGIN: Forward decompositions *)
-ForwardRecurrenceForT::usage="Validates the forward recurrence for the bivariate sum T(m,n,k)."
-OddPowerForwardDecomposition::usage="Validates the identity Odd power forward decomposition."
-OddPowerForwardDecompositionMMinus1::usage="Validates the identity Odd power forward decomposition m-1."
-OddPowerForwardDecompositionMMinus1Shifted::usage="Validates the identity Odd power forward decomposition m-1 shifted."
-OddPowerForwardDecompositionShifted::usage="Validates the identity Odd power forward decomposition shifted."
-TableFormForwardRecurrenceForT::usage="Prints the forward recurrence for Tm in the form of triangle."
-(*END: Forward decompositions *)
-
-(*BEGIN: Forward decompositions multifold *)
-ForwardRecurrenceForTMultifold::usage="Validates the multifold forward recurrence for the bivariate sum T(m,n,k)."
-OddPowerForwardDecompositionMultifold::usage=""
-OddPowerForwardDecompositionMMinus1Multifold::usage=""
-OddPowerForwardDecompositionShiftedMultifold::usage=""
-OddPowerForwardDecompositionMMinus1ShiftedMultifold::usage=""
-TableFormForwardRecurrenceForTMultifold::usage="Prints the multifold forward recurrence for Tm in the form of triangle."
-(*END: Forward decompositions multifold *)
-
-(*BEGIN: Backward decompositions *)
-BackwardRecurrenceForT::usage="Validates the backward recurrence for the bivariate sum T(m,n,k)."
-OddPowerBackwardDecomposition::usage="Validates the identity Odd power backward decomposition."
-OddPowerBackwardDecompositionShifted::usage="Validates the identity Odd power backward decomposition shifted."
-OddPowerBackwardDecompositionMMinus1::usage="Validates the identity Odd power backward decomposition m-1."
-OddPowerBackwardDecompositionMMinus1Shifted::usage="Validates the identity Odd power backward decomposition m-1 shifted."
-TableFormBackwardRecurrenceForT::usage="Prints the backward recurrence for Tm in the form of triangle."
-(*END: Backward decompositions *)
-
-(*BEGIN: Backward decompositions multifold *)
-BackwardRecurrenceForTMultifold::usage="Validates the multifold backward recurrence for the bivariate sum T(m,n,k)."
-OddPowerBackwardDecompositionMultifold::usage=""
-OddPowerBackwardDecompositionShiftedMultifold::usage=""
-OddPowerBackwardDecompositionMMinus1Multifold::usage=""
-OddPowerBackwardDecompositionMMinus1ShiftedMultifold::usage=""
-TableFormBackwardRecurrenceForTMultifold::usage="Prints the multifold backward recurrence for Tm in the form of triangle."
-(*END: Backward decompositions multifold *)
-
-(*BEGIN: Central decompositions *)
-CentralRecurrenceForT::usage="Validates the central recurrence for the bivariate sum T(m,n,k)."
-OddPowerCentralDecomposition::usage="Validates the identity Odd power central decomposition."
-TableFormCentralRecurrenceForT::usage="Prints the central recurrence for Tm in the form of triangle."
-(*END: Central decompositions *)
-
-(*BEGIN: Sums of powers *)
-SumsOfPowers::usage=""
-SumsOfOddPowers::usage=""
-SumsOfOddPowersRearranged::usage=""
-SumsOfOddPowersReindexed::usage=""
-SumsOfOddPowersTriple::usage=""
-(*END: Sums of powers *)
-
-(*BEGIN: Binomial Forms *)
-BinomialForm::usage="Validates the identity Binomial form."
-ShiftedBinomialForm::usage="Validates the identity Shifted binomial form."
-CenteredBinomialForm::usage="Validates the identity Centered binomial form."
-ShiftedCenteredBinomialForm::usage="Validates the identity Shifted centered binomial form."
-NegatedBinomialForm::usage="Validates the identity Negated binomial form."
-ShiftedNegatedBinomialForm::usage="Validates the identity Shifted negated binomial form."
-CenteredNegatedBinomialForm::usage="Validates the identity Centered negated binomial form."
-ShiftedCenteredNegatedBinomialForm::usage="Validates the identity Shifted centered negated binomial form."
-(*END: Binomial Forms *)
-
-(*BEGIN: Double bivariate identities *)
-DoubleBivariateSumR::usage="Defines the Double bivaraite sum Rm."
-OddPowerDoubleBivariate::usage="Verifies odd power double bivariate proposition 4.39."
-OddPowerDoubleBivariateMultifold::usage="Verifies odd power double bivariate proposition 4.41."
-OddPowerDoubleBivariateNegated::usage="Verifies odd power double bivariate negated proposition 4.40."
-OddPowerDoubleBivariateNegatedMultifold::usage="Verifies odd power double bivariate negated proposition 4.42."
-(*END: Double bivariate identities *)
-
-(*BEGIN: Bivariate Faulhaber's formula *)
-SumOfConvolvedPowers::usage=""
-BivaraiteFaulhabersFormula::usage=""
-(*END: Bivariate Faulhaber's formula *)
 (* =========================================================================DOCS END=================================================================== *)
 
 (*BEGIN: Define 0^x = 1 for all x *)
@@ -102,97 +86,201 @@ Protect[Power];
 (* =========================================================================FUNCTIONS BEGIN=========================================================== *)
 
 (*BEGIN: Definitions *)
-A[n_, k_] := 0;
-A[n_, k_] := (2k + 1) * Binomial[2k, k] * Sum[A[n, j] * Binomial[j, 2k + 1] * (-1)^(j - 1) / (j - k) * BernoulliB[2j - 2k], {j, 2k + 1, n}] /; 0 <= k < n;
-A[n_, k_] := (2n + 1) * Binomial[2n, n] /; k == n;
-PrintTriangleA[m_]:= TableForm[Table[A[n, k], {n, 0, m}, {k, 0, n}], TableAlignments -> Left];
-OddPowerIdentity[n_, m_]:= Sum[Sum[A[m,r] * k^r * (n-k)^r, {k, 1, n}], {r, 0, m}];
-OddPowerIdentitySimplified[n_, m_]:= Expand[Sum[Sum[A[m,r] * k^r * (n-k)^r, {k, 1, n}], {r, 0, m}]];
-BivariateSumT[m_, n_, k_]:= Sum[A[m, r] * k^r (n-k)^r, {r, 0, m}];
-TriangleFormBivariateSumT[m_, rows_]:= TableForm[Table[BivariateSumT[m, n, k], {n, 0, rows}, {k, 0, n}], TableAlignments -> Left];
-TableFormBivariateSumT[m_, rows_, columns_]:= TableForm[Table[BivariateSumT[m, n, k], {n, 0, rows}, {k, 0, columns}], TableAlignments -> Left];
-T[d_,r_]:= (2r+1) * Binomial[2r,r] * Binomial[d, 2r+1] * (-1)^(d-1)/(d-r) * BernoulliB[2d-2r];
+MultifoldSumOfPowersRecurrence[r_, n_, m_]:= 0;
+MultifoldSumOfPowersRecurrence[r_, n_, m_]:= n^m /; r==0;
+MultifoldSumOfPowersRecurrence[r_, n_, m_]:= Sum[MultifoldSumOfPowersRecurrence[r-1, k, m], {k, 1, n}] /; r>0;
+
+CentralDifference[x_, n_, k_] := Sum[(-1)^j * Binomial[k, j] * (x + k/2 -j)^n, {j, 0, k}];
+
+CentralFactorial[x_, k_] := 0 /; k<0;
+CentralFactorial[x_, k_] := 1 /; k==0;
+CentralFactorial[x_, k_] := x * Product[(x + k/2 -j), {j, 1, k-1}] /; k>0;
+
+FallingFactorial[x_, n_] := Product[x-k, {k, 0, n-1}];
+
+CentralFactorialNumber2ndKind[n_, k_] := 1/k! * CentralDifference[0, n, k];
+
+RiordanPowerIdentity[x_, m_] := Sum[CentralFactorialNumber2ndKind[m,k] * CentralFactorial[x, k], {k, 1, m}];
+
+NewtonsFormulaForCentralDifferencesShifted[x_, h_, n_] := Sum[ 1/k! * CentralDifference[h, n, k] * CentralFactorial[x, k], {k, 0, n}];
+
+ValidateCentralFactorialsInTermsOfFalling[max_] := Table[CentralFactorial[n,k] - n * FallingFactorial[n + k/2 -1, k-1], {n, -max, max}, {k, 1, max}] //Flatten
+
+ValidateBinomialFormOfCentralFactorials[max_] := Table[CentralFactorial[n,k]/ k! - (n/k) * Binomial[n+k/2-1, k-1], {n, -max, max}, {k, 1, max}] //Flatten
+
+NewtonsFormulaForPowersInZero[n_, m_] := Sum[CentralFactorial[n, j] * 1/j! * CentralDifference[0, m, j], {j, 0, m}];
+
+ValidateNewtonsFormulaForPowersInZero[max_] := Table[n^m - NewtonsFormulaForPowersInZero[n, m], {n, 1, max}, {m, 1, max}] //Flatten
+
+OrdinarySumsOfOddPowersInCentralDifferences[n_, m_] := Sum[1/(2k) * Binomial[n+k, 2k] * CentralDifference[0, 2m, 2k], {k, 1, m}];
+
+ValidateOrdinarySumsOfOddPowersInCentralDifferences[max_] := Table[MultifoldSumOfPowersRecurrence[1, n, 2m-1] - OrdinarySumsOfOddPowersInCentralDifferences[n, m], {n,1, max}, {m, 1, max}] //Flatten
+
+MultifoldSumsOfOddPowersInCentralDifferences[r_, n_, m_] := Sum[1/(2k) * Binomial[n+k-1+r, 2k-1+r] * CentralDifference[0, 2m, 2k], {k, 1, m}];
+ValidateMultifoldSumsOfOddPowersInCentralDifferences[max_] := Table[MultifoldSumOfPowersRecurrence[r, n, 2m-1] - MultifoldSumsOfOddPowersInCentralDifferences[r, n, m], {n,1, max}, {m, 1, max}, {r, 0, max}] //Flatten
+
+NewtonsFormulaForPowers[n_, m_, t_] := Sum[CentralFactorial[n-t, k] / k! * CentralDifference[t, m, k], {k, 0, m}];
+ValidateNewtonsFormulaForPowers[max_] := Table[n^m - NewtonsFormulaForPowers[n, m, t], {n, 0, max}, {m, 0, max}, {t, 0, max}] //Flatten
+
+PowersInCentralBinomialForm[n_, m_, t_] := t^m + Sum[(n-t)/k * Binomial[n-t+k/2-1, k-1] * CentralDifference[t, m, k], {k, 1, m}];
+ValidatePowersInCentralBinomialForm[max_] := Table[n^m - PowersInCentralBinomialForm[n, m, t], {n, 0, max}, {m, 0, max}, {t, 0, max}] //Flatten
+
+EvenPowersInCentralBinomialForm[n_, m_, t_] := t^(2m) + Sum[(n-t)/ (2k) * Binomial[n-t+k-1, 2k-1] * CentralDifference[t, 2m, 2k], {k, 1, m}];
+
+ValidateBinomialDecomposition[max_] := Table[n*Binomial[n+r, m]-((m+1)*Binomial[n+r, m+1] - (r-m)* Binomial[n+r,m]), {n, 0, max}, {r, 0, max}, {m, 0, max}] //Flatten
+
+ValidateCentralBinomialDecomposition[max_] := Table[j*Binomial[j-t+k/2-1,k-1]-(k*Binomial[j-t+k/2-1,k]+(t+k/2)*Binomial[j-t+k/2-1,k-1]),{j,0,max},{t,0,max},{k,0,max}]//Flatten
+
+CenteredOrdinarySumsOfPowers[n_, m_, t_] :=
+  Sum[t^m, {j, 1, n}] +
+  Sum[
+    CentralDifference[t, m, k]/k *
+      (
+        Sum[
+          j*Binomial[j - t + k/2 - 1, k - 1],
+          {j, 1, n}
+        ]
+        - t*
+        Sum[
+          Binomial[j - t + k/2 - 1, k - 1],
+          {j, 1, n}
+        ]
+      ),
+    {k, 1, m}
+  ];
+  
+ValidateCenteredOrdinarySumsOfPowers[max_] := Table[MultifoldSumOfPowersRecurrence[1, n, m] - CenteredOrdinarySumsOfPowers[n, m, t], {n, 0, max}, {m, 0, max}, {t, 0, max}] //Flatten
+
+CenteredDecompositionOfPowerSums[n_, m_, t_] :=
+  Sum[t^m, {j, 1, n}] +
+  Sum[
+    CentralDifference[t, m, k] *
+      (
+        Sum[
+          Binomial[j - t + k/2 - 1, k],
+          {j, 1, n}
+        ]
+        + (1/2)*
+        Sum[
+          Binomial[j - t + k/2 - 1, k - 1],
+          {j, 1, n}
+        ]
+      ),
+    {k, 1, m}
+  ];
+  
+ValidateCenteredDecompositionOfPowerSums[max_] := Table[MultifoldSumOfPowersRecurrence[1, n, m] - CenteredDecompositionOfPowerSums[n, m, t], {n, 0, max}, {m, 0, max}, {t, 0, max}] //Flatten
+ValidateCenteredHockeyStickIdentity[max_] := Table[Sum[Binomial[j-t+k/2-1,k],{j,1,n}]-(Binomial[n-t+k/2,k+1]-Binomial[-t+k/2,k+1]),{n,0,max},{t,0,max},{k,0,max}]//Flatten
+
+ClosedFormOfCenteredSumsOfPowers[n_, m_, t_] := 
+  Sum[t^m, {j, 1, n}] +
+  Sum[
+    CentralDifference[t, m, k] *
+      ( (Binomial[n - t + k/2, k + 1] - Binomial[-t + k/2, k + 1]) +
+        (1/2)*(Binomial[n - t + k/2, k] - Binomial[-t + k/2, k])
+      ),
+    {k, 1, m}
+  ];
+  
+ValidateClosedFormOfCenteredSumsOfPowers[max_] := Table[MultifoldSumOfPowersRecurrence[1, n, m] - ClosedFormOfCenteredSumsOfPowers[n, m, t], {n, 0, max}, {m, 0, max}, {t, 0, max}] //Flatten
+SimplifiedCenteredSumsOfPowers[n_, m_, t_] :=
+  Sum[t^m, {j, 1, n}] +
+  Sum[
+    CentralDifference[t, m, k]/2 *
+      (
+        (Binomial[n - t + k/2 + 1, k + 1] + Binomial[n - t + k/2, k + 1]) -
+        (Binomial[-t + k/2, k + 1] + Binomial[-t + k/2 + 1, k + 1])
+      ),
+    {k, 1, m}
+  ];
+
+ValidateSimplifiedCenteredSumsOfPowers[max_] := Table[MultifoldSumOfPowersRecurrence[1, n, m] - SimplifiedCenteredSumsOfPowers[n, m, t], {n, 0, max}, {m, 0, max}, {t, 0, max}] //Flatten
+
+DoubleCenteredSumsOfPowers[n_, m_, t_] :=
+  t^m*MultifoldSumOfPowersRecurrence[2, n, 0] +
+  Sum[
+    CentralDifference[t, m, k]/2 *
+      (
+        (Binomial[n - t + k/2 + 2, k + 2] +
+         Binomial[n - t + k/2 + 1, k + 2])
+        -
+        (Binomial[-t + k/2 + 2, k + 2] +
+         Binomial[-t + k/2 + 1, k + 2])*
+          MultifoldSumOfPowersRecurrence[0, n, 0]
+        -
+        (Binomial[-t + k/2 + 1, k + 1] +
+         Binomial[-t + k/2, k + 1])*
+          MultifoldSumOfPowersRecurrence[1, n, 0]
+      ),
+    {k, 1, m}
+  ];
+
+ValidateDoubleCenteredSumsOfPowers[max_] := Table[MultifoldSumOfPowersRecurrence[2, n, m] - DoubleCenteredSumsOfPowers[n, m, t], {n, 0, max}, {m, 0, max}, {t, 0, max}] //Flatten
+
+MultifoldCenteredSumsOfPowers[r_, n_, m_, t_] :=
+  t^m*MultifoldSumOfPowersRecurrence[r, n, 0] +
+  Sum[
+    CentralDifference[t, m, k]/2 *
+      (
+        (Binomial[n - t + k/2 + r, k + r] +
+         Binomial[n - t + k/2 + r - 1, k + r])
+        -
+        Sum[
+          (Binomial[-t + k/2 + r - s, k + r - s] +
+           Binomial[-t + k/2 + r - s - 1, k + r - s])*
+            MultifoldSumOfPowersRecurrence[s, n, 0],
+          {s, 0, r - 1}
+        ]
+      ),
+    {k, 1, m}
+  ];
+
+ValidateMultifoldCenteredSumsOfPowers[max_] := Table[MultifoldSumOfPowersRecurrence[r, n, m] - MultifoldCenteredSumsOfPowers[r, n, m, t], {n, 0, max}, {m, 0, max}, {t, 0, max}, {r, 0, max}] //Flatten
+ValidateMultifoldSumOfZeroPowers[max_] := Table[MultifoldSumOfPowersRecurrence[r, n, 0] - Binomial[r+n-1, r], {r, 0, max}, {n, 0, max}] //Flatten
+BinomialMultifoldCenteredSumsOfPowers[r_, n_, m_, t_] :=
+  Binomial[r + n - 1, r]*t^m +
+  Sum[
+    CentralDifference[t, m, k]/2 *
+      (
+        (Binomial[n - t + k/2 + r, k + r] +
+         Binomial[n - t + k/2 + r - 1, k + r])
+        -
+        Sum[
+          (Binomial[-t + k/2 + r - s, k + r - s] +
+           Binomial[-t + k/2 + r - s - 1, k + r - s])*
+            Binomial[s+ n - 1, s],
+          {s, 0, r - 1}
+        ]
+      ),
+    {k, 1, m}
+  ];
+  
+ValidateBinomialMultifoldCenteredSumsOfPowers[max_] := Table[MultifoldSumOfPowersRecurrence[r, n, m] - BinomialMultifoldCenteredSumsOfPowers[r, n, m, t], {n, 0, max}, {m, 0, max}, {t, 0, max}, {r, 0, max}] //Flatten
+
+NegatedBinomialCenteredSumOfPowers[r_, n_, m_, t_] :=
+  (-1)^m Binomial[r + n - 1, r] t^m +
+  (-1)^m Sum[
+    (-1)^k CentralDifference[t, m, k]/2 *
+      (
+        (
+          Binomial[n + t + k/2 + r, k + r] +
+          Binomial[n + t + k/2 + r - 1, k + r]
+        )
+        -
+        Sum[
+          (
+            Binomial[t + k/2 + r - s, k + r - s] +
+            Binomial[t + k/2 + r - s - 1, k + r - s]
+          ) Binomial[s + n - 1, s],
+          {s, 0, r - 1}
+        ]
+      ),
+    {k, 1, m}
+  ];
+
+ValidateNegatedBinomialCenteredSumOfPowers[max_] := Table[MultifoldSumOfPowersRecurrence[r, n, m] - NegatedBinomialCenteredSumOfPowers[r, n, m, t], {n, 0, max}, {m, 0, max}, {t, 0, max}, {r, 0, max}] //Flatten
+
 (*END: Definitions *)
-
-(*BEGIN: Faulhaber's coefficients *)
-FaulhaberCoefficients[n_, k_]:= 0;
-FaulhaberCoefficients[n_, k_]:= (-1)^(n-k) * Sum[Binomial[2n, n-k-j]* Binomial[n-k+j, j] * (n-k-j)/(n-k+j) * BernoulliB[n+k+j], {j, 0, n-k}] /; 0 <= k < n;
-FaulhaberCoefficients[n_, k_]:= BernoulliB[2n] /; k == n;
-(*END: Faulhaber's coefficients *)
-
-(*BEGIN: Forward decompositions *)
-ForwardRecurrenceForT[m_, n_, k_]:= Sum[(-1)^(t+1) * Binomial[m+1, t] * BivariateSumT[m, n+t, k], {t, 1, m+1}];
-OddPowerForwardDecomposition[n_, m_]:= Sum[Sum[(-1)^(t+1) * Binomial[m+1, t] * BivariateSumT[m, n+t, k], {t, 1, m+1}], {k, 1, n}];
-OddPowerForwardDecompositionMMinus1[n_, m_]:= Sum[Sum[(-1)^(t+1) * Binomial[m, t] * BivariateSumT[m-1, n+t, k], {t, 1, m}], {k, 1, n}];
-OddPowerForwardDecompositionShifted[n_, m_]:= Sum[Sum[(-1)^(t+1) * Binomial[m+1, t] * BivariateSumT[m, n+t, k], {t, 1, m+1}], {k, 0, n-1}];
-OddPowerForwardDecompositionMMinus1Shifted[n_, m_]:= Sum[Sum[(-1)^(t+1) * Binomial[m, t] * BivariateSumT[m-1, n+t, k], {t, 1, m}], {k, 0, n-1}];
-TableFormForwardRecurrenceForT[m_, rows_]:= TableForm[Table[ForwardRecurrenceForT[m, n, k], {n, 0, rows}, {k, 0, n}], TableAlignments -> Left];
-(*END: Forward decompositions *)
-
-(*BEGIN: Forward decompositions multifold *)
-ForwardRecurrenceForTMultifold[m_, n_, k_, s_]:= Sum[(-1)^(t+1) * Binomial[m+s, t] * BivariateSumT[m, n+t, k], {t, 1, m+s}];
-OddPowerForwardDecompositionMultifold[n_, m_, s_] := Sum[Sum[(-1)^(t+1) * Binomial[m+s, t] * BivariateSumT[m, n+t, k], {t, 1, m+s}], {k, 1, n}];
-OddPowerForwardDecompositionMMinus1Multifold[n_, m_, s_] := Sum[Sum[(-1)^(t+1) * Binomial[m+s, t] * BivariateSumT[m-1, n+t, k], {t, 1, m+s}], {k, 1, n}];
-OddPowerForwardDecompositionShiftedMultifold[n_, m_, s_] := Sum[Sum[(-1)^(t+1) * Binomial[m+s, t] * BivariateSumT[m, n+t, k], {t, 1, m+s}], {k, 0, n-1}];
-OddPowerForwardDecompositionMMinus1ShiftedMultifold[n_, m_, s_] := Sum[Sum[(-1)^(t+1) * Binomial[m+s, t] * BivariateSumT[m-1, n+t, k], {t, 1, m+s}], {k, 0, n-1}];
-TableFormForwardRecurrenceForTMultifold[m_, s_, rows_]:= TableForm[Table[ForwardRecurrenceForTMultifold[m, n, k, s], {n, 0, rows}, {k, 0, n}], TableAlignments -> Left];
-(*END: Forward decompositions multifold *)
-
-(*BEGIN: Backward decompositions *)
-BackwardRecurrenceForT[m_, n_, k_]:= Sum[(-1)^(t-1) * Binomial[m+1, t] * BivariateSumT[m, n-t, k], {t, 1, m+1}];
-OddPowerBackwardDecomposition[n_, m_]:= Sum[Sum[(-1)^(t+1) * Binomial[m+1, t] * BivariateSumT[m, n-t, k], {t, 1, m+1}], {k, 1, n}];
-OddPowerBackwardDecompositionShifted[n_, m_]:= Sum[Sum[(-1)^(t+1) * Binomial[m+1, t] * BivariateSumT[m, n-t, k], {t, 1, m+1}], {k, 0, n-1}];
-OddPowerBackwardDecompositionMMinus1[n_, m_]:= Sum[Sum[(-1)^(t-1) * Binomial[m, t] * BivariateSumT[m-1, n-t, k], {t, 1, m}], {k, 1, n}];
-OddPowerBackwardDecompositionMMinus1Shifted[n_, m_]:= Sum[Sum[(-1)^(t-1) * Binomial[m, t] * BivariateSumT[m-1, n-t, k], {t, 1, m}], {k, 0, n-1}];
-TableFormBackwardRecurrenceForT[m_, rows_]:= TableForm[Table[BackwardRecurrenceForT[m, n, k], {n, 0, rows}, {k, 0, n}], TableAlignments -> Left];
-(*END: Backward decompositions *)
-
-(*BEGIN: Backward decompositions multifold *)
-BackwardRecurrenceForTMultifold[m_, n_, k_, s_]:= Sum[(-1)^(t-1) * Binomial[m+s, t] * BivariateSumT[m, n-t, k], {t, 1, m+s}];
-OddPowerBackwardDecompositionMultifold[n_, m_, s_] := Sum[Sum[(-1)^(t+1) * Binomial[m+s, t] * BivariateSumT[m, n-t, k], {t, 1, m+s}], {k, 1, n}];
-OddPowerBackwardDecompositionShiftedMultifold[n_, m_, s_] := Sum[Sum[(-1)^(t+1) * Binomial[m+s, t] * BivariateSumT[m, n-t, k], {t, 1, m+s}], {k, 0, n-1}];
-OddPowerBackwardDecompositionMMinus1Multifold[n_, m_, s_] := Sum[Sum[(-1)^(t+1) * Binomial[m+s, t] * BivariateSumT[m-1, n-t, k], {t, 1, m+s}], {k, 1, n}];
-OddPowerBackwardDecompositionMMinus1ShiftedMultifold[n_, m_, s_] := Sum[Sum[(-1)^(t+1) * Binomial[m+s, t] * BivariateSumT[m-1, n-t, k], {t, 1, m+s}], {k, 0, n-1}];
-TableFormBackwardRecurrenceForTMultifold[m_, s_, rows_]:= TableForm[Table[BackwardRecurrenceForTMultifold[m, n, k, s], {n, 0, rows}, {k, 0, n}], TableAlignments -> Left];
-(*END: Backward decompositions multifold *)
-
-(*BEGIN: Central decompositions *)
-CentralRecurrenceForT[m_, n_, k_]:= Sum[(-1)^(t+1) * Binomial[m+1, t] * BivariateSumT[m, n+(m/2)-t, k], {t, 1, m+1}];
-TableFormCentralRecurrenceForT[m_, rows_]:= TableForm[Table[CentralRecurrenceForT[m, n, k], {n, -m/2, rows}, {k, 0, n+m/2}], TableAlignments -> Left];
-OddPowerCentralDecomposition[n_, m_]:= Sum[Sum[(-1)^(t+1) * Binomial[m+1, t] * BivariateSumT[m, n+(m/2)-t, k], {t, 1, m+1}], {k, 1, n+(m/2)}];
-(*END: Central decompositions *)
-
-(*BEGIN: Binomial Forms *)
-BinomialForm[m_, n_, a_] := Sum[A[m, r]* Sum[(k + a)^r * (n + a - k)^r, {k, -a+1, n + a}], {r, 0, m}];
-ShiftedBinomialForm[m_, n_, a_] := Sum[A[m, r]* Sum[(k + a)^r * (n + a - k)^r, {k, -a, n + a-1}], {r, 0, m}];
-CenteredBinomialForm[m_, n_, a_] := Sum[A[m, r]* Sum[(k + a/2)^r * (n + a/2 - k)^r, {k, -a/2 + 1, n + a/2}], {r, 0, m}];
-ShiftedCenteredBinomialForm[m_, n_, a_] := Sum[A[m, r]* Sum[(k + a/2)^r * (n + a/2 - k)^r, {k, -a/2, n + a/2 - 1}], {r, 0, m}];
-NegatedBinomialForm[m_, n_, a_] := Sum[A[m, r]* Sum[(k - a)^r * (n - a - k)^r, {k, a+1, n - a}], {r, 0, m}];
-ShiftedNegatedBinomialForm[m_, n_, a_] := Sum[A[m, r]* Sum[(k - a)^r * (n - a - k)^r, {k, a, n - a - 1}], {r, 0, m}];
-CenteredNegatedBinomialForm[m_, n_, a_] := Sum[A[m, r]* Sum[(k - a/2)^r * (n - a/2 - k)^r, {k, a/2, n - a/2 - 1}], {r, 0, m}];
-ShiftedCenteredNegatedBinomialForm[m_, n_, a_] := Sum[A[m, r]* Sum[(k - a/2)^r * (n - a/2 - k)^r, {k, a/2+1, n - a/2}], {r, 0, m}];
-(*END: Binomial Forms *)
-
-(*BEGIN: Double bivariate identities *)
-DoubleBivariateSumR[m_, n_, t_]:= Sum[BivariateSumT[m, n+t, k], {k, 1, n}];
-OddPowerDoubleBivariate[n_, m_]:=Sum[(-1)^(t+1) * Binomial[m+1, t] * DoubleBivariateSumR[m, n, t], {t, 1, m+1}];
-OddPowerDoubleBivariateMultifold[n_, m_, s_]:=Sum[(-1)^(t+1) * Binomial[m+s, t] * DoubleBivariateSumR[m, n, t], {t, 1, m+s}];
-OddPowerDoubleBivariateNegated[n_, m_]:=Sum[(-1)^(t+1) * Binomial[m+1, t] * DoubleBivariateSumR[m, n, -t], {t, 1, m+1}];
-OddPowerDoubleBivariateNegatedMultifold[n_, m_, s_]:=Sum[(-1)^(t+1) * Binomial[m+s, t] * DoubleBivariateSumR[m, n, -t], {t, 1, m+s}];
-(*END: Double bivariate identities *)
-
-(*BEGIN: Bivariate Faulhaber's formula *)
-SumOfConvolvedPowers[n_, r_]:=Sum[k^r * (n-k)^r, {k, 1, n}];
-BivaraiteFaulhabersFormula[n_, r_]:= n^(2r+1)/((2r+1)*Binomial[2r,r]) + (-1)^r * Sum[Binomial[r, 2k+1]*BernoulliB[2r-2k]/(r-k) * n^(2k+1), {k, 0, r-1}];
-(*END: Bivariate Faulhaber's formula *)
-
-(*BEGIN: Sums of powers *)
-SumsOfPowers[n_, r_]:= Expand[Sum[k^r, {k, 1, n}]];
-SumsOfOddPowers[n_, m_]:= Sum[A[m,r] * Sum[Sum[(t*k)^r, {k, 0, n-t}], {t, 1, n}], {r, 0, m}];
-SumsOfOddPowersRearranged[n_, m_]:= Sum[A[m,r] * Sum[ t^r * Sum[(k)^r, {k, 0, n-t}], {t, 1, n}], {r, 0, m}];
-SumsOfOddPowersReindexed[n_, m_]:= Sum[A[m,r] * Sum[Sum[((n-t)*k)^r, {k, 1, t}], {t, 1, n}], {r, 0, m}];
-SumsOfOddPowersTriple[n_, m_]:= Sum[A[m,r] * Sum[Sum[j^r * (k-j)^r, {j, 1, k}], {k, 1, n}], {r, 0, m}];
-(*END: Sums of powers *)
 
 End[ ]
 EndPackage[ ]

@@ -1,111 +1,108 @@
-Include some references~\cite{derivative_of_polynomials_via_double_limit,
-alekseyev2018mathoverflow,oeis_coefficients_u_m_l_k_defined_by_polynomial_identity_3}.
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-when an unknown printer took a galley
-of type and scrambled it to make a type specimen book.
-It has survived not only five centuries, but also the leap into electronic
-typesetting, remaining essentially unchanged.
-It was popularised in the 1960s with the release of Letraset sheets containing
-Lorem Ipsum passages, and more
-recently with desktop publishing software like Aldus PageMaker
-including versions of Lorem Ipsum.
 
-Image example
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=1\textwidth]{sections/images/build_the_manuscript_rider}
-  ~\caption{Image example (from caption).}\label{fig:figure}
-\end{figure}
-
-\input{sections/figures/05_fig_coefficients_a}
-
-\begin{equation*}
-  \llceil \nobarfrac{a}{b} \rrfloor_{m}
-\end{equation*}
-\begin{equation*}
-  \llceilCoefficient{a}{b}{m}
-\end{equation*}
-
-And for any natural $m$ we have polynomial identity
-\begin{equation}
-  x^m = \sum_{k=1}^{m} T(m, k) \centralFactorial{x}{k}
-  \label{eq:knuth-power-identity}
-\end{equation}
-where $\centralFactorial{x}{k}$ denotes central factorial defined by
-\begin{equation*}
-  \centralFactorial{x}{n} = x \fallingFactorial{x+\frac{n}{2}-1}{n-1}
-\end{equation*}
-where $\fallingFactorial{n}{k} = n (n-1) (n-2) \cdots (n-k+1)$ denotes falling factorial in Knuth's notation.
-In particular,
-\begin{equation}
-  \label{eq:falling-factorial}
-  \centralFactorial{x}{n}
-  = x \left( x+\frac{n}{2}-1 \right) \left( x+\frac{n}{2}-1 \right) \cdots \left (x+\frac{n}{2}-n-1 \right)
-  = x \prod_{k=1}^{n-1} \left( x+\frac{n}{2}-k \right)
-\end{equation}
-This is an equation reference~\eqref{eq:knuth-power-identity}.
-
-Continuing similarly, we are able to derive the formula for multifold sums of powers,
-which is
-\begin{theorem}[Multifold sums of powers via Newton's series]
-  \label{theorem:multifold-sums-of-powers-via-newtons-series}
-  For non-negative integers $r,n,m$ and an arbitrary integer $t$
+\begin{definition} [Multifold sums of powers]
+  \label{def:multifold-sums-of-powers-recurrence}
+  For non-negative integers $r,n,m$
   \begin{align*}
-    \KnuthRFoldSum{r}{n}{m} = \sum_{j=0}^{m} \Delta^{j} t^{m} \left[ \left( \sum_{s=1}^{r} (-1)^{j+s-1} \binom{j+t-1}{j+s} \KnuthRFoldSum{r-s}{n}{0} \right) + \binom{n-t+r}{j+r} \right]
+    \KnuthRFoldSum{0}{n}{m}   &= n^m \\
+    \KnuthRFoldSum{1}{n}{m}   &= \KnuthRFoldSum{0}{1}{m}
+    + \KnuthRFoldSum{0}{2}{m} + \cdots + \KnuthRFoldSum{0}{n}{m} \\
+    \KnuthRFoldSum{r+1}{n}{m} &= \KnuthRFoldSum{r}{1}{m}
+    + \KnuthRFoldSum{r}{2}{m} + \cdots + \KnuthRFoldSum{r}{n}{m}
+  \end{align*}
+\end{definition}
+\begin{definition}[Central factorials]
+  For integers $n,k$
+  \begin{align*}
+    \centralFactorial{n}{k} =
+    \begin{cases}
+      0, \quad & \mathrm{if \; } k < 0, \\
+      1, \quad & \mathrm{if \; } k = 0, \\
+      n \left( n + \frac{k}{2} -1 \right)\left( n + \frac{k}{2} -2 \right)
+      \cdots \left( n - \frac{k}{2} +1 \right) = n \prod_{j=1}^{k-1}
+      \left( n + \frac{k}{2} -j \right), \quad & \mathrm{if \; } k>0.
+    \end{cases}
+  \end{align*}
+\end{definition}
+\begin{proposition}[Central Newton's formula]
+  \label{prop:newtons-interpolation-formula-in-central-differences}
+  \begin{align*}
+    f(x)
+    = \sum_{k=0}^{\infty} \frac{\centralFactorial{(x-t)}{k}}{k!} \delta^{k} f(t)
   \end{align*}
   \begin{proof}
-    By Newton's series for power and repeated
-    applications of the segmented hockey stick identity.
+    See~\cite[p. 462]{butzer1989central}.
   \end{proof}
-\end{theorem}
-
-\begin{proposition}[Falling factorial]
-  \begin{align*}
-    \fallingFactorial{x}{n} = x(x-1)(x-2)(x-3)\cdots(x-n+1) = \prod_{k=0}^{n-1}(x-k)
-  \end{align*}
 \end{proposition}
-
-\begin{proposition}
+\begin{lemma}[Central falling factorials]
+  \label{lem:central-factorials-in-terms-of-falling}
+  For integers $n,k$
   \begin{align*}
-    \frac{\fallingFactorial{x}{n}}{n!} = \binom{x}{n}
+    \centralFactorial{n}{k} =
+    \begin{cases}
+      0, \quad & \mathrm{if \; } k<0 \\
+      1, \quad & \mathrm{if \; } k=0 \\
+      n \fallingFactorial{n+\frac{k}{2}-1}{k-1}, \quad & \mathrm{if \; } k>0
+    \end{cases}
   \end{align*}
-\end{proposition}
-
-\subsection{Rising factorials}
-\begin{proposition} [Rising factorial]
-  \begin{align*}
-    \risingFactorial{x}{n} = x(x+1)(x+2)(x+3)\cdots(x+n-1) = \prod_{k=0}^{n-1}(x+k)
-  \end{align*}
-\end{proposition}
-
-\begin{proposition}
-  \begin{align*}
-    \frac{\risingFactorial{x}{n}}{n!} = \binom{x+n-1}{n}
-  \end{align*}
-\end{proposition}
-
-\subsection{Central factorials}
-\begin{lemma}[Central factorial]
-  \begin{align*}
-    \centralFactorial{n}{k}
-    = n \left( n + \frac{k}{2} -1 \right)\left( n + \frac{k}{2} -2 \right) \cdots \left( n - \frac{k}{2} +1 \right)
-    = n \prod_{j=1}^{k-1} \left( n + \frac{k}{2} -j \right)
-  \end{align*}
+  where $\fallingFactorial{n+\frac{k}{2}-1}{k-1}$ are falling factorials.
 \end{lemma}
-
-\begin{proposition}
+\begin{lemma}[Binomial form of central factorials]
+  \label{lem:binomial-form-of-central-factorials}
+  For integers $n$ and $k \geq 1$
   \begin{align*}
-    \centralFactorial{n}{k} = n \fallingFactorial{n+\frac{k}{2}-1}{k-1}
+    \frac{\centralFactorial{n}{k}}{k!}
+    = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}
+  \end{align*}
+  \begin{proof}
+    We have
+    \begin{align*}
+      \frac{\centralFactorial{n}{k}}{k!}
+      &= \frac{n}{k!}\fallingFactorial{n+\frac{k}{2}-1}{k-1}
+      = \frac{n}{k (k-1)!} \fallingFactorial{n+\frac{k}{2}-1}{k-1}
+      = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}
+    \end{align*}
+    because of the identity in falling factorials
+    $\frac{\fallingFactorial{x}{n}}{n!} = \binom{x}{n}$,
+    and Lemma~\eqref{lem:central-factorials-in-terms-of-falling}.
+  \end{proof}
+\end{lemma}
+\begin{lemma}[Halved central factorials]
+  For integers $n,k$
+  \begin{align*}
+    \frac{\centralFactorial{n}{k}}{k!}
+    = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}
+    = \frac{1}{2} \binom{n+\frac{k}{2}}{k} + \frac{1}{2} \binom{n+\frac{k}{2}-1}{k}
+  \end{align*}
+  \begin{proof}
+    We have $\binom{a}{k} = \frac{a}{k} \binom{a-1}{k-1}$.
+    Let $a=n + \frac{k}{2}$, then
+    \begin{align*}
+      \tbinom{n + \frac{k}{2}}{k} = \tfrac{n + \tfrac{k}{2}}{k} \tbinom{n+\frac{k}{2}-1}{k-1}
+      = \tfrac{n}{k} \tbinom{n+\frac{k}{2}-1}{k-1} + \tfrac{1}{2} \tbinom{n+\frac{k}{2}-1}{k-1}.
+    \end{align*}
+    Thus,
+    \begin{align*}
+      \tfrac{n}{k} \tbinom{n+\frac{k}{2}-1}{k-1} = \tbinom{n + \frac{k}{2}}{k} - \tfrac{1}{2} \tbinom{n+\frac{k}{2}-1}{k-1}.
+    \end{align*}
+    By moving under common denominator, and applying binomial recurrence yields
+    \begin{align*}
+      \tfrac{n}{k} \tbinom{n+\frac{k}{2}-1}{k-1}
+      = \tfrac{1}{2}
+      \left[
+        2 \tbinom{n + \frac{k}{2}}{k} - \tbinom{n+\frac{k}{2}-1}{k-1}
+      \right]
+      = \tfrac{1}{2}
+      \left[
+        \tbinom{n + \frac{k}{2}}{k} + \tbinom{n + \frac{k}{2}-1}{k} + \tbinom{n + \frac{k}{2}-1}{k-1} - \tbinom{n+\frac{k}{2}-1}{k-1}
+      \right].
+    \end{align*}
+    Thus, the statement follows.
+  \end{proof}
+\end{lemma}
+\begin{proposition}[Central Newton's formula for powers]
+  \label{prop:newtons-formula-for-powers}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    n^m = \sum_{k=0}^{m} \frac{\centralFactorial{(n-t)}{k}}{k!} \delta^{k} t^m
   \end{align*}
 \end{proposition}
-
-\subsection{Derivatives}
-
-\begin{align*}
-  \od{x}{y} = \frac{f(x+h)-f(x)}{h}
-\end{align*}
-
-\begin{align*}
-  \odd{x}{y}{3} = \frac{f(x+h)-f(x)}{h}
-\end{align*}
