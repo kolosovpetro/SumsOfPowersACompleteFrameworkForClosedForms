@@ -10,6 +10,7 @@
     + \KnuthRFoldSum{r}{2}{m} + \cdots + \KnuthRFoldSum{r}{n}{m}.
   \end{align*}
 \end{definition}
+
 \begin{definition}[Central factorials]
   \label{def:central-factorials}
   For integers $n,k$
@@ -24,6 +25,7 @@
     \end{cases}
   \end{align*}
 \end{definition}
+
 \begin{proposition}[Central Newton's formula]
   For arbitrary integers $x$, and $t$
   \label{prop:newtons-interpolation-formula-in-central-differences}
@@ -40,6 +42,7 @@
     See~\cite[p. 462]{butzer1989central}.
   \end{proof}
 \end{proposition}
+
 \begin{lemma}[Central falling factorials]
   \label{lem:central-factorials-in-terms-of-falling}
   For integers $n,k$
@@ -56,31 +59,34 @@
   = \prod_{j=1}^{k-1} \left( n + \frac{k}{2} -j \right)$
   are falling factorials.
 \end{lemma}
-% \begin{lemma}[Binomial form of central factorials]
-%   \label{lem:binomial-form-of-central-factorials}
-%   For integers $n$ and $k \geq 1$,
-%   \begin{align*}
-%     \frac{\centralFactorial{n}{k}}{k!}
-%     = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}.
-%   \end{align*}
-%   \begin{proof}
-%     We have
-%     \begin{align*}
-%       \frac{\centralFactorial{n}{k}}{k!}
-%       &= \frac{n}{k!}\fallingFactorial{n+\frac{k}{2}-1}{k-1}
-%       = \frac{n}{k (k-1)!} \fallingFactorial{n+\frac{k}{2}-1}{k-1}
-%       = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1},
-%     \end{align*}
-%     because of the identity in falling factorials
-%     $\frac{\fallingFactorial{x}{n}}{n!} = \binom{x}{n}$,
-%     and Lemma~\eqref{lem:central-factorials-in-terms-of-falling}.
-%   \end{proof}
-% \end{lemma}
+
+\begin{lemma}[Binomial form of central factorials]
+  \label{lem:binomial-form-of-central-factorials}
+  For integers $n$ and $k \geq 1$,
+  \begin{align*}
+    \frac{\centralFactorial{n}{k}}{k!}
+    = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}.
+  \end{align*}
+  \begin{proof}
+    We have
+    \begin{align*}
+      \frac{\centralFactorial{n}{k}}{k!}
+      &= \frac{n}{k!}\fallingFactorial{n+\frac{k}{2}-1}{k-1}
+      = \frac{n}{k (k-1)!} \fallingFactorial{n+\frac{k}{2}-1}{k-1}
+      = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1},
+    \end{align*}
+    because of the identity in falling factorials
+    $\frac{\fallingFactorial{x}{n}}{n!} = \binom{x}{n}$,
+    and Lemma~\eqref{lem:central-factorials-in-terms-of-falling}.
+  \end{proof}
+\end{lemma}
+
 \begin{lemma}[Halved central factorials]
   \label{lem:halved-central-factorials}
   For integers $n,k\geq 0$,
   \begin{align*}
     \frac{\centralFactorial{n}{k}}{k!}
+    = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}
     = \frac{1}{2} \binom{n+\frac{k}{2}}{k} + \frac{1}{2} \binom{n+\frac{k}{2}-1}{k}.
   \end{align*}
   \begin{proof}
@@ -109,6 +115,7 @@
     Thus, the statement follows.
   \end{proof}
 \end{lemma}
+
 \begin{proposition}[Central Newton's formula for powers]
   \label{prop:newtons-formula-for-powers}
   For integers $n,m \geq 0$, and an arbitrary integer $t$,
@@ -126,6 +133,7 @@
     \right] \delta^{k} t^m
   \end{align*}
 \end{proposition}
+
 \begin{proposition}[Generalized hockey-stick identity]
   \label{prop:generalized-hockey-stick-identity}
   For integers $a,b$ and $j$,
@@ -134,10 +142,9 @@
   \end{align*}
   \begin{proof}
     We have,
-    $\sum_{k=a}^{b} \binom{k}{j} = \binom{a}{j} + \binom{a+1}{j} + \cdots + \binom{b}{j}$,
-    which means that,
-    $\sum_{k=a}^{b} \binom{k}{j} =
-    \left( \sum_{k=0}^{b} \binom{k}{j} \right) - \left( \sum_{k=0}^{a-1} \binom{k}{j} \right)$.
+    $\sum_{k=a}^{b} \binom{k}{j}
+    = \binom{a}{j} + \binom{a+1}{j} + \cdots + \binom{b}{j}
+    = \left( \sum_{k=0}^{b} \binom{k}{j} \right) - \left( \sum_{k=0}^{a-1} \binom{k}{j} \right)$.
     By hockey stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$ yields,
     \begin{align*}
       \tsum_{k=a}^{b} \tbinom{k}{j}
@@ -147,6 +154,7 @@
     This completes the proof.
   \end{proof}
 \end{proposition}
+
 \begin{lemma}[Centered hockey-stick identity]
   \label{lem:centered-hockey-stick-identity}
   For integers $n\geq1$, and arbitrary integers $t,k,r$
@@ -168,6 +176,7 @@
     Thus, the claim follows.
   \end{proof}
 \end{lemma}
+
 \begin{proposition}[Ordinary sums of powers]
   For integers $n,m \geq 0$, and an arbitrary integer $t$,
   \begin{align*}
@@ -178,6 +187,7 @@
     \right]
   \end{align*}
 \end{proposition}
+
 \begin{proposition}[Ordinary sums of powers decomposition]
   \label{prop:ordinary-sums-of-powers-decomposition}
   For integers $n,m \geq 0$, and an arbitrary integer $t$,
@@ -187,5 +197,55 @@
       \binom{n -t + \frac{k}{2} +1}{k+1} - \binom{1 -t + \tfrac{k}{2}}{k+1}
       + \binom{n -t + \frac{k}{2}}{k+1} - \binom{-t + \tfrac{k}{2}}{k+1}
     \right] \delta^{k} t^m
+  \end{align*}
+\end{proposition}
+
+\begin{proposition}[Central factorial numbers sums]
+  \label{prop:central-factorial-numbers-sums}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{1}{n}{m} = \frac{1}{2} \sum_{k=0}^{m}
+    \left[
+      \binom{n + \frac{k}{2} +1}{k+1} - \binom{1 + \tfrac{k}{2}}{k+1}
+      + \binom{n + \frac{k}{2}}{k+1} - \binom{\tfrac{k}{2}}{k+1}
+    \right] k! T(m,k),
+  \end{align*}
+  where $T(n,k)$ denote Central factorial numbers of the second kind
+  (in Riordan's notation), defined by polynomial identity,
+  \begin{align*}
+    x^m = \sum_{k=1}^{m} T(m,k) \centralFactorial{x}{k}.
+  \end{align*}
+  See~\cite[p. 213]{riordan1968combinatorial},
+  and~\cite{carlitz1963divided}.
+\end{proposition}
+
+\begin{definition}[Generalized Central factorial numbers of the second kind]
+  For integers $0 \leq k \leq m$, and an arbitrary integer $t$,
+  \begin{align*}
+    T_t (m,k) = \frac{\delta^{k} t^m}{k!}.
+  \end{align*}
+\end{definition}
+
+\begin{proposition}[Generalized Central factorial sums]
+  \label{prop:generalized-central-factorial-sums}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{1}{n}{m} = \frac{1}{2} \sum_{k=0}^{m}
+    \left[
+      \binom{n -t + \frac{k}{2} +1}{k+1} - \binom{1 -t + \tfrac{k}{2}}{k+1}
+      + \binom{n -t + \frac{k}{2}}{k+1} - \binom{-t + \tfrac{k}{2}}{k+1}
+    \right] k! T_t (m,k)
+  \end{align*}
+\end{proposition}
+
+\begin{proposition}[Double sums of powers decomposition]
+  \label{prop:double-sums-of-powers-decomposition}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{2}{n}{m} = \frac{1}{2} \sum_{k=0}^{m}
+    \Bigg[
+      &+ \binom{n -t + \frac{k}{2} +2}{k+2} - \binom{2 -t + \tfrac{k}{2}}{k+2} \KnuthRFoldSum{0}{n}{0} - \binom{1 -t + \tfrac{k}{2}}{k+1} \KnuthRFoldSum{1}{n}{0} \\
+      &+ \binom{n -t + \frac{k}{2}+1}{k+2} - \binom{1-t + \tfrac{k}{2}}{k+2} \KnuthRFoldSum{0}{n}{0} - \binom{0-t + \tfrac{k}{2}}{k+1} \KnuthRFoldSum{1}{n}{0}
+    \Bigg] \delta^{k} t^m
   \end{align*}
 \end{proposition}

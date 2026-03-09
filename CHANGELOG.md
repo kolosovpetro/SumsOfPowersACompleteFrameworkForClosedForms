@@ -14,3 +14,4 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Central Newton's formula definition space and revisions
 - Halved central factorial powers
 - Ordinary sums of powers decomposition
+- Double sums of powers decomposition
