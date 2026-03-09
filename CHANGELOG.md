@@ -15,3 +15,5 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Halved central factorial powers
 - Ordinary sums of powers decomposition
 - Double sums of powers decomposition
+- Triple sums of powers decomposition
+- Multifold sums of powers

@@ -249,3 +249,33 @@
     \Bigg] \delta^{k} t^m
   \end{align*}
 \end{proposition}
+
+\begin{proposition}[Triple sums of powers decomposition]
+  \label{prop:triple-sums-of-powers-decomposition}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{3}{n}{m}
+    &= \frac{1}{2} \sum_{k=0}^{m}
+    \Bigg[ \\
+      &+ \binom{n -t + \frac{k}{2} +3}{k+3} - \binom{3 -t + \tfrac{k}{2}}{k+3} \KnuthRFoldSum{0}{n}{0} - \binom{2 -t + \tfrac{k}{2}}{k+2} \KnuthRFoldSum{1}{n}{0} - \binom{1 -t + \tfrac{k}{2}}{k+1} \KnuthRFoldSum{2}{n}{0} \\
+      &+ \binom{n -t + \frac{k}{2}+2}{k+3} - \binom{2-t + \tfrac{k}{2}}{k+3} \KnuthRFoldSum{0}{n}{0} - \binom{1-t + \tfrac{k}{2}}{k+2} \KnuthRFoldSum{1}{n}{0} - \binom{0-t + \tfrac{k}{2}}{k+1} \KnuthRFoldSum{2}{n}{0}
+    \Bigg] \delta^{k} t^m
+  \end{align*}
+\end{proposition}
+
+\begin{proposition}[Multifold sums of powers]
+  \label{prop:multifold-sums-of-powers}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{r+1}{n}{m}
+    &= \frac{1}{2} \sum_{k=0}^{m}
+    \Bigg \{
+      \binom{n-t+\frac{k}{2}+r+1}{k+r+1} - \binom{n-t+\frac{k}{2}+r}{k+r+1} \\
+      &-
+      \sum_{s=0}^{r}
+      \left[
+        \binom{r+1-s-t+\frac{k}{2}}{k+r+1-s} + \binom{r-s-t+\frac{k}{2}}{k+r+1-s}
+      \right] \KnuthRFoldSum{s}{n}{0}
+    \Bigg \} \delta^{k} t^m
+  \end{align*}
+\end{proposition}
