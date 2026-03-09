@@ -83,6 +83,7 @@ OrdinarySumsOfPowersDecomposition::usage=""
 ValidateOrdinarySumsOfPowersDecomposition::usage=""
 
 DoubleSumsOfPowersDecomposition::usage=""
+ValidateDoubleSumsOfPowersDecomposition::usage=""
 
 (*END: Definitions *)
 
@@ -300,7 +301,7 @@ OrdinarySumsOfPowersDecomposition[n_, m_, t_] :=
 ValidateOrdinarySumsOfPowersDecomposition[max_] := Table[MultifoldSumOfPowersRecurrence[1, n, m] - OrdinarySumsOfPowersDecomposition[n, m, t], {n, 1, max}, {m, 0, max}, {t, -max, max}] //Flatten
 DoubleSumsOfPowersDecomposition[n_, m_, t_] := 
 1/2 * Sum[(Binomial[n-t+k/2+2, k+2] - Binomial[2-t+k/2, k+2]* MultifoldSumOfPowersRecurrence[0, n, 0] - Binomial[1-t+k/2, k+1] * MultifoldSumOfPowersRecurrence[1, n, 0] + Binomial[n-t+k/2+1, k+2] - Binomial[1-t+k/2, k+2]* MultifoldSumOfPowersRecurrence[0, n, 0] - Binomial[0-t+k/2, k+1]* MultifoldSumOfPowersRecurrence[1, n, 0])*CentralDifference[t, m, k], {k, 0, m}];
-
+ValidateDoubleSumsOfPowersDecomposition[max_] :=  Table[MultifoldSumOfPowersRecurrence[2, n, m] - DoubleSumsOfPowersDecomposition[n, m, t], {n, 1, max}, {m, 0, max}, {t, -max, max}] //Flatten;
 
 (*END: Definitions *)
 
