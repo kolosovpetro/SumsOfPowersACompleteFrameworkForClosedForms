@@ -78,6 +78,10 @@ HalvedCentralFactorialPowers::usage=""
 
 ValidateHalvedCentralFactorialPowers::usage=""
 
+OrdinarySumsOfPowersDecomposition::usage=""
+
+ValidateOrdinarySumsOfPowersDecomposition::usage=""
+
 (*END: Definitions *)
 
 (* =========================================================================DOCS END=================================================================== *)
@@ -288,13 +292,17 @@ ValidateNegatedBinomialCenteredSumOfPowers[max_] := Table[MultifoldSumOfPowersRe
 ValidateHalvedCentralBinomials[max_] := Table[CentralFactorial[n, k] / k! - 1/2 * (Binomial[n + k/2, k] + Binomial[n+k/2-1, k]), {n, 0, max}, {k, 0, max}] //Flatten;
 HalvedCentralFactorialPowers[n_, m_, t_]:= 1/2 * Sum[(Binomial[n-t+k/2, k] + Binomial[n-t+k/2-1, k]) * CentralDifference[t, m, k], {k, 0, m}];
 ValidateHalvedCentralFactorialPowers[max_] := Table[n^m - HalvedCentralFactorialPowers[n, m, t], {n, 0, max}, {m, 0, max}, {t, -max, max}] //Flatten;
+
+OrdinarySumsOfPowersDecomposition[n_, m_, t_] := 
+1/2 * Sum[(Binomial[n-t+k/2+1, k+1] - Binomial[1-t+k/2, k+1] + Binomial[n-t+k/2, k+1] - Binomial[-t + k/2, k+1]) * CentralDifference[t, m, k], {k, 0, m}];
+ValidateOrdinarySumsOfPowersDecomposition[max_] := Table[MultifoldSumOfPowersRecurrence[1, n, m] - OrdinarySumsOfPowersDecomposition[n, m, t], {n, 1, max}, {m, 0, max}, {t, -max, max}] //Flatten
+
+
+
 (*END: Definitions *)
 
 End[ ]
 EndPackage[ ]
-
-
-
 
 
 
