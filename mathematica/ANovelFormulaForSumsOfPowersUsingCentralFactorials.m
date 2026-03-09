@@ -85,6 +85,13 @@ ValidateOrdinarySumsOfPowersDecomposition::usage=""
 DoubleSumsOfPowersDecomposition::usage=""
 ValidateDoubleSumsOfPowersDecomposition::usage=""
 
+TripleSumsOfPowersDecomposition::usage=""
+ValidateTripleSumsOfPowersDecomposition::usage=""
+
+MultifoldSumsOfPowers::usage=""
+
+ValidateMultifoldSumsOfPowers::usage=""
+
 (*END: Definitions *)
 
 (* =========================================================================DOCS END=================================================================== *)
@@ -302,6 +309,19 @@ ValidateOrdinarySumsOfPowersDecomposition[max_] := Table[MultifoldSumOfPowersRec
 DoubleSumsOfPowersDecomposition[n_, m_, t_] := 
 1/2 * Sum[(Binomial[n-t+k/2+2, k+2] - Binomial[2-t+k/2, k+2]* MultifoldSumOfPowersRecurrence[0, n, 0] - Binomial[1-t+k/2, k+1] * MultifoldSumOfPowersRecurrence[1, n, 0] + Binomial[n-t+k/2+1, k+2] - Binomial[1-t+k/2, k+2]* MultifoldSumOfPowersRecurrence[0, n, 0] - Binomial[0-t+k/2, k+1]* MultifoldSumOfPowersRecurrence[1, n, 0])*CentralDifference[t, m, k], {k, 0, m}];
 ValidateDoubleSumsOfPowersDecomposition[max_] :=  Table[MultifoldSumOfPowersRecurrence[2, n, m] - DoubleSumsOfPowersDecomposition[n, m, t], {n, 1, max}, {m, 0, max}, {t, -max, max}] //Flatten;
+TripleSumsOfPowersDecomposition[n_, m_, t_] := 
+1/2 * Sum[
+	(Binomial[n-t+k/2+3, k+3] - Binomial[3-t+k/2, k+3] * MultifoldSumOfPowersRecurrence[0, n, 0] - Binomial[2-t+k/2, k+2] * MultifoldSumOfPowersRecurrence[1, n, 0] - Binomial[1-t+k/2, k+1] * MultifoldSumOfPowersRecurrence[2, n, 0]
+	+ Binomial[n-t+k/2+2, k+3] - Binomial[2-t+k/2, k+3] * MultifoldSumOfPowersRecurrence[0, n, 0] - Binomial[1-t+k/2, k+2] * MultifoldSumOfPowersRecurrence[1, n, 0] - Binomial[0-t+k/2, k+1] * MultifoldSumOfPowersRecurrence[2, n, 0]
+	) * CentralDifference[t, m, k], {k,0,m}];
+
+ValidateTripleSumsOfPowersDecomposition[max_] := Table[MultifoldSumOfPowersRecurrence[3, n, m] - TripleSumsOfPowersDecomposition[n, m, t], {n, 1, max}, {m, 0, max}, {t, -max, max}] //Flatten
+
+MultifoldSumsOfPowers[r_, n_, m_, t_] := 1/2 * Sum[
+( Binomial[n-t+k/2+r, k+r] + Binomial[n-t+k/2+r-1, k+r] 
+  - Sum[(Binomial[r-s-t+k/2, k+r-s] + Binomial[r-1-s-t+k/2, k+r-s]) * MultifoldSumOfPowersRecurrence[s, n, 0], {s, 0, r-1}] ) * CentralDifference[t, m, k], {k, 0, m}];
+
+ValidateMultifoldSumsOfPowers[max_] := Table[MultifoldSumOfPowersRecurrence[r, n, m] - MultifoldSumsOfPowers[r,n, m, t], {r, 0, max}, {n, 1, max}, {m, 0, max}, {t, -max, max}] //Flatten
 
 (*END: Definitions *)
 
