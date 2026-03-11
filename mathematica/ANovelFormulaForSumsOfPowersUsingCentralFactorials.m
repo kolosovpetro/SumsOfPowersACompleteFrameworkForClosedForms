@@ -92,6 +92,12 @@ MultifoldSumsOfPowers::usage=""
 
 ValidateMultifoldSumsOfPowers::usage=""
 
+BinomialStirlingForm::usage=""
+
+R::usage=""
+
+MultifoldSumsOfPowersCompact::usage=""
+
 (*END: Definitions *)
 
 (* =========================================================================DOCS END=================================================================== *)
@@ -323,6 +329,12 @@ MultifoldSumsOfPowers[r_, n_, m_, t_] := 1/2 * Sum[
 
 ValidateMultifoldSumsOfPowers[max_] := Table[MultifoldSumOfPowersRecurrence[r, n, m] - MultifoldSumsOfPowers[r,n, m, t], {r, 0, max}, {n, 1, max}, {m, 0, max}, {t, -max, max}] //Flatten
 
+BinomialStirlingForm[n_, k_] := Sum[(-1)^(k-j) / k! * Abs[StirlingS1[k, j]] * n^j, {j, 0, k}];
+
+R[n_, t_, k_, r_] := 
+  Binomial[n-t+k/2+r, k+r] + Binomial[n-t+k/2+r-1, k+r] - Sum[(Binomial[r-s-t+k/2, k+r-s] + Binomial[r-1-s-t+k/2, k+r-s]) * MultifoldSumOfPowersRecurrence[s, n, 0], {s, 0, r-1}];
+  
+MultifoldSumsOfPowersCompact[r_, n_, m_, t_] := 1/2 * Sum[R[n, t, k, r] * CentralDifference[t, m, k], {k, 0, m}];
 (*END: Definitions *)
 
 End[ ]

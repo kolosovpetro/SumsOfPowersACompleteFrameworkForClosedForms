@@ -279,3 +279,32 @@
     \Bigg \} \delta^{k} t^m
   \end{align*}
 \end{proposition}
+
+\begin{definition}
+  \begin{align*}
+    R(n,t,k,r)
+    &= \binom{n-t+\frac{k}{2}+r}{k+r} + \binom{n-t+\frac{k}{2}+r-1}{k+r} \\
+    &-
+    \sum_{s=0}^{r-1}
+    \left[
+      \binom{r-s-t+\frac{k}{2}}{k+r-s} + \binom{r-1-s-t+\frac{k}{2}}{k+r-s}
+    \right] \KnuthRFoldSum{s}{n}{0}
+  \end{align*}
+\end{definition}
+
+\begin{proposition}[Multifold sums of powers]
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    &= \sum_{k=0}^{m} \frac{\delta^{k} t^m}{2}
+    R(n,t,k,r)
+  \end{align*}
+\end{proposition}
+
+\input{sections/formulas/01_example_sum_of_squares.tex}
+
+\input{sections/formulas/02_example_sum_of_cubes.tex}
+
+\input{sections/formulas/03_example_double_sum_of_squares.tex}
+
+\input{sections/formulas/04_triple_sum_of_squares.tex}
