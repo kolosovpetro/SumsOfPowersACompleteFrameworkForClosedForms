@@ -21,9 +21,13 @@
       1, \quad & \mathrm{if \; } k = 0, \\
       n \left( n + \frac{k}{2} -1 \right)\left( n + \frac{k}{2} -2 \right)
       \cdots \left( n - \frac{k}{2} +1 \right)
-      = n \prod_{j=1}^{k-1} \left( n + \frac{k}{2} -j \right), \quad & \mathrm{if \; } k>0.
+      = n \fallingFactorial{n+\frac{k}{2}-1}{k-1}, \quad & \mathrm{if \; } k>0,
     \end{cases}
   \end{align*}
+  where
+  $\fallingFactorial{n+\frac{k}{2}-1}{k-1}
+  = \prod_{j=1}^{k-1} \left( n + \frac{k}{2} -j \right)$
+  are falling factorials.
 \end{definition}
 
 \begin{proposition}[Central Newton's formula]
@@ -43,22 +47,22 @@
   \end{proof}
 \end{proposition}
 
-\begin{lemma}[Central falling factorials]
-  \label{lem:central-factorials-in-terms-of-falling}
-  For integers $n,k$
-  \begin{align*}
-    \centralFactorial{n}{k} =
-    \begin{cases}
-      0, \quad & \mathrm{if \; } k<0, \\
-      1, \quad & \mathrm{if \; } k=0, \\
-      n \fallingFactorial{n+\frac{k}{2}-1}{k-1}, \quad & \mathrm{if \; } k>0.
-    \end{cases}
-  \end{align*}
-  where
-  $\fallingFactorial{n+\frac{k}{2}-1}{k-1}
-  = \prod_{j=1}^{k-1} \left( n + \frac{k}{2} -j \right)$
-  are falling factorials.
-\end{lemma}
+% \begin{lemma}[Central falling factorials]
+%   \label{lem:central-factorials-in-terms-of-falling}
+%   For integers $n,k$
+%   \begin{align*}
+%     \centralFactorial{n}{k} =
+%     \begin{cases}
+%       0, \quad & \mathrm{if \; } k<0, \\
+%       1, \quad & \mathrm{if \; } k=0, \\
+%       n \fallingFactorial{n+\frac{k}{2}-1}{k-1}, \quad & \mathrm{if \; } k>0.
+%     \end{cases}
+%   \end{align*}
+%   where
+%   $\fallingFactorial{n+\frac{k}{2}-1}{k-1}
+%   = \prod_{j=1}^{k-1} \left( n + \frac{k}{2} -j \right)$
+%   are falling factorials.
+% \end{lemma}
 
 \begin{lemma}[Binomial form of central factorials]
   \label{lem:binomial-form-of-central-factorials}
@@ -76,8 +80,7 @@
       = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1},
     \end{align*}
     because of the identity in falling factorials
-    $\frac{\fallingFactorial{x}{n}}{n!} = \binom{x}{n}$,
-    and Lemma~\eqref{lem:central-factorials-in-terms-of-falling}.
+    $\frac{\fallingFactorial{x}{n}}{n!} = \binom{x}{n}$.
   \end{proof}
 \end{lemma}
 
@@ -210,19 +213,27 @@
       + \binom{n + \frac{k}{2}}{k+1} - \binom{\tfrac{k}{2}}{k+1}
     \right] k! T(m,k),
   \end{align*}
-  where $T(n,k)$ denote Central factorial numbers of the second kind
-  (in Riordan's notation), defined by polynomial identity,
+  where $T(n,k)=\frac{\delta^{k} 0^m}{k!}$ denote Central factorial numbers of the second kind
+  (in Riordan's notation, see~\cite[p. 213]{riordan1968combinatorial},
+  and~\cite{carlitz1963divided}.),
+  defined by central Newton's formula for powers,
+  evaluated in
+  $t=0$
   \begin{align*}
-    x^m = \sum_{k=1}^{m} T(m,k) \centralFactorial{x}{k}.
+    n^m = \sum_{k=0}^{\infty} T(m,k) \centralFactorial{n}{k}.
   \end{align*}
-  See~\cite[p. 213]{riordan1968combinatorial},
-  and~\cite{carlitz1963divided}.
 \end{proposition}
 
 \begin{definition}[Generalized Central factorial numbers of the second kind]
   For integers $0 \leq k \leq m$, and an arbitrary integer $t$,
   \begin{align*}
-    T_t (m,k) = \frac{\delta^{k} t^m}{k!}.
+    T_t (m,k) = \frac{\delta^{k} t^m}{k!},
+  \end{align*}
+  defined by central Newton's formula for powers,
+  evaluated at arbitrary integer
+  $t$
+  \begin{align*}
+    n^m = \sum_{k=0}^{\infty} T_t(m,k) \centralFactorial{(n-t)}{k}.
   \end{align*}
 \end{definition}
 
@@ -280,6 +291,69 @@
   \end{align*}
 \end{proposition}
 
+\begin{lemma}[Multifold sum of zero powers]
+  \label{prop:multifold-sum-of-zero-powers}
+  For integers $r \geq 0$ and $n\geq 1$
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{0} = \binom{r+n-1}{r}
+  \end{align*}
+  \begin{proof}
+    \begin{enumerate}
+      \item Let $r=0$, then $\KnuthRFoldSum{0}{n}{0}=n^0=\binom{n-1}{0} = 1$,
+        by definition~\eqref{prop:multifold-sums-of-powers-recurrence}.
+      \item Let $r=1$, then
+        $\KnuthRFoldSum{1}{n}{0}
+        = \sum_{k=1}^{n} \binom{k-1}{0}
+        = \sum_{k=1}^{n} 1 = \binom{n}{1}$.
+      \item Let $r=2$, then
+        $\KnuthRFoldSum{2}{n}{0}= \sum_{k=1}^{n} \binom{k}{1}
+        = \sum_{k=1}^{n} k = \binom{n+1}{2}$.
+      \item Let $r=3$, then
+        $\KnuthRFoldSum{3}{n}{0}
+        = \sum_{k=1}^{n} \binom{k+1}{2}
+        = \binom{n+2}{3}$.
+      \item By induction over $r$ and hockey stick identity
+        $\sum_{k=r}^{n} \binom{k}{r} = \binom{n+1}{r+1}$,
+        the claim follows
+        $\KnuthRFoldSum{r}{n}{0} = \binom{r+n-1}{r}$.
+    \end{enumerate}
+  \end{proof}
+\end{lemma}
+
+\begin{proposition}[Multifold binomial sums of powers]
+  \label{prop:multifold-binomial-sums-of-powers}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    &= \frac{1}{2} \sum_{k=0}^{m}
+    \Bigg \{
+      \binom{n-t+\frac{k}{2}+r}{k+r} + \binom{n-t+\frac{k}{2}+r-1}{k+r} \\
+      &-
+      \sum_{s=0}^{r-1}
+      \left[
+        \binom{r-s-t+\frac{k}{2}}{k+r-s} + \binom{r-1-s-t+\frac{k}{2}}{k+r-s}
+      \right] \binom{s+n-1}{s}
+    \Bigg \} \delta^{k} t^m
+  \end{align*}
+\end{proposition}
+
+\begin{proposition}[Multifold central factorial sums of powers]
+  \label{prop:multifold-central-factorial-sums-of-powers}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    &= \frac{1}{2} \sum_{k=0}^{m}
+    \Bigg \{
+      \binom{n-t+\frac{k}{2}+r}{k+r} + \binom{n-t+\frac{k}{2}+r-1}{k+r} \\
+      &-
+      \sum_{s=0}^{r-1}
+      \left[
+        \binom{r-s-t+\frac{k}{2}}{k+r-s} + \binom{r-1-s-t+\frac{k}{2}}{k+r-s}
+      \right] \binom{s+n-1}{s}
+    \Bigg \} k! T_t(m,k)
+  \end{align*}
+\end{proposition}
+
 \begin{definition}
   \begin{align*}
     R(n,t,k,r)
@@ -308,3 +382,11 @@
 \input{sections/formulas/03_example_double_sum_of_squares.tex}
 
 \input{sections/formulas/04_triple_sum_of_squares.tex}
+
+\begin{lemma}[Stirling form of Binomial]
+  For integers $n,k$
+  \begin{align*}
+    \binom{n}{k}
+    = \sum_{j=0}^{k} \frac{(-1)^{k-j}}{k!} \stirlingi{k}{j} n^j
+  \end{align*}
+\end{lemma}
