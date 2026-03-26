@@ -1,4 +1,4 @@
-# A novel formula for Sums of Powers using Central Factorials
+# A new formula for Sums of Powers using central Newton's interpolation
 
 ## Abstract
 
