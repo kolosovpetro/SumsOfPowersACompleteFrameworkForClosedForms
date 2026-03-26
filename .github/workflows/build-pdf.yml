@@ -18,15 +18,15 @@ jobs:
   build-pdf:
     uses: kolosovpetro/github-latex-template/.github/workflows/build-pdf-template.yml@main
     with:
-      file_name: 'ANovelFormulaForSumsOfPowersUsingCentralFactorials'
+      file_name: 'AFormulaForSumsOfPowersViaCentralNewtonsInterpolation'
       enable_patch_version: true
       enable_pandoc: true
       runs_on: 'ubuntu-latest'
       workflow_name: 'Build PDF'
       build_assets_path: |
-        src/ANovelFormulaForSumsOfPowersUsingCentralFactorials.tex
-        src/ANovelFormulaForSumsOfPowersUsingCentralFactorials.bbl
-        src/ANovelFormulaForSumsOfPowersUsingCentralFactorials.bib
+        src/AFormulaForSumsOfPowersViaCentralNewtonsInterpolation.tex
+        src/AFormulaForSumsOfPowersViaCentralNewtonsInterpolation.bbl
+        src/AFormulaForSumsOfPowersViaCentralNewtonsInterpolation.bib
         src/sections
         src/metadata
       working_directory_for_latex: 'src'
