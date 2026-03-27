@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-BeginPackage["ANovelFormulaForSumsOfPowersUsingCentralFactorials`"]
+BeginPackage["AFormulaForSumsOfPowersViaCentralNewtonsInterpolation`"]
 
 (*BEGIN: Definitions *)
 CentralDifference::usage=""
@@ -97,6 +97,8 @@ BinomialStirlingForm::usage=""
 R::usage=""
 
 MultifoldSumsOfPowersCompact::usage=""
+
+GeneralizedCentralFactorialNumbers::usage=""
 
 (*END: Definitions *)
 
@@ -337,8 +339,11 @@ R[n_, t_, k_, r_] :=
 MultifoldSumsOfPowersCompact[r_, n_, m_, t_] := 1/2 * Sum[R[n, t, k, r] * CentralDifference[t, m, k], {k, 0, m}];
 (*END: Definitions *)
 
+GeneralizedCentralFactorialNumbers[t_, n_, k_] := CentralDifference[t, n, k] / k!;
+
 End[ ]
 EndPackage[ ]
+
 
 
 
