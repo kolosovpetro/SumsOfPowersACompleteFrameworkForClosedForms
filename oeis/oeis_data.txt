@@ -8,8 +8,8 @@ Butzer, P. L., Schmidt, K., Stark, E. L., & Vogt, L. (1989). Central factorial n
 Riordan, J. (1968). Combinatorial identities (Vol. 217). Wiley New York.
 
 José L. Cereceda, <a href="https://arxiv.org/abs/2211.11648">Sums of powers of integers and generalized Stirling numbers of the second kind</a>, arXiv:2211.11648 [math.NT], 2022.
-Donald E. Knuth, <a href="https://arxiv.org/abs/math/9207222">Johann Faulhaber and Sums of Powers</a>, arXiv:9207222 [math.CA], 1992.
 M. W. Coffey and M. C. Lettington, <a href="https://arxiv.org/abs/1510.05402">On Fibonacci Polynomial Expressions for Sums of mth Powers, their implications for Faulhaber's Formula and some Theorems of Fermat</a>, arXiv:1510.05402 [math.NT], 2015.
+Donald E. Knuth, <a href="https://arxiv.org/abs/math/9207222">Johann Faulhaber and Sums of Powers</a>, arXiv:9207222 [math.CA], 1992.
 Petro Kolosov, <a href="https://doi.org/10.5281/zenodo.18096789">Sums of powers via central finite differences and Newton's formula</a>, Zenodo, 2026.
 
 Cf. A036969, A269945, A008957, A390029, A392337, A387597.
@@ -19,7 +19,7 @@ easy,tabl
 T[t_, n_, k_] := 1/ k!* Sum[(-1)^j * Binomial[k, j] * (t + k/2 - j)^n, {j, 0, k}]; Column[Table[T[1, 2 n, 2 k], {n, 0, 8}, {k, 0, n}]]
 
 Triangle begins:
-  k=    0 1       2        3        4        5       6      7    8
+  k=    0  1      2        3        4        5       6      7    8
   ------------------------------------------------------------------
   n=0:  1;
   n=1:  1, 1;
@@ -39,7 +39,7 @@ Let F(t, n, k) be generalized central factorial numbers of the second kind:
   F(t,n,k) = (δ^k t^n)/k! 
            = 1/ (2k)! * Sum_{j=0..2k} (-1)^j * binomial(2k,j) * (t+k-j)^(2n),
 then:
-F(0,2n,2k) = A269945(n,k) = A387597(n,k)/k!
+F(0,2n,2k) = A269945(n,k) = A387597(n,k)/k!;
 F(1,2n,2k) = A392337(n,k)/k! = T(n,k) (this sequence);
 F(2,2n,2k) = A390029(n,k)/k!
 
