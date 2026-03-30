@@ -297,23 +297,27 @@
   \end{align*}
   \begin{proof}
     \begin{enumerate}
-      \item Let $r=0$, then $\KnuthRFoldSum{0}{n}{0}=n^0=\binom{n-1}{0} = 1$,
-        by definition~\eqref{prop:multifold-sums-of-powers-recurrence}.
-      \item Let $r=1$, then
+      \item Let $r=0$, then we have $\KnuthRFoldSum{0}{n}{0} = 1$,
+        by definition~\eqref{def:multifold-sums-of-powers-recurrence}.
+      \item Let $r=1$, then we have
         $\KnuthRFoldSum{1}{n}{0}
-        = \sum_{k=1}^{n} \binom{k-1}{0}
         = \sum_{k=1}^{n} 1 = \binom{n}{1}$.
-      \item Let $r=2$, then
-        $\KnuthRFoldSum{2}{n}{0}= \sum_{k=1}^{n} \binom{k}{1}
-        = \sum_{k=1}^{n} k = \binom{n+1}{2}$.
-      \item Let $r=3$, then
+      \item Let $r=2$, then we have
+        $\KnuthRFoldSum{2}{n}{0}
+        = \sum_{k=1}^{n} \binom{k}{1}
+        % = \sum_{k=1}^{n} k
+        = \binom{n+1}{2}$.
+      \item Let $r=3$, then we have
         $\KnuthRFoldSum{3}{n}{0}
         = \sum_{k=1}^{n} \binom{k+1}{2}
         = \binom{n+2}{3}$.
-      \item By induction over $r$ and hockey stick identity
-        $\sum_{k=r}^{n} \binom{k}{r} = \binom{n+1}{r+1}$,
-        the claim follows
-        $\KnuthRFoldSum{r}{n}{0} = \binom{r+n-1}{r}$.
+      \item Similarly, for arbitrary $r$, by hockey stick identity
+        $\sum_{k=1}^{n} \binom{k}{r} = \binom{n+1}{r+1}$,
+        thus, the claim follows
+        $\KnuthRFoldSum{r}{n}{0}
+        =  \sum_{k=1}^{n} \KnuthRFoldSum{r-1}{k}{0}
+        =  \sum_{k=1}^{n} \binom{k+r-2}{r-1}
+        = \binom{r+n-1}{r}$.
     \end{enumerate}
   \end{proof}
 \end{lemma}
