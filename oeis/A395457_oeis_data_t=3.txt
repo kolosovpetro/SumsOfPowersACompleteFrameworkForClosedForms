@@ -1,0 +1,45 @@
+================================================== T=3 ==================================================
+
+Triangle read by rows: T(n,k) = (1/(2k)!) * Sum_{j=0..2k} (-1)^j * binomial(2k,j) * (3+k-j)^(2n).
+
+1, 9, 1, 81, 55, 1, 729, 1351, 140, 1, 6561, 26335, 6951, 266, 1, 59049, 465751, 246730, 22827, 435, 1, 531441, 7859215, 7508501, 1323652, 58542, 649, 1, 4782969, 129442951, 210766920, 63436373, 5146570, 128128, 910, 1, 43046721, 2104469695, 5652751651, 2734926558, 364558623, 16169582, 250978, 1220, 1
+
+Butzer, P. L., Schmidt, K., Stark, E. L., & Vogt, L. (1989). Central factorial numbers; their main properties and some applications. Numerical Functional Analysis and Optimization, 10(5–6), 419–488.
+Riordan, J. (1968). Combinatorial identities (Vol. 217). Wiley New York.
+
+José L. Cereceda, <a href="https://arxiv.org/abs/2211.11648">Sums of powers of integers and generalized Stirling numbers of the second kind</a>, arXiv:2211.11648 [math.NT], 2022.
+M. W. Coffey and M. C. Lettington, <a href="https://arxiv.org/abs/1510.05402">On Fibonacci Polynomial Expressions for Sums of m-th Powers, their implications for Faulhaber's Formula and some Theorems of Fermat</a>, arXiv:1510.05402 [math.NT], 2015.
+Donald E. Knuth, <a href="https://arxiv.org/abs/math/9207222">Johann Faulhaber and Sums of Powers</a>, arXiv:math/9207222 [math.CA], 1992.
+Petro Kolosov, <a href="https://doi.org/10.5281/zenodo.18096789">Sums of powers via central finite differences and Newton's formula</a>, Zenodo, 2026.
+
+Cf. A036969, A269945, A008957, A390029, A392337, A387597, A394692, A395456.
+
+easy,tabl
+
+T[t_, n_, k_] := 1/ k!* Sum[(-1)^j * Binomial[k, j] * (t + k/2 - j)^n, {j, 0, k}]; Column[Table[T[3, 2 n, 2 k], {n, 0, 10}, {k, 0, n}]]
+
+Triangle begins:
+  k=    0        1         2         3         4      5      6
+  ----------------------------------------------------------------
+  n=0:  1;
+  n=1:  9,       1;
+  n=2:  81,      55,       1;
+  n=3:  729,     1351,     140,      1;
+  n=4:  6561,    26335,    6951,     266,     1;
+  n=5:  59049,   465751,   246730,   22827,   435,   1;
+  n=6:  531441,  7859215,  7508501,  1323652, 58542, 649,   1;
+  ...
+
+
+FORMULA
+
+Central factorial numbers of the second kind F(n,k) are defined by k-th central difference of power n, evaluated at zero, divided by k!: F(n,k) = (delta^k 0^n)/k!.
+Let F(t, n, k) be generalized central factorial numbers of the second kind:
+  F(t,n,k) = (delta^k t^n)/k!
+           = (1/ (2k)!) * Sum_{j=0..2k} (-1)^j * binomial(2k,j) * (t+k-j)^(2n),
+then:
+F(0,2n,2k) = A387597(n,k)/k! = A269945(n,k);
+F(1,2n,2k) = A392337(n,k)/k! = A394692(n,k);
+F(2,2n,2k) = A390029(n,k)/k! = A395456(n,k);
+F(3,2n,2k) = T(n,k) (this sequence);
+G.f. for T(n,k) is centered Newton's polynomial for f(s) = s^(2n): s^(2n) = Sum_{k=0..2n} T(2n,k) (s-3)^[k], where (s-3)^[k] are central factorials.
