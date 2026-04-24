@@ -1,0 +1,49 @@
+\begin{lemma}[Multifold sum of zero powers]
+  \label{prop:multifold-sum-of-zero-powers}
+  For integers $r \geq 0$ and $n\geq 1$
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{0} = \binom{r+n-1}{r}
+  \end{align*}
+  \begin{proof}
+    \begin{enumerate}
+      \item Let $r=0$, then we have $\KnuthRFoldSum{0}{n}{0} = 1$,
+        by definition~\eqref{def:multifold-sums-of-powers-recurrence}.
+      \item Let $r=1$, then we have
+        $\KnuthRFoldSum{1}{n}{0}
+        = \sum_{k=1}^{n} 1 = \binom{n}{1}$.
+      \item Let $r=2$, then we have
+        $\KnuthRFoldSum{2}{n}{0}
+        = \sum_{k=1}^{n} \binom{k}{1}
+        % = \sum_{k=1}^{n} k
+        = \binom{n+1}{2}$.
+      \item Let $r=3$, then we have
+        $\KnuthRFoldSum{3}{n}{0}
+        = \sum_{k=1}^{n} \binom{k+1}{2}
+        = \binom{n+2}{3}$.
+      \item Similarly, for arbitrary $r$, by hockey stick identity
+        $\sum_{k=1}^{n} \binom{k}{r} = \binom{n+1}{r+1}$,
+        thus, the claim follows
+        $\KnuthRFoldSum{r}{n}{0}
+        =  \sum_{k=1}^{n} \KnuthRFoldSum{r-1}{k}{0}
+        =  \sum_{k=1}^{n} \binom{k+r-2}{r-1}
+        = \binom{r+n-1}{r}$.
+    \end{enumerate}
+  \end{proof}
+\end{lemma}
+
+\begin{proposition}[Multifold binomial sums of powers]
+  \label{prop:multifold-binomial-sums-of-powers}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    &= \frac{1}{2} \sum_{k=0}^{m}
+    \Bigg \{
+      \binom{n-t+\frac{k}{2}+r}{k+r} + \binom{n-t+\frac{k}{2}+r-1}{k+r} \\
+      &-
+      \sum_{s=0}^{r-1}
+      \left[
+        \binom{r-s-t+\frac{k}{2}}{k+r-s} + \binom{r-1-s-t+\frac{k}{2}}{k+r-s}
+      \right] \binom{s+n-1}{s}
+    \Bigg \} \delta^{k} t^m
+  \end{align*}
+\end{proposition}

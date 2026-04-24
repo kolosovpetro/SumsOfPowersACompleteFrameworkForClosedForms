@@ -1,0 +1,47 @@
+\begin{proposition}[Ordinary sums of powers]
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{1}{n}{m} = \frac{1}{2} \sum_{k=0}^{m} \delta^{k} t^m
+    \sum_{j=1}^{n}
+    \left[
+      \binom{j-t+\frac{k}{2}}{k} + \binom{j-t+\frac{k}{2}-1}{k}
+    \right]
+  \end{align*}
+\end{proposition}
+
+\begin{proposition}[Ordinary sums of powers decomposition]
+  \label{prop:ordinary-sums-of-powers-decomposition}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{1}{n}{m} = \frac{1}{2} \sum_{k=0}^{m}
+    \left[
+      \binom{n -t + \frac{k}{2} +1}{k+1} - \binom{1 -t + \tfrac{k}{2}}{k+1}
+      + \binom{n -t + \frac{k}{2}}{k+1} - \binom{-t + \tfrac{k}{2}}{k+1}
+    \right] \delta^{k} t^m
+  \end{align*}
+\end{proposition}
+
+\begin{proposition}[Central factorial numbers sums]
+  \label{prop:central-factorial-numbers-sums}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{1}{n}{m} = \frac{1}{2} \sum_{k=0}^{m}
+    \left[
+      \binom{n + \frac{k}{2} +1}{k+1} - \binom{1 + \tfrac{k}{2}}{k+1}
+      + \binom{n + \frac{k}{2}}{k+1} - \binom{\tfrac{k}{2}}{k+1}
+    \right] k! T(m,k),
+  \end{align*}
+  where $T(n,k)=\frac{\delta^{k} 0^m}{k!}$ denote Central factorial numbers of the second kind
+  (in Riordan's notation, see~\cite[p. 213]{riordan1968combinatorial},
+  and~\cite{carlitz1963divided}.),
+  defined by central Newton's formula for powers,
+  evaluated in
+  $t=0$
+  \begin{align*}
+    n^m = \sum_{k=0}^{\infty} T(m,k) \centralFactorial{n}{k}.
+  \end{align*}
+\end{proposition}
+
+\input{sections/formulas/01_example_sum_of_squares.tex}
+
+\input{sections/formulas/02_example_sum_of_cubes.tex}
