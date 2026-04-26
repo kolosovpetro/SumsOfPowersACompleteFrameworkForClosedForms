@@ -20,7 +20,7 @@ jobs:
     with:
       file_name: 'AFormulaForSumsOfPowersViaCentralNewtonsInterpolation'
       enable_patch_version: true
-      enable_pandoc: true
+      enable_pandoc: false
       runs_on: 'ubuntu-latest'
       workflow_name: 'Build PDF'
       build_assets_path: |

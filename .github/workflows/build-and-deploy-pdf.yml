@@ -17,7 +17,7 @@ jobs:
     with:
       file_name: 'AFormulaForSumsOfPowersViaCentralNewtonsInterpolation'
       enable_patch_version: true
-      enable_pandoc: true
+      enable_pandoc: false
       enable_html_deploy: true
       html_deploy_path: 'math/test'
       runs_on: 'ubuntu-latest'
