@@ -1,17 +1,14 @@
-\begin{proposition}
-  {\normalfont
-  (Central Newton's formula \cite[p.~462]{butzer1989central}).}
-  For arbitrary integers $x$, and $t$
-  \label{prop:newtons-interpolation-formula-in-central-differences}
+\begin{definition} [Multifold sums of powers]
+  \label{def:multifold-sums-of-powers-recurrence}
+  For non-negative integers $r,n,m$
   \begin{align*}
-    f(x)
-    = \sum_{k=0}^{\infty} \frac{\centralFactorial{(x-t)}{k}}{k!} \delta^{k} f(t),
+    \KnuthRFoldSum{0}{n}{m}   &= n^m, \\
+    \KnuthRFoldSum{1}{n}{m}   &= \KnuthRFoldSum{0}{1}{m}
+    + \KnuthRFoldSum{0}{2}{m} + \cdots + \KnuthRFoldSum{0}{n}{m}, \\
+    \KnuthRFoldSum{r+1}{n}{m} &= \KnuthRFoldSum{r}{1}{m}
+    + \KnuthRFoldSum{r}{2}{m} + \cdots + \KnuthRFoldSum{r}{n}{m}.
   \end{align*}
-  where $\delta^{k} f(t)$ denotes central finite difference
-  \begin{align*}
-    \delta^{k} f(t) = \tsum_{j=0}^{k} (-1)^j \tbinom{k}{j} f(t+\tfrac{k}{2} - j).
-  \end{align*}
-\end{proposition}
+\end{definition}
 
 \begin{definition}[Central factorials]
   \label{def:central-factorials}
