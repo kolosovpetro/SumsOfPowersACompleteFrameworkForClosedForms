@@ -1,3 +1,21 @@
+\begin{proposition}
+  {\normalfont
+  (Central Newton's formula \cite[p.~462]{butzer1989central}).}
+  For a function $f$ defined on integers and arbitrary integers $x,t$
+  \label{prop:newtons-interpolation-formula-in-central-differences}
+  \begin{align*}
+    f(x)
+    = \sum_{k=0}^{\infty} \frac{\centralFactorial{(x-t)}{k}}{k!} \delta^{k} f(t),
+  \end{align*}
+  where $\delta^{k} f(t)$ denotes the $k$-th central finite difference
+  \begin{align*}
+    \delta^{k} f(t) = \tsum_{j=0}^{k} (-1)^j \tbinom{k}{j} f\!\left(t+\tfrac{k}{2} - j\right),
+  \end{align*}
+  and $\centralFactorial{(x-t)}{k}$ are central factorials
+  defined by~\eqref{def:central-factorials}.
+\end{proposition}
+
+
 \begin{lemma}[Newton's formula for powers]
   \label{prop:newtons-formula-for-powers}
   For integers $n,m \geq 0$, and an arbitrary integer $t$,

@@ -10,6 +10,9 @@
   "editor.fontLigatures": true,
   "editor.lineHeight": 1.6,
   "editor.letterSpacing": 0.2,
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.list.openMode": "doubleClick",
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 1000,
   "[latex]": {
