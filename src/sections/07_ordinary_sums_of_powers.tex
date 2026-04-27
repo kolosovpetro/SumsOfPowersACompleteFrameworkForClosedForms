@@ -5,7 +5,7 @@
     \sum_{j=1}^{n}
     \left[
       \binom{j-t+\frac{k}{2}}{k} + \binom{j-t+\frac{k}{2}-1}{k}
-    \right]
+    \right].
   \end{align*}
 \end{proposition}
 
@@ -17,10 +17,17 @@
     \left[
       \binom{n -t + \frac{k}{2} +1}{k+1} - \binom{1 -t + \tfrac{k}{2}}{k+1}
       + \binom{n -t + \frac{k}{2}}{k+1} - \binom{-t + \tfrac{k}{2}}{k+1}
-    \right] \delta^{k} t^m
+    \right] \delta^{k} t^m.
   \end{align*}
 \end{proposition}
+For example,
+\input{sections/examples/01_example_sum_of_squares.tex}
 
+\input{sections/examples/02_example_sum_of_cubes.tex}
+
+It is indeed interesting to notice the connection between
+the Proposition~\eqref{prop:ordinary-sums-of-powers-decomposition},
+and Riordan's central factorial numbers of the second kind, that is
 \begin{proposition}[Central factorial numbers sums]
   \label{prop:central-factorial-numbers-sums}
   For integers $n,m \geq 0$, and an arbitrary integer $t$,
@@ -31,17 +38,21 @@
       + \binom{n + \frac{k}{2}}{k+1} - \binom{\tfrac{k}{2}}{k+1}
     \right] k! T(m,k),
   \end{align*}
-  where $T(n,k)=\frac{\delta^{k} 0^m}{k!}$ denote Central factorial numbers of the second kind
+  where $T(n,k)$ denotes the central factorial numbers
+  of the second kind
   (in Riordan's notation, see~\cite[p. 213]{riordan1968combinatorial},
-  and~\cite{carlitz1963divided}.),
-  defined by central Newton's formula for powers,
-  evaluated in
-  $t=0$
-  \begin{align*}
-    n^m = \sum_{k=0}^{\infty} T(m,k) \centralFactorial{n}{k}.
-  \end{align*}
+  and~\cite{carlitz1963divided}).
 \end{proposition}
-
-\input{sections/examples/01_example_sum_of_squares.tex}
-
-\input{sections/examples/02_example_sum_of_cubes.tex}
+These central factorial numbers $T(n,k)$ are
+defined by centered Newton's formula for
+powers~\eqref{prop:newtons-formula-for-powers}
+evaluated in zero, such that
+\begin{align*}
+  n^m = \sum_{k=0}^{\infty} T(m,k) \centralFactorial{n}{k}.
+\end{align*}
+It is also quite clear that
+\begin{align*}
+  T(n,k) = \frac{\delta^{k} 0^m}{k!},
+\end{align*}
+by Newton's
+formula~\eqref{prop:newtons-formula-for-powers}.

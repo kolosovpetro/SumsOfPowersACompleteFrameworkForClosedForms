@@ -1,4 +1,12 @@
-\begin{lemma}[Binomial form of central factorials]
+\begin{lemma}[Newton's formula for powers]
+  \label{prop:newtons-formula-for-powers}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    n^m = \sum_{k=0}^{m} \frac{\centralFactorial{(n-t)}{k}}{k!} \delta^{k} t^m.
+  \end{align*}
+\end{lemma}
+
+\begin{lemma}[Central factorials binomial form]
   \label{lem:binomial-form-of-central-factorials}
   For integers $n$ and $k \geq 1$,
   \begin{align*}
@@ -18,7 +26,7 @@
   \end{proof}
 \end{lemma}
 
-\begin{lemma}[Halved central factorials]
+\begin{lemma}[Central factorials binomial form decomposition]
   \label{lem:halved-central-factorials}
   For integers $n,k\geq 0$,
   \begin{align*}
@@ -53,25 +61,18 @@
   \end{proof}
 \end{lemma}
 
-\begin{proposition}[Central Newton's formula for powers]
-  \label{prop:newtons-formula-for-powers}
-  For integers $n,m \geq 0$, and an arbitrary integer $t$,
-  \begin{align*}
-    n^m = \sum_{k=0}^{m} \frac{\centralFactorial{(n-t)}{k}}{k!} \delta^{k} t^m.
-  \end{align*}
-\end{proposition}
-\begin{proposition}[Halved central factorial powers]
+\begin{lemma}[Newton's formula for powers decomposition]
   \label{prop:halved-central-factorial-powers}
   For integers $n,m \geq 0$, and an arbitrary integer $t$,
   \begin{align*}
     n^m = \frac{1}{2} \sum_{k=0}^{m}
     \left[
       \binom{n-t+\frac{k}{2}}{k} + \binom{n-t+\frac{k}{2}-1}{k}
-    \right] \delta^{k} t^m
+    \right] \delta^{k} t^m.
   \end{align*}
-\end{proposition}
+\end{lemma}
 
-\begin{proposition}[Generalized hockey-stick identity]
+\begin{lemma}[Generalized hockey-stick identity]
   \label{prop:generalized-hockey-stick-identity}
   For integers $a,b$ and $j$,
   \begin{align*}
@@ -90,7 +91,7 @@
     \end{align*}
     This completes the proof.
   \end{proof}
-\end{proposition}
+\end{lemma}
 
 \begin{lemma}[Centered hockey-stick identity]
   \label{lem:centered-hockey-stick-identity}
