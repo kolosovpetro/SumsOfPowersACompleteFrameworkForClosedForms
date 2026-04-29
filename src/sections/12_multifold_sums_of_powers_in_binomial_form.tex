@@ -20,9 +20,9 @@
         $\KnuthRFoldSum{3}{n}{0}
         = \sum_{k=1}^{n} \binom{k+1}{2}
         = \binom{n+2}{3}$.
-      \item Similarly, for arbitrary $r$, by hockey stick identity
+      \item Similarly, for arbitrary integer $r$, by hockey stick identity
         $\sum_{k=1}^{n} \binom{k}{r} = \binom{n+1}{r+1}$,
-        thus, the claim follows
+        yields
         $\KnuthRFoldSum{r}{n}{0}
         =  \sum_{k=1}^{n} \KnuthRFoldSum{r-1}{k}{0}
         =  \sum_{k=1}^{n} \binom{k+r-2}{r-1}
