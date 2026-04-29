@@ -100,6 +100,8 @@ MultifoldSumsOfPowersCompact::usage=""
 
 GeneralizedCentralFactorialNumbers::usage=""
 
+CentralFactorialsBinomialFormDecomposition::usage="Validates lem:central-factorials-binomial-form-decomposition."
+
 (*END: Definitions *)
 
 (* =========================================================================DOCS END=================================================================== *)
@@ -340,6 +342,8 @@ MultifoldSumsOfPowersCompact[r_, n_, m_, t_] := 1/2 * Sum[R[n, t, k, r] * Centra
 (*END: Definitions *)
 
 GeneralizedCentralFactorialNumbers[t_, n_, k_] := CentralDifference[t, n, k] / k!;
+
+CentralFactorialsBinomialFormDecomposition[max_] := ValidateHalvedCentralBinomials[max];
 
 End[ ]
 EndPackage[ ]
