@@ -43,6 +43,6 @@ Let F(t, n, k) be generalized central factorial numbers of the second kind: F(t,
   F(3,2n,2k) = A395457(n,k);
   numerators(F(0,n,k)) = <TO_UPDATE>;
   denominators(F(0,n,k)) = A370703(n,k);
-  numerators(F(1,n,k)) = <TO_UPDATE>;
+  numerators(F(1,n,k)) = T(n,k) (this sequence);
   denominators(F(1,n,k)) = <TO_UPDATE>.
 G.f. for CF(n,k) is centered Newton's polynomial for f(s) = s^(n): s^(n) = Sum_{k=0..n} T(n,k) (s-1)^[k], where (s-1)^[k] are central factorials.
