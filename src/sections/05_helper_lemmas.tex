@@ -1,8 +1,8 @@
-\begin{proposition}
-  {\normalfont
-  (Central Newton's formula \cite[p.~462]{butzer1989central}).}
+\begin{lemma}[Central Newton's formula]
+  % {\normalfont
+  % (Central Newton's formula \cite[p.~462]{butzer1989central}).}
   For a function $f$ defined on integers and arbitrary integers $x,t$
-  \label{prop:newtons-interpolation-formula-in-central-differences}
+  \label{lem:centra-newtons-formula}
   \begin{align*}
     f(x)
     = \sum_{k=0}^{\infty} \frac{\centralFactorial{(x-t)}{k}}{k!} \delta^{k} f(t),
@@ -13,11 +13,15 @@
   \end{align*}
   and $\centralFactorial{(x-t)}{k}$ are central factorials
   defined by~\eqref{def:central-factorials}.
-\end{proposition}
+  \begin{proof}
+    See~\cite[p.~462]{butzer1989central}, and~\cite[section 2, eq. (19)]{steffensen1927interpolation},
+    and~\cite[section 6, eq. (21)]{riordan1968combinatorial}.
+  \end{proof}
+\end{lemma}
 
 
 \begin{lemma}[Newton's formula for powers]
-  \label{prop:newtons-formula-for-powers}
+  \label{lem:central-newtons-formula-for-powers}
   For integers $n,m \geq 0$, and an arbitrary integer $t$,
   \begin{align*}
     n^m = \sum_{k=0}^{m} \frac{\centralFactorial{(n-t)}{k}}{k!} \delta^{k} t^m.
@@ -25,7 +29,7 @@
 \end{lemma}
 
 \begin{lemma}[Central factorials binomial form]
-  \label{lem:binomial-form-of-central-factorials}
+  \label{lem:central-factorials-binomial-form}
   For integers $n$ and $k \geq 1$,
   \begin{align*}
     \frac{\centralFactorial{n}{k}}{k!}
@@ -45,7 +49,7 @@
 \end{lemma}
 
 \begin{lemma}[Central factorials binomial form decomposition]
-  \label{lem:halved-central-factorials}
+  \label{lem:central-factorials-binomial-form-decomposition}
   For integers $n,k\geq 0$,
   \begin{align*}
     \frac{\centralFactorial{n}{k}}{k!}
@@ -80,7 +84,7 @@
 \end{lemma}
 
 \begin{lemma}[Newton's formula for powers decomposition]
-  \label{prop:halved-central-factorial-powers}
+  \label{lem:central-newtons-formula-for-powers-decomposition}
   For integers $n,m \geq 0$, and an arbitrary integer $t$,
   \begin{align*}
     n^m = \frac{1}{2} \sum_{k=0}^{m}
@@ -91,7 +95,7 @@
 \end{lemma}
 
 \begin{lemma}[Generalized hockey-stick identity]
-  \label{prop:generalized-hockey-stick-identity}
+  \label{lem:generalized-hockey-stick-identity}
   For integers $a,b$ and $j$,
   \begin{align*}
     \sum_{k=a}^{b} \binom{k}{j} = \binom{b+1}{j+1} - \binom{a}{j+1}.
@@ -124,7 +128,7 @@
       \tsum_{j=1}^{n} \tbinom{j -t + \tfrac{k}{2} +r}{k} =
       \tsum_{j=1 -t + \tfrac{k}{2} +r}^{n -t + \tfrac{k}{2} +r} \tbinom{j}{k}.
     \end{align*}
-    By generalized hockey-stick identity~\eqref{prop:generalized-hockey-stick-identity},
+    By generalized hockey-stick identity~\eqref{lem:generalized-hockey-stick-identity},
     \begin{align*}
       \tsum_{j=1 -t + \tfrac{k}{2} +r}^{n -t + \tfrac{k}{2} +r} \tbinom{j}{k}
       = \tbinom{n -t + \tfrac{k}{2} + r +1}{k+1} - \tbinom{1 -t + \tfrac{k}{2} +r}{k+1}.
