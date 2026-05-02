@@ -43,6 +43,7 @@ tests
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
+*Copy.pdf
 
 ## Build tool directories for auxiliary files
 # latexrun

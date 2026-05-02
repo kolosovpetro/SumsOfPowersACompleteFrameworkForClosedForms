@@ -123,16 +123,12 @@
     = \binom{n -t + \frac{k}{2} + r +1}{k+1} - \binom{1 -t + \tfrac{k}{2} +r}{k+1}.
   \end{align*}
   \begin{proof}
-    By setting $j=1 -t + \tfrac{k}{2} +r$, and $b=n-t+ \tfrac{k}{2} +r$ yields
+    By setting $a=1 -t + \tfrac{k}{2} +r$, and $b=n-t+ \tfrac{k}{2} +r$
+    into Lemma~\eqref{lem:generalized-hockey-stick-identity} yields
     \begin{align*}
       \tsum_{j=1}^{n} \tbinom{j -t + \tfrac{k}{2} +r}{k} =
-      \tsum_{j=1 -t + \tfrac{k}{2} +r}^{n -t + \tfrac{k}{2} +r} \tbinom{j}{k}.
-    \end{align*}
-    By generalized hockey-stick identity~\eqref{lem:generalized-hockey-stick-identity},
-    \begin{align*}
       \tsum_{j=1 -t + \tfrac{k}{2} +r}^{n -t + \tfrac{k}{2} +r} \tbinom{j}{k}
       = \tbinom{n -t + \tfrac{k}{2} + r +1}{k+1} - \tbinom{1 -t + \tfrac{k}{2} +r}{k+1}.
     \end{align*}
-    Thus, the claim follows.
   \end{proof}
 \end{lemma}
