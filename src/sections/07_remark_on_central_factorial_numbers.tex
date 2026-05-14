@@ -1,0 +1,53 @@
+In~\cite{knuth1993johann} Donald Knuth gives a remarkable formula for
+sums of odd powers
+\begin{proposition}[Knuth's odd powers sum]
+  \label{prop:knuth-odd-powers-sum}
+  For non-negative integers $n,m$
+  \begin{align*}
+    \KnuthRFoldSum{1}{n}{2m-1} = \sum_{k=1}^{m} (2k-1)! T(2m,2k) \binom{n+k}{2k},
+  \end{align*}
+  where $T(2m,2k)$ are central factorial numbers of the second kind.
+\end{proposition}
+It is quite interesting to notice that Proposition~\eqref{prop:knuth-odd-powers-sum}
+originates from centered
+Newton's formula for powers~\eqref{lem:central-newtons-formula-for-powers}
+evaluated at zero.
+By Newton's formula, we have
+\begin{align*}
+  n^{2m} = \sum_{k=0}^{2m} \frac{\centralFactorial{n}{k}}{k!} \cdot \delta^{k} 0^{2m}
+\end{align*}
+The iteration for $k=0$ can be omitted because $\delta^{0} 0^{2m} = 0$.
+Next, we observe that $\delta^{k} 0^{2m} = 0$ for every odd $k$, thus
+\begin{align*}
+  n^{2m} = \sum_{k=1}^{m} \frac{\centralFactorial{n}{2k}}{(2k)!} \cdot \delta^{2k} 0^{2m}.
+\end{align*}
+By definition of central factorial numbers of the second kind, yields
+\begin{align*}
+  n^{2m} = \sum_{k=1}^{m} \centralFactorial{n}{2k} T(2m,2k).
+\end{align*}
+By applying identity~\eqref{lem:central-factorials-binomial-form}, we get
+\begin{align*}
+  n^{2m}
+  = \sum_{k=1}^{m} \frac{(2k)!}{(2k)!} \centralFactorial{n}{2k} T(2m,2k)
+  &= \sum_{k=1}^{m} (2k)!  \frac{n}{2k} \binom{n+k-1}{2k-1} T(2m,2k) \\
+  &= \sum_{k=1}^{m} (2k-1)!  n \binom{n+k-1}{2k-1} T(2m,2k).
+\end{align*}
+By factoring out $n$, we obtain
+\begin{align*}
+  n^{2m-1}
+  &= \sum_{k=1}^{m} (2k-1)! \binom{n+k-1}{2k-1} T(2m,2k).
+\end{align*}
+By hockey stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$ yields
+\begin{align*}
+  \KnuthRFoldSum{1}{n}{2m-1} = \sum_{k=1}^{m} (2k-1)! \binom{n+k}{2k} T(2m,2k),
+\end{align*}
+which is exactly the Proposition~\eqref{prop:knuth-odd-powers-sum}.
+Clearly, sum of odd powers above can be generalized to multifold case,
+by applying hockey stick pattern repeatedly
+\begin{proposition}[Knuth's odd powers sum multifold]
+  For non-negative integers $r,n,m$
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{2m-1} = \sum_{k=1}^{m} (2k-1)! T(2m,2k) \binom{n+k-1+r}{2k-1+r},
+  \end{align*}
+  where $T(2m,2k)$ are central factorial numbers of the second kind.
+\end{proposition}
