@@ -47,7 +47,8 @@ by applying hockey stick pattern repeatedly
 \begin{proposition}[Knuth's odd powers sum multifold]
   For non-negative integers $r,n,m$
   \begin{align*}
-    \KnuthRFoldSum{r}{n}{2m-1} = \sum_{k=1}^{m} (2k-1)! T(2m,2k) \binom{n+k-1+r}{2k-1+r},
+    \KnuthRFoldSum{r+1}{n}{2m-1}
+    = \sum_{k=1}^{m} (2k-1)! \binom{n+k+r}{2k+r} T(2m,2k),
   \end{align*}
   where $T(2m,2k)$ are central factorial numbers of the second kind.
 \end{proposition}
