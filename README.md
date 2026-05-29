@@ -6,6 +6,23 @@
 - Best compatible with JetBrains Rider 2024.3.8 Build #RD-243.26574.73, built on May 18, 2025.
 - Plugin: https://plugins.jetbrains.com/plugin/9473-texify-idea
 
+## Related OEIS sequences
+
+- https://oeis.org/A036969
+- https://oeis.org/A269945
+- https://oeis.org/A008957
+- https://oeis.org/A395862
+- https://oeis.org/A370703
+- https://oeis.org/A395860
+- https://oeis.org/A395861
+- https://oeis.org/A394466
+- https://oeis.org/A395314
+- https://oeis.org/A396559
+- https://oeis.org/A269945
+- https://oeis.org/A394692
+- https://oeis.org/A395456
+- https://oeis.org/A395457
+
 
 ## Metadata
 
