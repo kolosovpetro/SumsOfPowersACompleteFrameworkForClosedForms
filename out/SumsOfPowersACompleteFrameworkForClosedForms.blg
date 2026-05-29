@@ -5,9 +5,12 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: unsrt.bst
 Reallocating 'name_of_file' (item size: 1) to 49 items.
 Database file #1: SumsOfPowersACompleteFrameworkForClosedForms.bib
+Warning--I didn't find a database entry for "Bohner2001DynamicEO"
+Warning--I didn't find a database entry for "jackson_1909"
+Warning--I didn't find a database entry for "kolosov_2025_18098442"
 You've used 7 entries,
             1791 wiz_defined-function locations,
-            499 strings with 5129 characters,
+            503 strings with 5200 characters,
 and the built_in function-call counts, 1433 in all, are:
 = -- 139
 > -- 42
@@ -46,3 +49,4 @@ warning$ -- 0
 while$ -- 15
 width$ -- 8
 write$ -- 87
+(There were 3 warnings)

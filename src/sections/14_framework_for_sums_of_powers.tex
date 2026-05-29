@@ -1,0 +1,88 @@
+In this manuscript, we derive formulas for sums of powers by combining
+centered Newton's interpolation formula for powers
+\eqref{prop:newtons-interpolation-formula-for-powers}
+with hockey-stick identities
+\eqref{prop:generalized-hockey-stick-identity}
+and
+\eqref{lem:shifted-generalized-hockey-stick-identity}.
+
+This approach can be generalized further. In particular, one may replace
+classical finite difference operators with more general interpolation frameworks
+based on abstract operators $D$ and generalized binomial expressions $\binom{f(n)}{k}$.
+This allows us to go beyond linear difference operators such as $\Delta$, $\nabla$, or $\delta$.
+
+Such non-linear difference operators arise naturally in the theory of dynamic equations on time scales,
+developed by Bohner and Peterson in~\cite{Bohner2001DynamicEO}.
+In this setting, the notion of discrete change is encoded by a function $g(h)$ rather than a linear increment.
+A well-known example is Jackson’s $q$-derivative~\cite{jackson_1909}, defined by
+\begin{align*}
+  D_q f(x) = \frac{f(qx) - f(x)}{qx - x}.
+\end{align*}
+
+Motivated by this viewpoint, an abstract interpolation formula for powers may be written as
+\begin{align*}
+  n^m = \sum_{k} \binom{f(n)}{k}\, D(n^m, k),
+\end{align*}
+where $D(\cdot,k)$ represents a generalized difference functional.
+
+Consequently, one obtains a family of formulas for sums of powers of the form
+\begin{align*}
+  \KnuthRFoldSum{1}{n}{m}
+  = \sum_{k} D(n^m, k)\sum_{j \leq n} \binom{f(j)}{k}.
+\end{align*}
+
+Similarly, for multifold sums,
+\begin{align*}
+  \KnuthRFoldSum{r}{n}{m}
+  = \sum_{k} D(n^m, k)\binom{f(n+r)}{k}.
+\end{align*}
+
+Many interpolation schemes can be expressed in terms of factorial-type bases.
+In particular, rising and falling factorials are related to binomial coefficients via
+\begin{align*}
+  \frac{\fallingFactorial{x}{n}}{n!} &= \binom{x}{n}, \quad
+  \frac{\risingFactorial{x}{n}}{n!} = \binom{x+n-1}{n}, \\
+  \centralFactorial{x}{n} &= n \fallingFactorial{x+\frac{n}{2}-1}{n-1}.
+\end{align*}
+
+A notable example is Knuth’s formula for multifold sums of odd powers~\cite{knuth1993johann}:
+
+\begin{proposition}[Multifold sums of odd powers]
+  For non-negative integers $r,n,m$, we have
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{2m-1}
+    &= \sum_{k=1}^{m} \binom{n+k-1+r}{2k-1+r}
+    \frac{1}{2k}\,\delta^{2k} 0^{2m} \\
+    &= \sum_{k=1}^{m} \binom{n+k-1+r}{2k-1+r}
+    (2k-1)!\, T(2m, 2k),
+  \end{align*}
+  where $T(n,k)$ denotes the central factorial numbers of the second kind,
+  see~\cite[Section 58]{steffensen1927interpolation, carlitz1963divided}.
+\end{proposition}
+
+This identity follows from Newton’s central difference formula evaluated at zero
+(see~\cite{kolosov_2025_18098442}), together with the relation
+\begin{align*}
+  T(n,k)
+  = \frac{1}{k!}\delta^k 0^n
+  = \frac{1}{k!}\sum_{j=0}^{k} (-1)^j \binom{k}{j}
+  \left(\frac{k}{2}-j\right)^n.
+\end{align*}
+
+More generally, central factorial numbers satisfy the polynomial identity
+(see~\cite[Ch. 6.5, (24)]{riordan1968combinatorial})
+\begin{lemma}[Riordan power identity]
+  For integers $n,m \ge 0$,
+  \begin{align*}
+    n^m = \sum_{k=1}^{m} T(m,k)\,\centralFactorial{n}{k},
+  \end{align*}
+  where
+  \begin{align*}
+    \centralFactorial{n}{k}
+    = n \prod_{j=0}^{k-1}\left(n+\frac{k}{2}-j\right),
+    \quad \centralFactorial{n}{0}=1.
+  \end{align*}
+\end{lemma}
+
+The values $T(2n,2k)$ correspond to OEIS sequence
+\href{https://oeis.org/A008957}{A008957}~\cite{sloane2003line}.

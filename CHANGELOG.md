@@ -24,3 +24,4 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Proof of Knuth's odd powers sum
 - Add table references
 - Arrange OEIS files
+- Framework for sums initial update
