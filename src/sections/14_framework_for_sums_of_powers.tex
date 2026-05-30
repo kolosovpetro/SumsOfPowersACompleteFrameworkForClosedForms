@@ -64,12 +64,12 @@ where $a$ is an arbitrary integer, $D_g f(a)$ is dynamic difference operator,
 and $\generalizedFactorial{x}{\alpha, \beta}{n} $
 is generalized factorial which uses the combination of N\"orlund's notation~\cite{Norlund1924},
 and definition given by Steffensen~\cite{steffensen1933definition}
-\begin{proposition}[Generalized factorial] For non-negative integers $x,n,\alpha,\beta$
+\begin{definition}[Generalized factorial] For non-negative integers $x,n,\alpha,\beta$
   \label{prop:generalized-factorial}
   \begin{align*}
     \generalizedFactorial{x}{\alpha, \beta}{n} = x(x-n\alpha - \beta)(x-n\alpha - 2\beta)\cdots(x-n\alpha - n - I\beta).
   \end{align*}
-\end{proposition}
+\end{definition}
 For instance,
 \begin{align*}
   \begin{cases}
@@ -96,3 +96,56 @@ More formally, the algorithm derive closed form formula for sums of powers is:
       \eqref{lem:centered-hockey-stick-identity} $r$-times to reach $r$-fold closed form for sums of powers $\KnuthRFoldSum{r}{n}{m}$.
   \end{enumerate}
 \end{algorithm}
+The algorithm above has already been utilized in practice, in the works
+\begin{itemize}
+  \item \cite{kolosov_2026_forward} Newtons interpolation formula and sums of powers (2026)
+  \item \cite{kolosov_2026_backward} Sums of powers via backward finite differences and Newton's formula (2026)
+  \item \cite{kolosov_2026_central} Sums of powers via central finite differences and Newton's formula (2026)
+\end{itemize}
+The work entitled
+\textit{Sums of powers of integers and generalized Stirling numbers of the second kind}
+~\cite{cereceda2022sumspowersintegersgeneralized} discusses closed formulas for sums of powers
+in terms of generalized Stirling numbers of the second kind,
+which originates from forward Newton's formula for powers, around arbitrary
+integer point $t$.
+It is quite remarkable that both~\cite{cereceda2022sumspowersintegersgeneralized},
+and~\cite{kolosov_2026_forward} reached the same result independently.
+In~\cite{cereceda2022sumspowersintegersgeneralized} we get
+\begin{align}
+  \KnuthRFoldSum{1}{n}{k} &= \sum_{j=0}^{k} j!
+  \left[
+    \binom{n+1-r}{j+1} + (-1)^j \binom{r+j-1}{j+1}
+  \right] \stirlingii{k}{j}_{r},
+  \label{eq:cereceda-sums-1}
+  \\
+  \KnuthRFoldSum{1}{n}{k} &= \sum_{j=0}^{k} j!
+  \left[
+    \binom{n+1-r}{j+1} + \binom{r+1}{j+1}
+  \right] \stirlingii{k}{j}_{-r}.
+  \label{eq:cereceda-sums-2}
+\end{align}
+Formula~\eqref{eq:cereceda-sums-1}
+is a special case of
+\begin{proposition}
+  \label{prop:negation-of-ordinary-sums-of-powers-via-newtons-formula}
+  For integers $n\geq 0$, and $m\geq 0$, and an arbitrary integer $t$
+  \begin{align*}
+    \KnuthRFoldSum{1}{n}{m} = \sum_{j=0}^{m} \Delta^{j} t^m
+    \left[ \binom{n-t+1}{j+1} + (-1)^j \binom{j+t-1}{j+1} \right].
+  \end{align*}
+\end{proposition}
+in terms of generalized Stirling numbers $\stirlingii{k}{j}_{r}$.
+This implies that finite differences of powers can be expressed
+in terms of generalized Stirling numbers of the second kind,
+$\Delta^{j} t^m = j! \stirlingii{m}{j}_{t}$.
+Formula~\eqref{eq:cereceda-sums-2} is a special case
+of proposition
+\begin{proposition}
+  \label{prop:ordinary-sums-of-powers-via-newtons-formula}
+  For integers $n\geq 0$, and $m\geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{1}{n}{m} = \sum_{j=0}^{m} \Delta^{j} t^m
+    \left[ \binom{n-t+1}{j+1} - \binom{1-t}{j+1} \right].
+  \end{align*}
+\end{proposition}
+with setting $t=r$.
