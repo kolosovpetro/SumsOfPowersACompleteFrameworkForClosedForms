@@ -12,8 +12,18 @@ because it is simple and beautiful.
     + \KnuthRFoldSum{r}{2}{m} + \cdots + \KnuthRFoldSum{r}{n}{m}.
   \end{align*}
 \end{definition}
+We utilize the following notation for falling factorials
+\begin{definition} [Falling factorials] For integers $x,n$
+  \begin{align*}
+    \fallingFactorial{x}{n} =
+    \begin{cases}
+      1, & \mathrm{if \; } k = 0, \\
+      x(x-1)(x-2)\cdots(x-n+1) = \prod_{k=0}^{n-1} (x-k), & \mathrm{if \; } k > 0, \\
+      0, & \mathrm{else}.
+    \end{cases}
+  \end{align*}
+\end{definition}
 We utilize the following notation for central factorials
-% see also~\cite{butzer1989central,riordan1968combinatorial,carlitz1963divided}
 \begin{definition}[Central factorials]
   \label{def:central-factorials}
   For integers $n,k$
@@ -29,7 +39,7 @@ We utilize the following notation for central factorials
   \end{align*}
   where
   $\fallingFactorial{n+\frac{k}{2}-1}{k-1}
-  = \prod_{j=1}^{k-1} \left( n + \frac{k}{2} -j \right)$
+  = \prod_{j=0}^{k-2} \left( n+\frac{k}{2}-1 -j \right)$
   are falling factorials.
 \end{definition}
 J. F. Steffensen gives quite a good discussion on factorial notations
