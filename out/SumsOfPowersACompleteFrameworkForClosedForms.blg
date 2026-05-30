@@ -5,34 +5,33 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: unsrt.bst
 Reallocating 'name_of_file' (item size: 1) to 49 items.
 Database file #1: SumsOfPowersACompleteFrameworkForClosedForms.bib
-Warning--empty year in faulhaberacademia
 Warning--empty journal in luschny2021manifesto
 You've used 21 entries,
             1791 wiz_defined-function locations,
-            580 strings with 7487 characters,
-and the built_in function-call counts, 3624 in all, are:
-= -- 335
+            581 strings with 7491 characters,
+and the built_in function-call counts, 3623 in all, are:
+= -- 336
 > -- 106
 < -- 1
 + -- 48
 - -- 27
-* -- 163
-:= -- 587
+* -- 161
+:= -- 588
 add.period$ -- 76
 call.type$ -- 21
 change.case$ -- 15
 chr.to.int$ -- 0
-cite$ -- 23
+cite$ -- 22
 duplicate$ -- 175
 empty$ -- 412
 format.name$ -- 27
-if$ -- 816
+if$ -- 817
 int.to.chr$ -- 0
 int.to.str$ -- 21
 missing$ -- 22
 newline$ -- 120
 num.names$ -- 21
-pop$ -- 85
+pop$ -- 84
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
@@ -44,8 +43,8 @@ text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 2
+warning$ -- 1
 while$ -- 33
 width$ -- 23
-write$ -- 244
-(There were 2 warnings)
+write$ -- 245
+(There was 1 warning)
