@@ -8,6 +8,7 @@ and
 This approach can be generalized further.
 In particular, while using Newton's formulas
 \begin{align}
+  \label{eq:newtons-formulas-casess}
   \begin{cases}
     f(x)
     &= \sum_{k=0}^{\infty} \frac{\centralFactorial{x}{k}}{k!} \delta^{k} f(a)
@@ -26,7 +27,11 @@ analogs, allowing more generic approach for sums of powers.
 Such non-linear difference operators arise naturally in the theory of dynamic equations on time scales,
 developed by Bohner and Peterson in~\cite{Bohner2001DynamicEO}.
 Thus, the discrete change $x+h$ of a function $f(x+h)$ is replaced by function $g(h)$ which
-implies that generic difference operator is $D_g f = \frac{f(g(x)) - f(x)}{g(x) - x}$.
+implies that dynamic difference operator is
+\begin{align}
+  D_g f = \frac{f(g(x)) - f(x)}{g(x) - x}.
+  \label{eq:dynamic-difference-operator}
+\end{align}
 A well-known example is Jackson's $q$-difference~\cite{jackson_1909}
 \begin{align*}
   D_q f(x) = \frac{f(qx) - f(x)}{qx - x},
@@ -36,6 +41,7 @@ In particular, for Newton's formula in linear differences $\delta, \Delta, \nabl
 falling, rising, and central factorials are related
 to binomial coefficients via
 \begin{align}
+  \label{eq:factorial-identities}
   \begin{cases}
     \frac{\fallingFactorial{x}{n}}{n!} &= \frac{1}{n!} x(x-1)(x-2)\cdots(x-n+1) =\binom{x}{n}, \\
     \frac{\risingFactorial{x}{n}}{n!}  &= \frac{1}{n!} x(x+1)(x+2)\cdots(x+n-1)  =\binom{x+n-1}{n}, \\
@@ -45,27 +51,43 @@ to binomial coefficients via
 \end{align}
 Motivated by this viewpoint, we can see that dynamic version of Newton's formula
 is
-\begin{align*}
-  f(x) = \sum_{k=0}^{\infty} \frac{\generalizedFactorial{x}{w}{k}}{k!} D_g f(a)
-\end{align*}
-where $D_g f(a)$ is dynamic difference operator,
-and $\generalizedFactorial{x}{w}{n} = \prod_{k=0}^{n-1} (x-w_k)$
-is generalized factorial in N\"orlund's notation~\cite{Norlund1924},
-and $a$ is an arbitrary integer.
+\begin{align}
+  \label{eq:generalized-newtons-formula}
+  f(x) = \sum_{k=0}^{\infty} \frac{\generalizedFactorial{x}{\alpha, \beta}{k}}{k!} \cdot D_g f(a),
+\end{align}
+where $a$ is an arbitrary integer, $D_g f(a)$ is dynamic difference operator,
+and $\generalizedFactorial{x}{\alpha, \beta}{n} $
+is generalized factorial which uses the combination of N\"orlund's notation~\cite{Norlund1924},
+and definition given by Steffensen~\cite{steffensen1933definition}
+\begin{proposition}[Generalized factorial] For non-negative integers $x,n,\alpha,\beta$
+  \label{prop:generalized-factorial}
+  \begin{align*}
+    \generalizedFactorial{x}{\alpha, \beta}{n} = x(x-n\alpha - \beta)(x-n\alpha - 2\beta)\cdots(x-n\alpha - n - I\beta).
+  \end{align*}
+\end{proposition}
 For instance,
 \begin{align*}
-  w_k = k: \quad \fallingFactorial{x}{n} = \generalizedFactorial{x}{w}{n} &= \prod_{k=0}^{n-1} (x-w_k) \\
-  w_k = -k: \quad \risingFactorial{x}{n} = \generalizedFactorial{x}{w}{n} &= \prod_{k=0}^{n-1} (x-w_k) \\
-  w_k = \frac{n-1}{2} + k: \quad \centralFactorial{x}{n} = \generalizedFactorial{x}{w}{n} &= \prod_{k=0}^{n-1} (x-w_k) \\
+  \begin{cases}
+    \fallingFactorial{x}{n} &= \generalizedFactorial{x}{\alpha, \beta}{n}, \quad \alpha=0, \quad \beta =1 \\
+    \risingFactorial{x}{n}  &= \generalizedFactorial{x}{\alpha, \beta}{n}, \quad \alpha=0, \quad \beta =-1  \\
+    \centralFactorial{x}{n} &= \generalizedFactorial{x}{\alpha, \beta}{n}, \quad \alpha=\frac{1}{2}, \quad \beta =1\\
+    x^n                     &= \generalizedFactorial{x}{\alpha, \beta}{n}, \quad \alpha=0, \quad \beta =0
+  \end{cases}
 \end{align*}
-% More formally, the algorithm to derive one of the formulas for sums of powers
-% is
-% \begin{algorithm}
-%   \begin{enumerate}
-%     \item Define difference operator $D$.
-%     \item Derive Newton's formula in terms of $D$, for powers.
-%     \item Find an identity that connects respective factorials with binomial coefficients (as per Newton's formula for powers).
-%     \item Apply hockey stick identities to find closed form for sums of powers.
-%     \item Apply hockey stick $r$-times to reach $r$-fold closed form for sums of powers.
-%   \end{enumerate}
-% \end{algorithm}
+More formally, the algorithm derive closed form formula for sums of powers is:
+\begin{algorithm}
+  \begin{enumerate}
+    \item Define the function $f(x) = x^m$.
+    \item Pick generalized difference operator $D_g f(x)$, see~\eqref{eq:dynamic-difference-operator}.
+    \item Derive generalized Newton's formula~\eqref{eq:generalized-newtons-formula}
+      in terms of $D_g f(x)$, for example~\eqref{eq:newtons-formulas-casess}.
+    \item Find an identity that connects respective factorials $\generalizedFactorial{x}{\alpha, \beta}{n}$
+      with binomial coefficients (as per Newton's formula for powers), for example~\eqref{eq:factorial-identities}.
+    \item Apply hockey stick identities \eqref{lem:generalized-hockey-stick-identity},
+      and
+      \eqref{lem:centered-hockey-stick-identity} to derive closed form for sums of powers $\KnuthRFoldSum{1}{n}{m}$.
+    \item Apply identities \eqref{lem:generalized-hockey-stick-identity},
+      and
+      \eqref{lem:centered-hockey-stick-identity} $r$-times to reach $r$-fold closed form for sums of powers $\KnuthRFoldSum{r}{n}{m}$.
+  \end{enumerate}
+\end{algorithm}

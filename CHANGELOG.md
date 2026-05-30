@@ -25,3 +25,4 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Add table references
 - Arrange OEIS files
 - Framework for sums initial update
+- Algorithm for sums of powers
