@@ -4,14 +4,15 @@ for integers $n,m \geq 0$, and an arbitrary integer $t$, we get
 \begin{align}
   \label{eq:ordinary-sums-of-powers}
   \KnuthRFoldSum{1}{n}{m} = \frac{1}{2} \sum_{k=0}^{m}
-  \sum_{j=1}^{n}
   \left[
-    \binom{j-t+\frac{k}{2}}{k} + \binom{j-t+\frac{k}{2}-1}{k}
+    \sum_{j=1}^{n} \binom{j-t+\frac{k}{2}}{k} + \sum_{j=1}^{n} \binom{j-t+\frac{k}{2}-1}{k}
   \right] \delta^{k} t^m.
 \end{align}
-Now we reach the transition to closed form of ordinary sums of powers,
-by setting $r=-1$, and $r=-2$ into
-Lemma~\eqref{lem:centered-hockey-stick-identity}.
+Now we reach the transition to closed form of ordinary sums of powers.
+By setting $r=0$, and $r=-1$ into
+Lemma~\eqref{lem:centered-hockey-stick-identity}, we get closed forms of
+the sums $\sum_{j=1}^{n} \binom{j -t + \frac{k}{2}}{k}$,
+and $\sum_{j=1}^{n} \binom{j -t + \frac{k}{2}-1}{k}$, respectively.
 Therefore,
 \begin{proposition}[Ordinary sums of powers decomposition]
   \label{prop:ordinary-sums-of-powers-decomposition}
@@ -23,18 +24,6 @@ Therefore,
       + \binom{n -t + \frac{k}{2}}{k+1} - \binom{-t + \tfrac{k}{2}}{k+1}
     \right] \delta^{k} t^m.
   \end{align*}
-  \begin{proof}
-    We have the sums of powers expressed by~\eqref{eq:ordinary-sums-of-powers},
-    thus,
-    \begin{align*}
-      \tsum_{j=1}^{n}
-      \left[
-        \tbinom{j-t+\tfrac{k}{2}}{k} + \tbinom{j-t+\tfrac{k}{2}-1}{k}
-      \right] = \tbinom{n -t + \tfrac{k}{2} +1}{k+1} - \tbinom{1 -t + \tfrac{k}{2}}{k+1}
-      + \tbinom{n -t + \tfrac{k}{2}}{k+1} - \tbinom{-t + \tfrac{k}{2}}{k+1},
-    \end{align*}
-    by setting $r=-1$, and $r=-2$ into Lemma~\eqref{lem:centered-hockey-stick-identity}.
-  \end{proof}
 \end{proposition}
 For example,
 \input{sections/examples/01_example_sum_of_squares.tex}
