@@ -1,5 +1,47 @@
 \begin{thebibliography}{10}
 
+\bibitem{pengelley2002bridge}
+David~J Pengelley.
+\newblock The bridge between the continuous and the discrete via original
+  sources.
+\newblock In {\em Study the Masters: The Abel-Fauvel Conference, Kristiansand}.
+  Citeseer, 2002.
+\newblock \url{https://sites.google.com/view/davidpengelley/david-pengelley}.
+
+\bibitem{Marko2020}
+Franti{\v s}ek Marko and Semyon Litvinov.
+\newblock Geometry of figurate numbers and sums of powers of consecutive
+  natural numbers.
+\newblock {\em The American Mathematical Monthly}, 127(1):4--22, 2020.
+
+\bibitem{faulhaberacademia}
+Johannes Faulhaber.
+\newblock {\em Academia Algebrae: darinnen dir miraculosische Guvontiones zu
+  den h{\"o}chsten Costen weiters continuirt u. profitiert werden}.
+\newblock Johann Remelins.
+
+\bibitem{bernoulli1713ars}
+Jakob Bernoulli.
+\newblock {\em Ars coniectandi}.
+\newblock Impensis Thurnisiorum, fratrum, 1713.
+
+\bibitem{luschny2021manifesto}
+{Luschny, Peter HN}.
+\newblock {The Bernoulli Manifesto}.
+\newblock 2021.
+\newblock \url{http://luschny.de/math/zeta/The-Bernoulli-Manifesto.html}.
+
+\bibitem{luschny2020introduction}
+{Luschny, Peter HN}.
+\newblock {An introduction to the Bernoulli function}.
+\newblock {\em {arXiv preprint arXiv:2009.06743}}, 2020.
+\newblock \url{https://arxiv.org/abs/2009.06743}.
+
+\bibitem{gessel1989determinants}
+Ira~M Gessel and Xavier Viennot.
+\newblock Determinants, paths, and plane partitions.
+\newblock {\em preprint}, 132(197.15), 1989.
+
 \bibitem{knuth1993johann}
 {Knuth, Donald E.}
 \newblock {Johann Faulhaber and sums of powers}.
