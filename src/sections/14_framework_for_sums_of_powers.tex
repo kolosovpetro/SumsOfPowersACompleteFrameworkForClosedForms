@@ -1,88 +1,70 @@
 In this manuscript, we derive formulas for sums of powers by combining
 centered Newton's interpolation formula for powers
-\eqref{prop:newtons-interpolation-formula-for-powers}
+\eqref{lem:central-newtons-formula-for-powers}
 with hockey-stick identities
-\eqref{prop:generalized-hockey-stick-identity}
+\eqref{lem:generalized-hockey-stick-identity},
 and
-\eqref{lem:shifted-generalized-hockey-stick-identity}.
-
-This approach can be generalized further. In particular, one may replace
-classical finite difference operators with more general interpolation frameworks
-based on abstract operators $D$ and generalized binomial expressions $\binom{f(n)}{k}$.
-This allows us to go beyond linear difference operators such as $\Delta$, $\nabla$, or $\delta$.
-
+\eqref{lem:centered-hockey-stick-identity}.
+This approach can be generalized further.
+In particular, while using Newton's formulas
+\begin{align}
+  \begin{cases}
+    f(x)
+    &= \sum_{k=0}^{\infty} \frac{\centralFactorial{x}{k}}{k!} \delta^{k} f(a)
+    = \sum_{k=0}^{\infty} \frac{x-a}{k} \binom{x-a+\frac{k}{2}-1}{k-1} \delta^{k} f(a), \\
+    f(x)
+    &= \sum_{k=0}^{\infty} \frac{\fallingFactorial{x}{k}}{k!} \Delta^k f(a)
+    = \sum_{k=0}^{\infty} \binom{x-a}{k} \Delta^k f(a), \\
+    f(x)
+    &= \sum_{k=0}^{\infty} \frac{\risingFactorial{x}{k}}{k!} \nabla^k f(a)
+    = \sum_{k=0}^{\infty} \binom{x-a+k-1}{k} \nabla^k f(a).
+  \end{cases}
+\end{align}
+one may replace
+linear difference operators $\delta, \Delta, \nabla$ with their non-linear dynamic
+analogs, allowing more generic approach for sums of powers.
 Such non-linear difference operators arise naturally in the theory of dynamic equations on time scales,
 developed by Bohner and Peterson in~\cite{Bohner2001DynamicEO}.
-In this setting, the notion of discrete change is encoded by a function $g(h)$ rather than a linear increment.
-A well-known example is Jackson’s $q$-derivative~\cite{jackson_1909}, defined by
+Thus, the discrete change $x+h$ of a function $f(x+h)$ is replaced by function $g(h)$ which
+implies that generic difference operator is $D_g f = \frac{f(g(x)) - f(x)}{g(x) - x}$.
+A well-known example is Jackson's $q$-difference~\cite{jackson_1909}
 \begin{align*}
-  D_q f(x) = \frac{f(qx) - f(x)}{qx - x}.
+  D_q f(x) = \frac{f(qx) - f(x)}{qx - x},
 \end{align*}
-
-Motivated by this viewpoint, an abstract interpolation formula for powers may be written as
+where $g(x) = qx$.
+In particular, for Newton's formula in linear differences $\delta, \Delta, \nabla$, their respective
+falling, rising, and central factorials are related
+to binomial coefficients via
+\begin{align}
+  \begin{cases}
+    \frac{\fallingFactorial{x}{n}}{n!} &= \frac{1}{n!} x(x-1)(x-2)\cdots(x-n-1) =\binom{x}{n}, \\
+    \frac{\risingFactorial{x}{n}}{n!}  &= \frac{1}{n!} x(x+1)(x+2)\cdots(x+n-1)  =\binom{x+n-1}{n}, \\
+    \frac{\centralFactorial{x}{n}}{n!} &= \frac{1}{n!} \left( n + \frac{k}{2} -1 \right)\left( n + \frac{k}{2} -2 \right)
+    \cdots \left( n - \frac{k}{2} +1 \right)  =\frac{x}{n} \binom{x+\frac{n}{2}-1}{n-1}.
+  \end{cases}
+\end{align}
+Motivated by this viewpoint, we can see that dynamic version of Newton's formula
+is
 \begin{align*}
-  n^m = \sum_{k} \binom{f(n)}{k}\, D(n^m, k),
+  f(x) = \sum_{k=0}^{\infty} \frac{\generalizedFactorial{x}{w}{k}}{k!} D_g f(a)
 \end{align*}
-where $D(\cdot,k)$ represents a generalized difference functional.
-
-Consequently, one obtains a family of formulas for sums of powers of the form
+where $D_g f(a)$ is dynamic difference operator,
+and $\generalizedFactorial{x}{w}{n} = \prod_{k=0}^{n-1} (x-w_k)$
+is generalized factorial in N\"orlund's notation~\cite{Norlund1924}.
+For instance,
 \begin{align*}
-  \KnuthRFoldSum{1}{n}{m}
-  = \sum_{k} D(n^m, k)\sum_{j \leq n} \binom{f(j)}{k}.
+  w_k = k: \quad \fallingFactorial{x}{n} = \generalizedFactorial{x}{w}{n} &= \prod_{k=0}^{n-1} (x-w_k) \\
+  w_k = -k: \quad \risingFactorial{x}{n} = \generalizedFactorial{x}{w}{n} &= \prod_{k=0}^{n-1} (x-w_k) \\
+  w_k = \frac{n-1}{2} + k: \quad \centralFactorial{x}{n} = \generalizedFactorial{x}{w}{n} &= \prod_{k=0}^{n-1} (x-w_k) \\
 \end{align*}
-
-Similarly, for multifold sums,
-\begin{align*}
-  \KnuthRFoldSum{r}{n}{m}
-  = \sum_{k} D(n^m, k)\binom{f(n+r)}{k}.
-\end{align*}
-
-Many interpolation schemes can be expressed in terms of factorial-type bases.
-In particular, rising and falling factorials are related to binomial coefficients via
-\begin{align*}
-  \frac{\fallingFactorial{x}{n}}{n!} &= \binom{x}{n}, \quad
-  \frac{\risingFactorial{x}{n}}{n!} = \binom{x+n-1}{n}, \\
-  \centralFactorial{x}{n} &= n \fallingFactorial{x+\frac{n}{2}-1}{n-1}.
-\end{align*}
-
-A notable example is Knuth’s formula for multifold sums of odd powers~\cite{knuth1993johann}:
-
-\begin{proposition}[Multifold sums of odd powers]
-  For non-negative integers $r,n,m$, we have
-  \begin{align*}
-    \KnuthRFoldSum{r}{n}{2m-1}
-    &= \sum_{k=1}^{m} \binom{n+k-1+r}{2k-1+r}
-    \frac{1}{2k}\,\delta^{2k} 0^{2m} \\
-    &= \sum_{k=1}^{m} \binom{n+k-1+r}{2k-1+r}
-    (2k-1)!\, T(2m, 2k),
-  \end{align*}
-  where $T(n,k)$ denotes the central factorial numbers of the second kind,
-  see~\cite[Section 58]{steffensen1927interpolation, carlitz1963divided}.
-\end{proposition}
-
-This identity follows from Newton’s central difference formula evaluated at zero
-(see~\cite{kolosov_2025_18098442}), together with the relation
-\begin{align*}
-  T(n,k)
-  = \frac{1}{k!}\delta^k 0^n
-  = \frac{1}{k!}\sum_{j=0}^{k} (-1)^j \binom{k}{j}
-  \left(\frac{k}{2}-j\right)^n.
-\end{align*}
-
-More generally, central factorial numbers satisfy the polynomial identity
-(see~\cite[Ch. 6.5, (24)]{riordan1968combinatorial})
-\begin{lemma}[Riordan power identity]
-  For integers $n,m \ge 0$,
-  \begin{align*}
-    n^m = \sum_{k=1}^{m} T(m,k)\,\centralFactorial{n}{k},
-  \end{align*}
-  where
-  \begin{align*}
-    \centralFactorial{n}{k}
-    = n \prod_{j=0}^{k-1}\left(n+\frac{k}{2}-j\right),
-    \quad \centralFactorial{n}{0}=1.
-  \end{align*}
-\end{lemma}
-
-The values $T(2n,2k)$ correspond to OEIS sequence
-\href{https://oeis.org/A008957}{A008957}~\cite{sloane2003line}.
+% More formally, the algorithm to derive one of the formulas for sums of powers
+% is
+% \begin{algorithm}
+%   \begin{enumerate}
+%     \item Define difference operator $D$.
+%     \item Derive Newton's formula in terms of $D$, for powers.
+%     \item Find an identity that connects respective factorials with binomial coefficients (as per Newton's formula for powers).
+%     \item Apply hockey stick identities to find closed form for sums of powers.
+%     \item Apply hockey stick $r$-times to reach $r$-fold closed form for sums of powers.
+%   \end{enumerate}
+% \end{algorithm}

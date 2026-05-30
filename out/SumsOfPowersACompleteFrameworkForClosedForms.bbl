@@ -11,6 +11,7 @@ J.~F. Steffensen.
 \newblock On the definition of the central factorial.
 \newblock {\em Journal of the Institute of Actuaries (1886-1994)},
   64(2):165--168, 1933.
+\newblock \url{https://www.jstor.org/stable/41137516}.
 
 \bibitem{butzer1989central}
 Paul~Leo Butzer, K.~Schmidt, E.L. Stark, and L.~Vogt.
@@ -44,5 +45,10 @@ L.~Carlitz and John Riordan.
 {Sloane, Neil J.A. and others}.
 \newblock {The on-line encyclopedia of integer sequences}.
 \newblock \url{https://oeis.org/}, 2003.
+
+\bibitem{Norlund1924}
+Niels~Erik N{\"o}rlund.
+\newblock {\em Vorlesungen {\"u}ber Differenzenrechnung}.
+\newblock Springer, Berlin, 1924.
 
 \end{thebibliography}
