@@ -73,10 +73,10 @@ and definition given by Steffensen~\cite{steffensen1933definition}
 For instance,
 \begin{align*}
   \begin{cases}
-    \fallingFactorial{x}{n} &= \generalizedFactorial{x}{\alpha, \beta}{n}, \quad \alpha=0, \quad \beta =1 \\
-    \risingFactorial{x}{n}  &= \generalizedFactorial{x}{\alpha, \beta}{n}, \quad \alpha=0, \quad \beta =-1  \\
-    \centralFactorial{x}{n} &= \generalizedFactorial{x}{\alpha, \beta}{n}, \quad \alpha=\frac{1}{2}, \quad \beta =1\\
-    x^n                     &= \generalizedFactorial{x}{\alpha, \beta}{n}, \quad \alpha=0, \quad \beta =0
+    \fallingFactorial{x}{n} &= \generalizedFactorial{x}{\alpha, \beta}{n}, \quad \alpha=0, \quad \beta =1, \quad \text{(forward Newton's formula)} \\
+    \risingFactorial{x}{n}  &= \generalizedFactorial{x}{\alpha, \beta}{n}, \quad \alpha=0, \quad \beta =-1,  \quad \text{(backward Newton's formula)}  \\
+    \centralFactorial{x}{n} &= \generalizedFactorial{x}{\alpha, \beta}{n}, \quad \alpha=\frac{1}{2}, \quad \beta =1,  \quad \text{(central Newton's formula)}\\
+    x^n                     &= \generalizedFactorial{x}{\alpha, \beta}{n}, \quad \alpha=0, \quad \beta =0,  \quad \text{(Taylor's formula)}
   \end{cases}
 \end{align*}
 More formally, the algorithm derive closed form formula for sums of powers is:
