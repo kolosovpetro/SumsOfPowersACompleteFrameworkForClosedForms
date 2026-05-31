@@ -34,33 +34,38 @@ particularly for odd powers expressed as polynomials
 in triangular numbers.
 What he lacked was a completely general symbolic formula.
 
-The real breakthrough was done by Jacob Bernoulli (1665-1705) in his work
+The major breakthrough was achieved by Jacob Bernoulli (1665-1705) in his work
 entitled
 \textit{Ars coniectandi}~\cite[(1713)]{bernoulli1713ars}, published postmortem.
-In the work, Jacob introduced Bernoulli numbers (named after himself of course),
+In the work, Jacob introduced Bernoulli numbers (named after him later),
 thus allowing for arbitrary powers to be summed up
 \begin{align*}
   \sum_{k=1}^{n} k^p = \frac{1}{p+1} \sum_{r=0}^{p} \binom{p+1}{r} B_r n^{p+1-r}
 \end{align*}
 It assumes that $B_1 = +\frac{1}{2}$.
-The argument why $B_1 = +\frac{1}{2}$ is quite a huge topic,
-the reader is encouraged to familiarize
-with the whole story~\cite{luschny2021manifesto,luschny2020introduction}.
+The choice of convention for $B_1$ has a long historical background;
+see~\cite{luschny2021manifesto,luschny2020introduction}
+for a detailed discussion.
 Therefore, Bernoulli managed to contribute the missing capstone to
 Faulhaber's work, making it complete.
 In fact, the formula above is widely known as Faulhaber's formula,
 although Bernoulli has done the final great work.
 
+During the eighteenth and nineteenth centuries,
+the theory was further developed by Euler, Stirling, Jacobi,
+and others through connections with finite differences, interpolation,
+and special number sequences.
+
 Fast-forward to 1993, Donald Knuth revisited the topic of sums of powers,
 giving it new life (with remarkable results).
 Based on works of Carl Gustav Jacobi (1804-1851),
 and Gessel-Viennot~\cite[(1989)]{gessel1989determinants}, Knuth reviewed Faulhaber's
-work from completely different point of view, using Modern
+work from completely different point of view, using modern
 enumerative combinatorics techniques.
-Remarkably, Knuth's contribution does not necessary involves Bernoulli numbers,
+Remarkably, Knuth's contribution does not necessarily involves Bernoulli numbers,
 instead he derived formulas for power sums
-by utilizing special numbers (Stirling, Central factorials),
+by utilizing special numbers (e.g Stirling, central factorial),
 and Binomial coefficients.
-Apart that, Knuth introduced
+In addition, Knuth introduced
 a really handy notation for $r$-fold sums of powers $\KnuthRFoldSum{r}{n}{m}$,
 which we use in this work.
