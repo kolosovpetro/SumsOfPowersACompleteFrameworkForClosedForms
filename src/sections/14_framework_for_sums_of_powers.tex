@@ -81,6 +81,7 @@ For instance,
 \end{align*}
 More formally, the algorithm derive closed form formula for sums of powers is:
 \begin{algorithm}
+  \label{alg:sums-of-powers}
   \begin{enumerate}
     \item Define the function $f(x) = x^m$.
     \item Pick generalized difference operator $D_g f(x)$, see~\eqref{eq:dynamic-difference-operator}.
@@ -96,13 +97,35 @@ More formally, the algorithm derive closed form formula for sums of powers is:
       \eqref{lem:centered-hockey-stick-identity} $r$-times to reach $r$-fold closed form for sums of powers $\KnuthRFoldSum{r}{n}{m}$.
   \end{enumerate}
 \end{algorithm}
-The algorithm above has already been utilized in practice, in the works
-\begin{itemize}
-  \item \cite{kolosov_2026_forward} Newtons interpolation formula and sums of powers (2026)
-  \item \cite{kolosov_2026_backward} Sums of powers via backward finite differences and Newton's formula (2026)
-  \item \cite{kolosov_2026_central} Sums of powers via central finite differences and Newton's formula (2026)
-\end{itemize}
-The work entitled
+The algorithm above has already been utilized in practice.
+For instance, the work~\cite{kolosov_2026_forward} provides remarkable
+formulas for sums of powers, based on forward difference Newton's formula,
+\begin{proposition}
+  For integers $r\geq 0$, and $n\geq 0$, and $m\geq 0$,
+  and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    &= \sum_{j=0}^{m}
+    \left[ \binom{n-t+r}{j+r} +
+      \sum_{s=1}^{r} (-1)^{j+s-1} \binom{j+t-1}{j+s} \binom{r-s+n-1}{r-s}
+    \right] \Delta^{j} t^{m}.
+  \end{align*}
+\end{proposition}
+Also, in terms of Eulerian numbers
+\begin{proposition}
+  For integers $r\geq0$, and $n\geq 0$, and $m\geq 0$,
+  and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    = \sum_{j=0}^{m} \sum_{k=0}^{m}
+    \left[ \binom{n-t+r}{j+r} -
+      \sum_{s=1}^{r} \binom{s-t}{j+s} \binom{r-s+n-1}{r-s}
+    \right]
+    \binom{t+k}{m-j} \eulerian{m}{k}.
+  \end{align*}
+\end{proposition}
+Remarkably,
+the work entitled
 \textit{Sums of powers of integers and generalized Stirling numbers of the second kind}
 ~\cite{cereceda2022sumspowersintegersgeneralized} discusses closed formulas for sums of powers
 in terms of generalized Stirling numbers of the second kind,
@@ -149,3 +172,47 @@ of proposition~\cite[Prop. (1.8)]{kolosov_2026_forward}
   \end{align*}
 \end{proposition}
 with setting $t=r$.
+Moving to backward Newton's formula, the work~\cite{kolosov_2026_backward}
+utilizes algorithm~\eqref{alg:sums-of-powers} in terms of backward differences,
+providing another remarkable formula
+\begin{proposition}
+  For non-negative integers $r,n,m$ and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{r+1}{n}{m} = \sum_{j=0}^{m}
+    \left[
+      \binom{j-t+n+r}{j+r+1}
+      + \sum_{s=0}^{r} (-1)^{j+s} \binom{t}{j+s+1} \binom{r-s+n-1}{r-s}
+    \right] \nabla^{j} t^{m}.
+  \end{align*}
+\end{proposition}
+Finally, the work~\cite{kolosov_2026_central} explores Newton's formula
+in central differences, allowing it to be applied with algorithm~\eqref{alg:sums-of-powers}.
+Essentially, it achieves similar formulas for sums of powers as current paper,
+but using different binomial identities to reach the closed form.
+For instance,
+\begin{proposition}
+  For integers $n\geq 0, \; m \geq 0$, and an arbitrary integer $t$
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    &= \binom{r+n-1}{r} t^m
+    + \sum_{k=1}^{m} \frac{\delta^{k} t^{m}}{2}
+    \Bigg \{
+      \left[
+        \binom{n-t+\frac{k}{2}+r}{k+r}
+        +
+        \binom{n-t+\frac{k}{2}+r-1}{k+r}
+      \right] \\
+      &-
+      \sum_{s=0}^{r-1}
+      \left[
+        \binom{-t+\frac{k}{2} + r -s}{k+r-s} +
+        \binom{-t+\frac{k}{2} + r -s-1}{k+r-s}
+      \right] \binom{s+n-1}{s}
+    \Bigg \}.
+  \end{align*}
+\end{proposition}
+% \begin{itemize}
+%   \item \cite{kolosov_2026_forward} Newtons interpolation formula and sums of powers (2026)
+%   \item \cite{kolosov_2026_backward} Sums of powers via backward finite differences and Newton's formula (2026)
+%   \item \cite{kolosov_2026_central} Sums of powers via central finite differences and Newton's formula (2026)
+% \end{itemize}

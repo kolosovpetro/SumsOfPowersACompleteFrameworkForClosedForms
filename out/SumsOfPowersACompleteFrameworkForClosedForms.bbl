@@ -113,6 +113,12 @@ Petro Kolosov.
 \newblock Newton's interpolation formula and sums of powers, January 2026.
 \newblock \url{https://doi.org/10.5281/zenodo.18040979}.
 
+\bibitem{cereceda2022sumspowersintegersgeneralized}
+José~L. Cereceda.
+\newblock Sums of powers of integers and generalized stirling numbers of the
+  second kind, 2022.
+\newblock \url{https://arxiv.org/abs/2211.11648}.
+
 \bibitem{kolosov_2026_backward}
 Petro Kolosov.
 \newblock Sums of powers via backward finite differences and newton's formula,
@@ -124,11 +130,5 @@ Petro Kolosov.
 \newblock Sums of powers via central finite differences and newton's formula,
   January 2026.
 \newblock \url{https://doi.org/10.5281/zenodo.18361364}.
-
-\bibitem{cereceda2022sumspowersintegersgeneralized}
-José~L. Cereceda.
-\newblock Sums of powers of integers and generalized stirling numbers of the
-  second kind, 2022.
-\newblock \url{https://arxiv.org/abs/2211.11648}.
 
 \end{thebibliography}
