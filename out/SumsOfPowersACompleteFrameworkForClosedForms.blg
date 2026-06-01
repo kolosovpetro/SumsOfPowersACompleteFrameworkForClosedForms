@@ -8,16 +8,16 @@ Database file #1: SumsOfPowersACompleteFrameworkForClosedForms.bib
 Warning--empty journal in luschny2021manifesto
 You've used 21 entries,
             1791 wiz_defined-function locations,
-            581 strings with 7491 characters,
-and the built_in function-call counts, 3623 in all, are:
-= -- 336
+            582 strings with 7626 characters,
+and the built_in function-call counts, 3632 in all, are:
+= -- 338
 > -- 106
 < -- 1
 + -- 48
 - -- 27
 * -- 161
-:= -- 588
-add.period$ -- 76
+:= -- 590
+add.period$ -- 77
 call.type$ -- 21
 change.case$ -- 15
 chr.to.int$ -- 0
@@ -25,13 +25,13 @@ cite$ -- 22
 duplicate$ -- 175
 empty$ -- 412
 format.name$ -- 27
-if$ -- 817
+if$ -- 819
 int.to.chr$ -- 0
 int.to.str$ -- 21
 missing$ -- 22
-newline$ -- 120
+newline$ -- 121
 num.names$ -- 21
-pop$ -- 84
+pop$ -- 83
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
@@ -46,5 +46,5 @@ type$ -- 0
 warning$ -- 1
 while$ -- 33
 width$ -- 23
-write$ -- 245
+write$ -- 247
 (There was 1 warning)

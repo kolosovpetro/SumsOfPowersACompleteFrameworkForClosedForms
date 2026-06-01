@@ -1,10 +1,24 @@
-# A new formula for Sums of Powers using central Newton's interpolation
+# Sums of powers of integers: A complete framework for closed formulas
 
 ## Abstract
 
-- LaTeX template for GitHub including general CI/CD actions and Mathematica templates.
-- Best compatible with JetBrains Rider 2024.3.8 Build #RD-243.26574.73, built on May 18, 2025.
-- Plugin: https://plugins.jetbrains.com/plugin/9473-texify-idea
+This manuscript originates from the historical development of the
+sums-of-powers problem, briefly tracing its
+evolution from Archimedes (287-212 BC) to Knuth's 1993 work
+*Johann Faulhaber and sums of powers*,
+highlighting the transition from purely arithmetic methods
+to modern enumerative and algebraic-combinatorial approaches.
+The main results establish an algorithm for deriving closed formulas for
+multifold sums of powers of integers by combining variations
+of Newton's interpolation formula with hockey-stick family
+identities for binomial coefficients.
+
+
+## Related projects
+
+- [Newton's interpolation formula and sums of powers (2025)](https://github.com/kolosovpetro/NewtonsInterpolationFormulaAndSumsOfPowers)
+- [Sums of powers via central finite differences and Newton's formula (2025)](https://github.com/kolosovpetro/SumsOfPowersViaCentralFiniteDifferencesAndNewtonFormula)
+- [Sums of powers via backward finite differences and Newton's formula (2026)](https://github.com/kolosovpetro/SumsOfPowersViaBackwardFiniteDifferencesAndNewtonFormula)
 
 ## Related OEIS sequences
 
@@ -32,7 +46,7 @@
 - **License:** This work is licensed under a [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/)
 - **DOI:** https://doi.org/10.5281/zenodo.18040979
 - **Web Version:** https://kolosovpetro.github.io/math/test
-- **Sources:** https://github.com/kolosovpetro/github-latex-template
+- **Sources:** https://github.com/kolosovpetro/SumsOfPowersACompleteFrameworkForClosedForms
 - **ORCID:** https://orcid.org/0000-0002-6544-8880
 - **Email:** kolosovp94@gmail.com
 
