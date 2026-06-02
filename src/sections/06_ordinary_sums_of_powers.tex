@@ -14,7 +14,7 @@ Lemma~\eqref{lem:centered-hockey-stick-identity}, we get closed forms of
 the sums $\sum_{j=1}^{n} \binom{j -t + \frac{k}{2}}{k}$,
 and $\sum_{j=1}^{n} \binom{j -t + \frac{k}{2}-1}{k}$, respectively.
 Therefore,
-\begin{proposition}[Ordinary sums of powers decomposition]
+\begin{theorem}[Ordinary sums of powers decomposition]
   \label{prop:ordinary-sums-of-powers-decomposition}
   For integers $n,m \geq 0$, and an arbitrary integer $t$,
   \begin{align*}
@@ -24,7 +24,7 @@ Therefore,
       + \binom{n -t + \frac{k}{2}}{k+1} - \binom{-t + \tfrac{k}{2}}{k+1}
     \right] \delta^{k} t^m.
   \end{align*}
-\end{proposition}
+\end{theorem}
 For example,
 \input{sections/examples/01_example_sum_of_squares.tex}
 
@@ -34,7 +34,7 @@ It is indeed interesting to notice the connection between
 the decomposition of ordinary sums of
 powers~\eqref{prop:ordinary-sums-of-powers-decomposition}
 and Riordan's central factorial numbers of the second kind, that is
-\begin{proposition}[Central factorial numbers sums]
+\begin{theorem}[Central factorial numbers sums]
   \label{prop:central-factorial-numbers-sums}
   For integers $n,m \geq 0$, and an arbitrary integer $t$,
   \begin{align*}
@@ -44,11 +44,11 @@ and Riordan's central factorial numbers of the second kind, that is
       + \binom{n + \frac{k}{2}}{k+1} - \binom{\tfrac{k}{2}}{k+1}
     \right] k! T(m,k),
   \end{align*}
-  where $T(n,k)$ denotes the central factorial numbers
+  where $T(m,k)$ denote the central factorial numbers
   of the second kind
   (in Riordan's notation). See~\cite[p. 213]{riordan1968combinatorial},
   and~\cite{carlitz1963divided}.
-\end{proposition}
+\end{theorem}
 These central factorial numbers of the second kind $T(n,k)$ are
 defined by central Newton's formula for
 powers~\eqref{lem:central-newtons-formula-for-powers}
