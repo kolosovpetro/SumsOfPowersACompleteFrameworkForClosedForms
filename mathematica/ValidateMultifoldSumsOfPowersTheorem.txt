@@ -1,8 +1,17 @@
+(* Validates thm:multifold-sums-of-powers *)
+
 MultifoldSumOfPowersRecurrence[r_, n_, m_]:= 0;
 MultifoldSumOfPowersRecurrence[r_, n_, m_]:= n^m /; r==0;
 MultifoldSumOfPowersRecurrence[r_, n_, m_]:= Sum[MultifoldSumOfPowersRecurrence[r-1, k, m], {k, 1, n}] /; r>0;
 
 CentralDifference[x_, n_, k_] := Sum[(-1)^j * Binomial[k, j] * (x + k/2 -j)^n, {j, 0, k}];
+
+(*BEGIN: Define 0^x = 1 for all x *)
+Begin["`Private`"]
+Unprotect[Power];
+Power[0|0., 0|0.] = 1;
+Protect[Power];
+(*END: Define 0^x = 1 for all x *)
 
 MultifoldSumsOfPowers[r_, n_, m_, t_] := 1/2 * Sum[
 ( Binomial[n-t+k/2+r, k+r] + Binomial[n-t+k/2+r-1, k+r] 

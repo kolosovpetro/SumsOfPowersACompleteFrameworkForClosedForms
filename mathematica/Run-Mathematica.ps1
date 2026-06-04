@@ -1,5 +1,5 @@
 param (
-    [string]$MathematicaFileName = "ValidateMultifoldSumsOfPowers.txt"
+    [string]$MathematicaFileName = "ValidateMultifoldSumsOfPowersTheorem.txt"
 )
 
 $ErrorActionPreference = "Stop"

@@ -1,0 +1,17 @@
+MultifoldSumOfPowersRecurrence[r_, n_, m_]:= 0;
+MultifoldSumOfPowersRecurrence[r_, n_, m_]:= n^m /; r==0;
+MultifoldSumOfPowersRecurrence[r_, n_, m_]:= Sum[MultifoldSumOfPowersRecurrence[r-1, k, m], {k, 1, n}] /; r>0;
+
+CentralDifference[x_, n_, k_] := Sum[(-1)^j * Binomial[k, j] * (x + k/2 -j)^n, {j, 0, k}];
+
+(*BEGIN: Define 0^x = 1 for all x *)
+Begin["`Private`"]
+Unprotect[Power];
+Power[0|0., 0|0.] = 1;
+Protect[Power];
+(*END: Define 0^x = 1 for all x *)
+
+ValidateMultifoldSumsOfZeroPowersLemma[max_] := 
+Table[MultifoldSumOfPowersRecurrence[r, n, 0] - Binomial[r+n-1, r], {r, 0, max}, {n, 0, max}] //Flatten;
+
+ValidateMultifoldSumsOfZeroPowersLemma[10]
