@@ -28,3 +28,4 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Algorithm for sums of powers
 - Work on Historical context
 - Add abstract
+- Updates in metadata

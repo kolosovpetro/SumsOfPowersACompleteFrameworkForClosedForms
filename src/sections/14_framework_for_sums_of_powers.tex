@@ -79,9 +79,10 @@ For instance,
     x^n                     &= \generalizedFactorial{x}{\alpha, \beta}{n}, \quad \alpha=0, \quad \beta =0,  \quad \text{(Taylor's formula)}
   \end{cases}
 \end{align*}
-More formally, the algorithm derive closed form formula for sums of powers is:
-\begin{algorithm}
+More precisely, the algorithm for closed formulas for sums of powers is:
+\begin{algorithm} [Algorithm for closed formulas]
   \label{alg:sums-of-powers}
+  \leavevmode\par
   \begin{enumerate}
     \item Define the function $f(x) = x^m$.
     \item Pick generalized difference operator $D_g f(x)$, see~\eqref{eq:dynamic-difference-operator}.
@@ -111,7 +112,7 @@ formulas for sums of powers, based on forward difference Newton's formula,
     \right] \Delta^{j} t^{m}.
   \end{align*}
 \end{proposition}
-Also, in terms of Eulerian numbers
+Also, in terms of Eulerian numbers $\eulerian{n}{k}$
 \begin{proposition}
   For integers $r\geq0$, and $n\geq 0$, and $m\geq 0$,
   and an arbitrary integer $t$,

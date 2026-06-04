@@ -13,12 +13,12 @@ multifold sums of powers of integers by combining variations
 of Newton's interpolation formula with hockey-stick family
 identities for binomial coefficients.
 
-
 ## Related projects
 
 - [Newton's interpolation formula and sums of powers (2025)](https://github.com/kolosovpetro/NewtonsInterpolationFormulaAndSumsOfPowers)
 - [Sums of powers via central finite differences and Newton's formula (2025)](https://github.com/kolosovpetro/SumsOfPowersViaCentralFiniteDifferencesAndNewtonFormula)
 - [Sums of powers via backward finite differences and Newton's formula (2026)](https://github.com/kolosovpetro/SumsOfPowersViaBackwardFiniteDifferencesAndNewtonFormula)
+- [Sums of powers of integers: A complete framework for closed formulas (2026)](https://github.com/kolosovpetro/SumsOfPowersACompleteFrameworkForClosedForms)
 
 ## Related OEIS sequences
 
@@ -37,15 +37,14 @@ identities for binomial coefficients.
 - https://oeis.org/A395456
 - https://oeis.org/A395457
 
-
 ## Metadata
 
-- **Initial release date:** December 24, 2025.
-- **MSC2010:** 05A19, 05A10, 41A15, 11B68, 11B73, 11B83
-- **Keywords:** Sums of powers, Newton's interpolation formula, Finite differences, Binomial coefficients, Faulhaber's formula, Bernoulli numbers, Bernoulli polynomials, Interpolation, Approximation, Discrete convolution, Combinatorics, Polynomial identities, Central factorial numbers, Stirling numbers, Eulerian numbers, Worpitzky identity, Pascal's triangle, OEIS
+- **Initial release date:** N/A
+- **MSC2010:** 05A10, 11B68, 11B73, 11B83
+- **Keywords:** Sums of powers, Newton's interpolation formula, Finite differences, Binomial coefficients, Faulhaber's formula, Bernoulli numbers, Bernoulli polynomials, Interpolation, Central factorial numbers, Stirling numbers, Eulerian numbers, OEIS.
 - **License:** This work is licensed under a [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/)
 - **DOI:** https://doi.org/10.5281/zenodo.18040979
-- **Web Version:** https://kolosovpetro.github.io/math/test
+- **Web Version:** https://kolosovpetro.github.io/math/sums-of-powers-framework-for-closed-forms
 - **Sources:** https://github.com/kolosovpetro/SumsOfPowersACompleteFrameworkForClosedForms
 - **ORCID:** https://orcid.org/0000-0002-6544-8880
 - **Email:** kolosovp94@gmail.com
