@@ -31,4 +31,4 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Updates in metadata
 - Configure Pandoc HTML converter
 - Bibliography links in HTML version
-- Explicit convention on 0^x = 1 for all x
+- Explicit convention on x^0 = 1 for all x
