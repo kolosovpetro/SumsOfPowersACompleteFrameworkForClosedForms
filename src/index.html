@@ -282,9 +282,9 @@ Bernoulli-number formulation originates with Bernoulli’s great work.</p>
 further developed by Euler, Stirling, Jacobi, and others through
 connections with finite differences, interpolation, and special number
 sequences.</p>
-<p>Fast-forward to 1993, Donald Knuth revisited the topic of sums of
-powers, giving it a new direction of development. Based on works of Carl
-Gustav Jacobi (1804-1851), and Gessel-Viennot <span class="citation"
+<p>In 1993, Donald Knuth revisited the topic of sums of powers, giving
+it a new direction of development. Based on works of Carl Gustav Jacobi
+(1804-1851), and Gessel-Viennot <span class="citation"
 data-cites="gessel1989determinants">(Gessel and Viennot 1989,
 (1989))</span>, Knuth reviewed Faulhaber’s work from a completely
 different angle, by using modern enumerative combinatorics techniques.
@@ -546,7 +546,18 @@ class="math display">\[\begin{align*}
     \right] \delta^{k} t^m.
 \end{align*}\]</span></em></p>
 </div>
-<p>For example,</p>
+<p>Note that we should note worry about fractions in upper index of
+binomial coefficients <span class="math inline">\(\binom{n -t +
+\frac{k}{2} +1}{k+1}\)</span>, because binomial coefficient <span
+class="math inline">\(\binom{n}{k}\)</span> is a polynomial in <span
+class="math inline">\(n\)</span>. The well-known identity in unsigned
+Stirling numbers of the first kind <span
+class="math inline">\(\genfrac{[}{]}{0pt}{}{n}{k}\)</span> shows it
+clearly <span class="math display">\[\begin{align*}
+  \binom{n}{k}
+  = \sum_{j=0}^{k} \frac{(-1)^{k-j}}{k!} \genfrac{[}{]}{0pt}{}{k}{j}
+n^j.
+\end{align*}\]</span> For example, the sums of squares are</p>
 <div class="example">
 <p><strong>Example 12</strong> (Sums of squares in central differences).
 <em><span class="math display">\[\begin{align*}
@@ -600,6 +611,7 @@ class="math display">\[\begin{align*}
     \frac{\delta^2 t^2}{2}\,\frac{n(73-21n+2n^2)}{6}.
 \end{align*}\]</span></em></p>
 </div>
+<p>While the sums of cubes</p>
 <div class="example">
 <p><strong>Example 13</strong> (Sums of cubes in central differences).
 <em><span class="math display">\[\begin{align*}
@@ -1412,7 +1424,7 @@ class="math inline">\(T_t(2m,2k)\)</span></th>
 <td style="text-align: center;"><span
 class="math inline">\(0\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(1, 0, 1, 0, 1,
-1, 0, 1, 5, 1, 0, 1, 21, 14, 1, 0, 1, 85, 147, 30, 1,
+1, 0, 1, 5, 1, 0, 1, 21, 14, 1, 0, 1, 85, 147, 30, 1, 0, 1,
 \cdots\)</span></td>
 <td style="text-align: center;"><a
 href="https://oeis.org/A269945"><code>A269945</code></a></td>
@@ -1421,15 +1433,16 @@ href="https://oeis.org/A269945"><code>A269945</code></a></td>
 <td style="text-align: center;"><span
 class="math inline">\(1\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(1, 1, 1, 1, 7,
-1, 1, 31, 20, 1, 1, 127, 231, 42, 1, 1, 511,\cdots\)</span></td>
+1, 1, 31, 20, 1, 1, 127, 231, 42, 1, 1, 511, 2290,
+987,\cdots\)</span></td>
 <td style="text-align: center;"><a
 href="https://oeis.org/A394692"><code>A394692</code></a></td>
 </tr>
 <tr>
 <td style="text-align: center;"><span
 class="math inline">\(2\)</span></td>
-<td style="text-align: left;"><span
-class="math inline">\(1,4,1,16,25,1,64,301,65,1,256,3025,1701,126,1,
+<td style="text-align: left;"><span class="math inline">\(1, 4, 1, 16,
+25, 1, 64, 301, 65, 1, 256, 3025, 1701, 126, 1, 1024,
 \cdots\)</span></td>
 <td style="text-align: center;"><a
 href="https://oeis.org/A395456"><code>A395456</code></a></td>
@@ -2432,13 +2445,15 @@ Continuirt u. Profitiert Werden</em>. Johann Remelins.
 </div>
 <div id="ref-gessel1989determinants" class="csl-entry" role="listitem">
 Gessel, Ira M, and Xavier Viennot. 1989. <span>“Determinants, Paths, and
-Plane Partitions.”</span> <em>Preprint</em> 132 (197.15).
+Plane Partitions.”</span> <em>Preprint</em> 132 (197.15). <a
+href="https://people.brandeis.edu/~gessel/homepage/papers/pp.pdf">https://people.brandeis.edu/~gessel/homepage/papers/pp.pdf</a>.
 </div>
 <div id="ref-jackson_1909" class="csl-entry" role="listitem">
 Jackson, Frederick H. 1909. <span>“<span class="nocase">XI.—on
 q-functions and a certain difference operator</span>.”</span> <em><span
 class="nocase">Earth and Environmental Science Transactions of the Royal
-Society of Edinburgh</span></em> 46 (2): 253–81.
+Society of Edinburgh</span></em> 46 (2): 253–81. <a
+href="https://doi.org/10.1017/S0080456800002751">https://doi.org/10.1017/S0080456800002751</a>.
 </div>
 <div id="ref-knuth1993johann" class="csl-entry" role="listitem">
 Knuth, Donald E. 1993. <span>“<span class="nocase">Johann Faulhaber and
@@ -2473,7 +2488,7 @@ Luschny, Peter HN. 2021. <em><span>The Bernoulli Manifesto</span></em>.
 Marko, František, and Semyon Litvinov. 2020. <span>“Geometry of Figurate
 Numbers and Sums of Powers of Consecutive Natural Numbers.”</span>
 <em>The American Mathematical Monthly</em> 127 (1): 4–22. <a
-href="https://doi.org/10.1080/00029890.2020.1671129">https://doi.org/10.1080/00029890.2020.1671129</a>.
+href="https://www.researchgate.net/publication/338054650_Geometry_of_Figurate_Numbers_and_Sums_of_Powers_of_Consecutive_Natural_Numbers">https://www.researchgate.net/publication/338054650_Geometry_of_Figurate_Numbers_and_Sums_of_Powers_of_Consecutive_Natural_Numbers</a>.
 </div>
 <div id="ref-Norlund1924" class="csl-entry" role="listitem">
 Nörlund, Niels Erik. 1924. <em>Vorlesungen <span
@@ -2482,7 +2497,8 @@ class="nocase">ü</span>ber Differenzenrechnung</em>. Springer.
 <div id="ref-pengelley2002bridge" class="csl-entry" role="listitem">
 Pengelley, David J. 2002. <span>“The Bridge Between the Continuous and
 the Discrete via Original Sources.”</span> <em>Study the Masters: The
-Abel-Fauvel Conference, Kristiansand</em>.
+Abel-Fauvel Conference, Kristiansand</em>. <a
+href="https://sites.google.com/view/davidpengelley/david-pengelley">https://sites.google.com/view/davidpengelley/david-pengelley</a>.
 </div>
 <div id="ref-riordan1968combinatorial" class="csl-entry"
 role="listitem">

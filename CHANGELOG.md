@@ -30,3 +30,4 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Add abstract
 - Updates in metadata
 - Configure Pandoc HTML converter
+- Bibliography links in HTML version
