@@ -79,7 +79,7 @@ For instance,
     x^n                     &= \generalizedFactorial{x}{\alpha, \beta}{n}, \quad \alpha=0, \quad \beta =0,  \quad \text{(Taylor's formula)}
   \end{cases}
 \end{align*}
-More precisely, the algorithm for closed formulas for sums of powers is:
+More precisely, the algorithm for closed formulas for sums of powers is
 \begin{algorithm} [Algorithm for closed formulas]
   \label{alg:sums-of-powers}
   \leavevmode\par
@@ -89,7 +89,8 @@ More precisely, the algorithm for closed formulas for sums of powers is:
     \item Derive generalized Newton's formula~\eqref{eq:generalized-newtons-formula}
       in terms of $D_g f(x)$, for example~\eqref{eq:newtons-formulas-casess}.
     \item Find an identity that connects respective factorials $\generalizedFactorial{x}{\alpha, \beta}{n}$
-      with binomial coefficients (as per Newton's formula for powers), for example~\eqref{eq:factorial-identities}.
+      with binomial coefficients of the form $\binom{x}{k}$,
+      so that upper index is expression in $x$, for example~\eqref{eq:factorial-identities}.
     \item Apply hockey stick identities \eqref{lem:generalized-hockey-stick-identity},
       and
       \eqref{lem:centered-hockey-stick-identity} to derive closed form for sums of powers $\KnuthRFoldSum{1}{n}{m}$.
@@ -125,8 +126,7 @@ Also, in terms of Eulerian numbers $\eulerian{n}{k}$
     \binom{t+k}{m-j} \eulerian{m}{k}.
   \end{align*}
 \end{proposition}
-Remarkably,
-the work entitled
+The work entitled
 \textit{Sums of powers of integers and generalized Stirling numbers of the second kind}
 ~\cite{cereceda2022sumspowersintegersgeneralized} discusses closed formulas for sums of powers
 in terms of generalized Stirling numbers of the second kind,
