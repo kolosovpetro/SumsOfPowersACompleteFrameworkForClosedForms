@@ -1,0 +1,2 @@
+- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateMultifoldSumsOfZeroPowersLemma.txt"
+- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateMultifoldBinomialSumsOfPowersProposition.txt"

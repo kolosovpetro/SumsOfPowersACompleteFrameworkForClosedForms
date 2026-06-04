@@ -18,8 +18,8 @@ jobs:
       file_name: 'SumsOfPowersACompleteFrameworkForClosedForms'
       enable_patch_version: true
       enable_pandoc: true
-      enable_html_deploy: false
-      html_deploy_path: 'math/test'
+      enable_html_deploy: true
+      html_deploy_path: 'math/sums-of-powers-framework-for-closed-forms'
       runs_on: 'ubuntu-latest'
       workflow_name: 'Deploy PDF'
       build_assets_path: |

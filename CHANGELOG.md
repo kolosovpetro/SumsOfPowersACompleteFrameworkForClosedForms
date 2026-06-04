@@ -33,3 +33,4 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Bibliography links in HTML version
 - Explicit convention on x^0 = 1 for all x
 - Mathematica programs
+- Pre-release updates
