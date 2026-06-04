@@ -1,13 +1,12 @@
 By decomposition of Newton's formula
 for powers~\eqref{lem:central-newtons-formula-for-powers-decomposition},
 for integers $n,m \geq 0$, and an arbitrary integer $t$, we get
-\begin{align}
-  \label{eq:ordinary-sums-of-powers}
+\begin{align*}
   \KnuthRFoldSum{1}{n}{m} = \frac{1}{2} \sum_{k=0}^{m}
   \left[
     \sum_{j=1}^{n} \binom{j-t+\frac{k}{2}}{k} + \sum_{j=1}^{n} \binom{j-t+\frac{k}{2}-1}{k}
   \right] \delta^{k} t^m.
-\end{align}
+\end{align*}
 Now we reach the transition to closed form of ordinary sums of powers.
 By setting $r=0$, and $r=-1$ into
 Lemma~\eqref{lem:centered-hockey-stick-identity}, we get closed forms of

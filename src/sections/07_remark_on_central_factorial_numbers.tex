@@ -16,8 +16,10 @@ By Newton's formula, we have
 \begin{align*}
   n^{2m} = \sum_{k=0}^{2m} \frac{\centralFactorial{n}{k}}{k!} \cdot \delta^{k} 0^{2m}
 \end{align*}
-The iteration for $k=0$ can be omitted because $\delta^{0} 0^{2m} = 0$.
+The iteration for $k=0$ can be omitted because $\delta^{0} 0^{2m} = 0$,
+for integer $m \geq 1$.
 Next, we observe that $\delta^{k} 0^{2m} = 0$ for every odd $k$, thus
+we can omit odd iterations of $k$
 \begin{align*}
   n^{2m} = \sum_{k=1}^{m} \frac{\centralFactorial{n}{2k}}{(2k)!} \cdot \delta^{2k} 0^{2m}.
 \end{align*}
@@ -25,7 +27,7 @@ By definition of central factorial numbers of the second kind, yields
 \begin{align*}
   n^{2m} = \sum_{k=1}^{m} \centralFactorial{n}{2k} T(2m,2k).
 \end{align*}
-By applying identity~\eqref{lem:central-factorials-binomial-form}, we get
+By applying Lemma~\eqref{lem:central-factorials-binomial-form}, we get
 \begin{align*}
   n^{2m}
   = \sum_{k=1}^{m} \frac{(2k)!}{(2k)!} \centralFactorial{n}{2k} T(2m,2k)
@@ -41,9 +43,10 @@ By hockey stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$ yields
 \begin{align*}
   \KnuthRFoldSum{1}{n}{2m-1} = \sum_{k=1}^{m} (2k-1)! \binom{n+k}{2k} T(2m,2k),
 \end{align*}
-which is exactly the Proposition~\eqref{prop:knuth-odd-powers-sum}.
-Clearly, sum of odd powers above can be generalized to multifold case,
-by applying hockey stick pattern repeatedly
+which matches the Proposition~\eqref{prop:knuth-odd-powers-sum} precisely.
+Clearly, the formula for sums of odd powers can be generalized to multifold case,
+by applying hockey-stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$
+repeatedly
 \begin{proposition}[Knuth's odd powers sum multifold]
   For non-negative integers $r,n,m$
   \begin{align*}
