@@ -32,6 +32,7 @@
     "coniectandi",
     "Conjectandi",
     "CROSSREFS",
+    "eprint",
     "Eulerian",
     "Faulhaber",
     "Gessel",
@@ -50,6 +51,7 @@
     "tabl",
     "Viennot",
     "Vogt",
+    "wolframscript",
     "Worpitzky",
     "Zenodo"
   ]

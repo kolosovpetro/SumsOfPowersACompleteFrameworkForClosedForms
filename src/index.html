@@ -509,6 +509,20 @@ yields <span class="math display">\[\begin{align*}
 \end{align*}\]</span> This completes the proof. ◻</em></p>
 </div>
 </div>
+<div class="convention">
+<p><strong>Convention 11</strong>. <em>For all <span
+class="math inline">\(x\)</span> <span
+class="math display">\[\begin{align*}
+    0^x = 1.
+\end{align*}\]</span></em></p>
+</div>
+<p>Donald Knuth give extensive discussion on why the convention <span
+class="math inline">\(0^x=1\)</span> have to hold for all <span
+class="math inline">\(x\)</span> in Concrete Mathematics <span
+class="citation" data-cites="graham1994concrete">(Graham, Ronald L. and
+Knuth, Donald E. and Patashnik, Oren 1994, 162)</span>, and in <span
+class="citation" data-cites="knuth1992notesnotation">(Knuth
+1992)</span>.</p>
 <h1 id="ordinary-sums-of-powers">Ordinary sums of powers</h1>
 <p>By decomposition of Newton’s formula for powers <a
 href="#lem:central-newtons-formula-for-powers-decomposition"
@@ -534,7 +548,7 @@ class="math inline">\(\sum_{j=1}^{n} \binom{j -t +
 \frac{k}{2}}{k}\)</span>, and <span class="math inline">\(\sum_{j=1}^{n}
 \binom{j -t + \frac{k}{2}-1}{k}\)</span>, respectively. Therefore,</p>
 <div id="prop:ordinary-sums-of-powers-decomposition" class="theorem">
-<p><strong>Theorem 11</strong> (Ordinary sums of powers decomposition).
+<p><strong>Theorem 12</strong> (Ordinary sums of powers decomposition).
 <em>For integers <span class="math inline">\(n,m \geq 0\)</span>, and an
 arbitrary integer <span class="math inline">\(t\)</span>, <span
 class="math display">\[\begin{align*}
@@ -559,7 +573,7 @@ clearly <span class="math display">\[\begin{align*}
 n^j.
 \end{align*}\]</span> For example, the sums of squares are</p>
 <div class="example">
-<p><strong>Example 12</strong> (Sums of squares in central differences).
+<p><strong>Example 13</strong> (Sums of squares in central differences).
 <em><span class="math display">\[\begin{align*}
     t=0:\quad
     \Sigma^{1}\,{n}^{2}
@@ -613,7 +627,7 @@ n^j.
 </div>
 <p>While the sums of cubes</p>
 <div class="example">
-<p><strong>Example 13</strong> (Sums of cubes in central differences).
+<p><strong>Example 14</strong> (Sums of cubes in central differences).
 <em><span class="math display">\[\begin{align*}
     t=0:\quad
     \Sigma^{1}\,{n}^{3}
@@ -682,7 +696,7 @@ data-reference-type="eqref"
 data-reference="prop:ordinary-sums-of-powers-decomposition">[prop:ordinary-sums-of-powers-decomposition]</a>
 and Riordan’s central factorial numbers of the second kind, that is</p>
 <div id="prop:central-factorial-numbers-sums" class="theorem">
-<p><strong>Theorem 14</strong> (Central factorial numbers sums). <em>For
+<p><strong>Theorem 15</strong> (Central factorial numbers sums). <em>For
 integers <span class="math inline">\(n,m \geq 0\)</span>, and an
 arbitrary integer <span class="math inline">\(t\)</span>, <span
 class="math display">\[\begin{align*}
@@ -718,7 +732,7 @@ Knuth’s formula for sums of odd powers</h1>
 E. 1993)</span> Donald Knuth gives a remarkable formula for sums of odd
 powers</p>
 <div id="prop:knuth-odd-powers-sum" class="proposition">
-<p><strong>Proposition 15</strong> (Knuth’s odd powers sum). <em>For
+<p><strong>Proposition 16</strong> (Knuth’s odd powers sum). <em>For
 non-negative integers <span class="math inline">\(n,m\)</span> <span
 class="math display">\[\begin{align*}
     \Sigma^{1}\,{n}^{2m-1} = \sum_{k=1}^{m} (2k-1)! \binom{n+k}{2k}
@@ -774,7 +788,7 @@ data-reference="prop:knuth-odd-powers-sum">[prop:knuth-odd-powers-sum]</a>.
 Clearly, sum of odd powers above can be generalized to multifold case,
 by applying hockey stick pattern repeatedly</p>
 <div class="proposition">
-<p><strong>Proposition 16</strong> (Knuth’s odd powers sum multifold).
+<p><strong>Proposition 17</strong> (Knuth’s odd powers sum multifold).
 <em>For non-negative integers <span class="math inline">\(r,n,m\)</span>
 <span class="math display">\[\begin{align*}
     \Sigma^{r+1}\,{n}^{2m-1}
@@ -810,7 +824,7 @@ J.A. and others 2003)</span>.</p>
 id="generalized-central-factorial-numbers-of-the-second-kind">Generalized
 central factorial numbers of the second kind</h1>
 <div class="definition">
-<p><strong>Definition 17</strong> (Generalized central factorial numbers
+<p><strong>Definition 18</strong> (Generalized central factorial numbers
 of the second kind). <em>For integers <span class="math inline">\(0 \leq
 k \leq m\)</span>, and an arbitrary integer <span
 class="math inline">\(t\)</span>, the generalized central factorial
@@ -1461,7 +1475,7 @@ href="https://oeis.org/A395457"><code>A395457</code></a></td>
 <p>Thus, we have the formula for sums of powers in terms of generalized
 central factorial numbers of the second kind.</p>
 <div id="prop:generalized-central-factorial-sums" class="proposition">
-<p><strong>Proposition 18</strong> (Generalized Central factorial sums).
+<p><strong>Proposition 19</strong> (Generalized Central factorial sums).
 <em>For integers <span class="math inline">\(n,m \geq 0\)</span>, and an
 arbitrary integer <span class="math inline">\(t\)</span>, <span
 class="math display">\[\begin{align*}
@@ -1477,7 +1491,7 @@ class="math display">\[\begin{align*}
 id="double-and-triple-sums-of-powers-in-terms-of-central-differences">Double
 and triple sums of powers in terms of central differences</h1>
 <div id="prop:double-sums-of-powers-decomposition" class="proposition">
-<p><strong>Proposition 19</strong> (Double sums of powers
+<p><strong>Proposition 20</strong> (Double sums of powers
 decomposition). <em>For integers <span class="math inline">\(n,m \geq
 0\)</span>, and an arbitrary integer <span
 class="math inline">\(t\)</span>, <span
@@ -1495,7 +1509,7 @@ class="math display">\[\begin{align*}
 </div>
 <p>For example,</p>
 <div class="example">
-<p><strong>Example 20</strong> (Double sum of squares in central
+<p><strong>Example 21</strong> (Double sum of squares in central
 differences). <em><span class="math display">\[\begin{align*}
     t=0:\quad
     \Sigma^{2}\,{n}^{2}
@@ -1548,7 +1562,7 @@ differences). <em><span class="math display">\[\begin{align*}
 \end{align*}\]</span></em></p>
 </div>
 <div id="prop:triple-sums-of-powers-decomposition" class="proposition">
-<p><strong>Proposition 21</strong> (Triple sums of powers
+<p><strong>Proposition 22</strong> (Triple sums of powers
 decomposition). <em>For integers <span class="math inline">\(n,m \geq
 0\)</span>, and an arbitrary integer <span
 class="math inline">\(t\)</span>, <span
@@ -1569,7 +1583,7 @@ class="math display">\[\begin{align*}
 </div>
 <p>For example,</p>
 <div class="example">
-<p><strong>Example 22</strong> (Triple sum of squares in central
+<p><strong>Example 23</strong> (Triple sum of squares in central
 differences). <em><span class="math display">\[\begin{align*}
     t=0:\quad
     \Sigma^{3}\,{n}^{2}
@@ -1625,7 +1639,7 @@ differences). <em><span class="math display">\[\begin{align*}
 id="multifold-sums-of-powers-in-terms-of-central-differences">Multifold
 sums of powers in terms of central differences</h1>
 <div id="prop:multifold-sums-of-powers" class="theorem">
-<p><strong>Theorem 23</strong> (Multifold sums of powers). <em>For
+<p><strong>Theorem 24</strong> (Multifold sums of powers). <em>For
 integers <span class="math inline">\(n,m \geq 0\)</span>, and an
 arbitrary integer <span class="math inline">\(t\)</span>, <span
 class="math display">\[\begin{align*}
@@ -1645,7 +1659,7 @@ class="math display">\[\begin{align*}
 </div>
 <p>For example,</p>
 <div class="example">
-<p><strong>Example 24</strong> (Examples of multifold sums). <em><span
+<p><strong>Example 25</strong> (Examples of multifold sums). <em><span
 class="math display">\[\begin{align*}
     t=0:\quad
     \Sigma^{r}\,{n}^{m}
@@ -1718,7 +1732,7 @@ id="multifold-sums-of-powers-in-generalized-central-factorial-numbers">Multifold
 sums of powers in generalized central factorial numbers</h1>
 <div id="prop:multifold-central-factorial-sums-of-powers"
 class="proposition">
-<p><strong>Proposition 25</strong> (Multifold central factorial sums of
+<p><strong>Proposition 26</strong> (Multifold central factorial sums of
 powers). <em>For integers <span class="math inline">\(n,m \geq
 0\)</span>, and an arbitrary integer <span
 class="math inline">\(t\)</span>, <span
@@ -1738,7 +1752,7 @@ class="math display">\[\begin{align*}
 \end{align*}\]</span></em></p>
 </div>
 <div class="example">
-<p><strong>Example 26</strong> (Sums of squares in central factorial
+<p><strong>Example 27</strong> (Sums of squares in central factorial
 numbers). <em><span class="math display">\[\begin{align*}
     t=0:\quad
     \Sigma^{1}\,{n}^{2}
@@ -1800,7 +1814,7 @@ data-reference-type="eqref"
 data-reference="tab:central-factorial-numbers-t3">[tab:central-factorial-numbers-t3]</a>.</p></li>
 </ul>
 <div class="example">
-<p><strong>Example 27</strong> (Sums of cubes in central factorial
+<p><strong>Example 28</strong> (Sums of cubes in central factorial
 numbers). <em><span class="math display">\[\begin{align*}
     t=0:\quad
     \Sigma^{1}\,{n}^{4}
@@ -1862,7 +1876,7 @@ data-reference="tab:central-factorial-numbers-t3">[tab:central-factorial-numbers
 <h1 id="multifold-sums-of-powers-in-binomial-form">Multifold sums of
 powers in binomial form</h1>
 <div id="prop:multifold-sum-of-zero-powers" class="lemma">
-<p><strong>Lemma 28</strong> (Multifold sum of zero powers). <em>For
+<p><strong>Lemma 29</strong> (Multifold sum of zero powers). <em>For
 integers <span class="math inline">\(r \geq 0\)</span> and <span
 class="math inline">\(n\geq 1\)</span> <span
 class="math display">\[\begin{align*}
@@ -1901,7 +1915,7 @@ class="math inline">\(\Sigma^{r}\,{n}^{0}
 </div>
 </div>
 <div id="prop:multifold-binomial-sums-of-powers" class="proposition">
-<p><strong>Proposition 29</strong> (Multifold binomial sums of powers).
+<p><strong>Proposition 30</strong> (Multifold binomial sums of powers).
 <em>For integers <span class="math inline">\(n,m \geq 0\)</span>, and an
 arbitrary integer <span class="math inline">\(t\)</span>, <span
 class="math display">\[\begin{align*}
@@ -1921,7 +1935,7 @@ class="math display">\[\begin{align*}
 </div>
 <p>For example,</p>
 <div class="example">
-<p><strong>Example 30</strong> (Examples of multifold binomial sums).
+<p><strong>Example 31</strong> (Examples of multifold binomial sums).
 <em><span class="math display">\[\begin{align*}
     t=0:\quad
     \Sigma^{r}\,{n}^{m}
@@ -2075,7 +2089,7 @@ data-cites="Norlund1924">(Nörlund 1924)</span>, and definition given by
 Steffensen <span class="citation"
 data-cites="steffensen1933definition">(Steffensen 1933)</span></p>
 <div id="prop:generalized-factorial" class="definition">
-<p><strong>Definition 31</strong> (Generalized factorial). <em>For
+<p><strong>Definition 32</strong> (Generalized factorial). <em>For
 non-negative integers <span
 class="math inline">\(x,n,\alpha,\beta\)</span> <span
 class="math display">\[\begin{align*}
@@ -2100,7 +2114,7 @@ formula)}\\
 \end{align*}\]</span> More precisely, the algorithm for closed formulas
 for sums of powers is:</p>
 <div id="alg:sums-of-powers" class="algorithm">
-<p><strong>Algorithm 32</strong> (Algorithm for closed formulas).
+<p><strong>Algorithm 33</strong> (Algorithm for closed formulas).
 <em></em></p>
 <ol>
 <li><p><em>Define the function <span class="math inline">\(f(x) =
@@ -2148,7 +2162,7 @@ data-cites="kolosov_2026_forward">(Kolosov 2026a)</span> provides
 remarkable formulas for sums of powers, based on forward difference
 Newton’s formula,</p>
 <div class="proposition">
-<p><strong>Proposition 33</strong>. <em>For integers <span
+<p><strong>Proposition 34</strong>. <em>For integers <span
 class="math inline">\(r\geq 0\)</span>, and <span
 class="math inline">\(n\geq 0\)</span>, and <span
 class="math inline">\(m\geq 0\)</span>, and an arbitrary integer <span
@@ -2165,7 +2179,7 @@ class="math display">\[\begin{align*}
 <p>Also, in terms of Eulerian numbers <span
 class="math inline">\(\genfrac{\langle}{\rangle}{0pt}{}{n}{k}\)</span></p>
 <div class="proposition">
-<p><strong>Proposition 34</strong>. <em>For integers <span
+<p><strong>Proposition 35</strong>. <em>For integers <span
 class="math inline">\(r\geq0\)</span>, and <span
 class="math inline">\(n\geq 0\)</span>, and <span
 class="math inline">\(m\geq 0\)</span>, and an arbitrary integer <span
@@ -2213,7 +2227,7 @@ data-cites="kolosov_2026_forward">(Kolosov 2026a, Prop.
 (1.9))</span></p>
 <div id="prop:negation-of-ordinary-sums-of-powers-via-newtons-formula"
 class="proposition">
-<p><strong>Proposition 35</strong>. <em>For integers <span
+<p><strong>Proposition 36</strong>. <em>For integers <span
 class="math inline">\(n\geq 0\)</span>, and <span
 class="math inline">\(m\geq 0\)</span>, and an arbitrary integer <span
 class="math inline">\(t\)</span> <span
@@ -2235,7 +2249,7 @@ data-cites="kolosov_2026_forward">(Kolosov 2026a, Prop.
 (1.8))</span></p>
 <div id="prop:ordinary-sums-of-powers-via-newtons-formula"
 class="proposition">
-<p><strong>Proposition 36</strong>. <em>For integers <span
+<p><strong>Proposition 37</strong>. <em>For integers <span
 class="math inline">\(n\geq 0\)</span>, and <span
 class="math inline">\(m\geq 0\)</span>, and an arbitrary integer <span
 class="math inline">\(t\)</span>, <span
@@ -2251,7 +2265,7 @@ algorithm <a href="#alg:sums-of-powers" data-reference-type="eqref"
 data-reference="alg:sums-of-powers">[alg:sums-of-powers]</a> in terms of
 backward differences, providing another remarkable formula</p>
 <div class="proposition">
-<p><strong>Proposition 37</strong>. <em>For non-negative integers <span
+<p><strong>Proposition 38</strong>. <em>For non-negative integers <span
 class="math inline">\(r,n,m\)</span> and an arbitrary integer <span
 class="math inline">\(t\)</span>, <span
 class="math display">\[\begin{align*}
@@ -2271,7 +2285,7 @@ Essentially, it achieves similar formulas for sums of powers as current
 paper, but using different binomial identities to reach the closed form.
 For instance,</p>
 <div class="proposition">
-<p><strong>Proposition 38</strong>. <em>For integers <span
+<p><strong>Proposition 39</strong>. <em>For integers <span
 class="math inline">\(n\geq 0, \; m \geq 0\)</span>, and an arbitrary
 integer <span class="math inline">\(t\)</span> <span
 class="math display">\[\begin{align*}
@@ -2448,12 +2462,23 @@ Gessel, Ira M, and Xavier Viennot. 1989. <span>“Determinants, Paths, and
 Plane Partitions.”</span> <em>Preprint</em> 132 (197.15). <a
 href="https://people.brandeis.edu/~gessel/homepage/papers/pp.pdf">https://people.brandeis.edu/~gessel/homepage/papers/pp.pdf</a>.
 </div>
+<div id="ref-graham1994concrete" class="csl-entry" role="listitem">
+Graham, Ronald L. and Knuth, Donald E. and Patashnik, Oren. 1994.
+<em><span class="nocase">Concrete mathematics: A foundation for computer
+science (second edition)</span></em>. <span>Addison-Wesley Publishing
+Company, Inc.</span> <a
+href="https://archive.org/details/concrete-mathematics">https://archive.org/details/concrete-mathematics</a>.
+</div>
 <div id="ref-jackson_1909" class="csl-entry" role="listitem">
 Jackson, Frederick H. 1909. <span>“<span class="nocase">XI.—on
 q-functions and a certain difference operator</span>.”</span> <em><span
 class="nocase">Earth and Environmental Science Transactions of the Royal
 Society of Edinburgh</span></em> 46 (2): 253–81. <a
 href="https://doi.org/10.1017/S0080456800002751">https://doi.org/10.1017/S0080456800002751</a>.
+</div>
+<div id="ref-knuth1992notesnotation" class="csl-entry" role="listitem">
+Knuth, Donald E. 1992. <em>Two Notes on Notation</em>. <a
+href="https://arxiv.org/abs/math/9205211">https://arxiv.org/abs/math/9205211</a>.
 </div>
 <div id="ref-knuth1993johann" class="csl-entry" role="listitem">
 Knuth, Donald E. 1993. <span>“<span class="nocase">Johann Faulhaber and

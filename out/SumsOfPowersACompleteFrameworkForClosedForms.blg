@@ -6,45 +6,45 @@ The style file: unsrt.bst
 Reallocating 'name_of_file' (item size: 1) to 49 items.
 Database file #1: SumsOfPowersACompleteFrameworkForClosedForms.bib
 Warning--empty journal in luschny2021manifesto
-You've used 21 entries,
+You've used 23 entries,
             1791 wiz_defined-function locations,
-            583 strings with 7690 characters,
-and the built_in function-call counts, 3641 in all, are:
-= -- 340
-> -- 106
+            594 strings with 8044 characters,
+and the built_in function-call counts, 3923 in all, are:
+= -- 364
+> -- 114
 < -- 1
-+ -- 48
-- -- 27
-* -- 161
-:= -- 592
-add.period$ -- 78
-call.type$ -- 21
-change.case$ -- 15
++ -- 52
+- -- 29
+* -- 165
+:= -- 636
+add.period$ -- 85
+call.type$ -- 23
+change.case$ -- 16
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 175
-empty$ -- 412
-format.name$ -- 27
-if$ -- 821
+cite$ -- 24
+duplicate$ -- 190
+empty$ -- 449
+format.name$ -- 29
+if$ -- 888
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 22
-newline$ -- 122
-num.names$ -- 21
-pop$ -- 82
+int.to.str$ -- 23
+missing$ -- 24
+newline$ -- 133
+num.names$ -- 23
+pop$ -- 95
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 59
+skip$ -- 64
 stack$ -- 0
 substring$ -- 138
-swap$ -- 22
+swap$ -- 24
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 33
-width$ -- 23
-write$ -- 249
+while$ -- 35
+width$ -- 25
+write$ -- 271
 (There was 1 warning)

@@ -80,6 +80,18 @@ John Riordan.
 \newblock
   \url{https://www.amazon.com/-/de/Combinatorial-Identities-Probability-Mathematical-Statistics/dp/0471722758}.
 
+\bibitem{graham1994concrete}
+{Graham, Ronald L. and Knuth, Donald E. and Patashnik, Oren}.
+\newblock {\em {Concrete mathematics: A foundation for computer science (second
+  edition)}}.
+\newblock {Addison-Wesley Publishing Company, Inc.}, 1994.
+\newblock \url {https://archive.org/details/concrete-mathematics}.
+
+\bibitem{knuth1992notesnotation}
+Donald~E. Knuth.
+\newblock Two notes on notation, 1992.
+\newblock \url{https://arxiv.org/abs/math/9205211}.
+
 \bibitem{carlitz1963divided}
 L.~Carlitz and John Riordan.
 \newblock The divided central differences of zero.
