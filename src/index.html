@@ -217,11 +217,11 @@ closed formulas</h1>
 <div class="abstract">
 <div class="abstract-title">Abstract</div>
 <p>This manuscript originates from the historical development of the
-sums-of-powers problem, briefly tracing its evolution from Archimedes
-(287-212 BC) to Knuth’s 1993 work <em>Johann Faulhaber and sums of
-powers</em>, highlighting the transition from purely arithmetic methods
-to modern enumerative and algebraic-combinatorial approaches. The main
-results establish an algorithm for deriving closed formulas for
+sums of powers problem, briefly tracing its evolution from Archimedes
+(287-212 BC) to Donald Knuth’s work <em>Johann Faulhaber and sums of
+powers (1993)</em>, highlighting the transition from purely arithmetic
+methods to modern enumerative and algebraic-combinatorial approaches.
+The main results establish an algorithm for deriving closed formulas for
 multifold sums of powers of integers by combining variations of Newton’s
 interpolation formula with hockey-stick family identities for binomial
 coefficients.</p>
@@ -472,7 +472,7 @@ class="math display">\[\begin{align*}
 class="math inline">\(\sum_{k=a}^{b} \binom{k}{j}
     = \binom{a}{j} + \binom{a+1}{j} + \cdots + \binom{b}{j}
     = \left( \sum_{k=0}^{b} \binom{k}{j} \right) - \left(
-\sum_{k=0}^{a-1} \binom{k}{j} \right)\)</span>. By hockey stick identity
+\sum_{k=0}^{a-1} \binom{k}{j} \right)\)</span>. By hockey-stick identity
 <span class="math inline">\(\sum_{k=0}^{n} \binom{k}{j} =
 \binom{n+1}{j+1}\)</span> yields, <span
 class="math display">\[\begin{align*}
@@ -513,11 +513,11 @@ yields <span class="math display">\[\begin{align*}
 <p><strong>Convention 11</strong>. <em>For all <span
 class="math inline">\(x\)</span> <span
 class="math display">\[\begin{align*}
-    0^x = 1.
+    x^0 = 1.
 \end{align*}\]</span></em></p>
 </div>
-<p>Donald Knuth give extensive discussion on why the convention <span
-class="math inline">\(0^x=1\)</span> have to hold for all <span
+<p>Donald Knuth give extensive discussion on the convention <span
+class="math inline">\(x^0=1\)</span> for all <span
 class="math inline">\(x\)</span> in Concrete Mathematics <span
 class="citation" data-cites="graham1994concrete">(Graham, Ronald L. and
 Knuth, Donald E. and Patashnik, Oren 1994, 162)</span>, and in <span
@@ -530,14 +530,13 @@ data-reference-type="eqref"
 data-reference="lem:central-newtons-formula-for-powers-decomposition">[lem:central-newtons-formula-for-powers-decomposition]</a>,
 for integers <span class="math inline">\(n,m \geq 0\)</span>, and an
 arbitrary integer <span class="math inline">\(t\)</span>, we get <span
-class="math display">\[\begin{align}
-  \label{eq:ordinary-sums-of-powers}
+class="math display">\[\begin{align*}
   \Sigma^{1}\,{n}^{m} = \frac{1}{2} \sum_{k=0}^{m}
   \left[
     \sum_{j=1}^{n} \binom{j-t+\frac{k}{2}}{k} + \sum_{j=1}^{n}
 \binom{j-t+\frac{k}{2}-1}{k}
   \right] \delta^{k} t^m.
-\end{align}\]</span> Now we reach the transition to closed form of
+\end{align*}\]</span> Now we reach the transition to closed form of
 ordinary sums of powers. By setting <span
 class="math inline">\(r=0\)</span>, and <span
 class="math inline">\(r=-1\)</span> into Lemma <a
@@ -547,10 +546,12 @@ we get closed forms of the sums <span
 class="math inline">\(\sum_{j=1}^{n} \binom{j -t +
 \frac{k}{2}}{k}\)</span>, and <span class="math inline">\(\sum_{j=1}^{n}
 \binom{j -t + \frac{k}{2}-1}{k}\)</span>, respectively. Therefore,</p>
-<div id="prop:ordinary-sums-of-powers-decomposition" class="theorem">
-<p><strong>Theorem 12</strong> (Ordinary sums of powers decomposition).
-<em>For integers <span class="math inline">\(n,m \geq 0\)</span>, and an
-arbitrary integer <span class="math inline">\(t\)</span>, <span
+<div id="prop:ordinary-sums-of-powers-decomposition"
+class="proposition">
+<p><strong>Proposition 12</strong> (Ordinary sums of powers
+decomposition). <em>For integers <span class="math inline">\(n,m \geq
+0\)</span>, and an arbitrary integer <span
+class="math inline">\(t\)</span>, <span
 class="math display">\[\begin{align*}
     \Sigma^{1}\,{n}^{m} = \frac{1}{2} \sum_{k=0}^{m}
     \left[
@@ -695,9 +696,9 @@ href="#prop:ordinary-sums-of-powers-decomposition"
 data-reference-type="eqref"
 data-reference="prop:ordinary-sums-of-powers-decomposition">[prop:ordinary-sums-of-powers-decomposition]</a>
 and Riordan’s central factorial numbers of the second kind, that is</p>
-<div id="prop:central-factorial-numbers-sums" class="theorem">
-<p><strong>Theorem 15</strong> (Central factorial numbers sums). <em>For
-integers <span class="math inline">\(n,m \geq 0\)</span>, and an
+<div id="prop:central-factorial-numbers-sums" class="proposition">
+<p><strong>Proposition 15</strong> (Central factorial numbers sums).
+<em>For integers <span class="math inline">\(n,m \geq 0\)</span>, and an
 arbitrary integer <span class="math inline">\(t\)</span>, <span
 class="math display">\[\begin{align*}
     \Sigma^{1}\,{n}^{m} = \frac{1}{2} \sum_{k=0}^{m}
@@ -753,16 +754,18 @@ class="math display">\[\begin{align*}
   n^{2m} = \sum_{k=0}^{2m} \frac{n^{[k]}}{k!} \cdot \delta^{k} 0^{2m}
 \end{align*}\]</span> The iteration for <span
 class="math inline">\(k=0\)</span> can be omitted because <span
-class="math inline">\(\delta^{0} 0^{2m} = 0\)</span>. Next, we observe
-that <span class="math inline">\(\delta^{k} 0^{2m} = 0\)</span> for
-every odd <span class="math inline">\(k\)</span>, thus <span
+class="math inline">\(\delta^{0} 0^{2m} = 0\)</span>, for integer <span
+class="math inline">\(m \geq 1\)</span>. Next, we observe that <span
+class="math inline">\(\delta^{k} 0^{2m} = 0\)</span> for every odd <span
+class="math inline">\(k\)</span>, thus we can omit odd iterations of
+<span class="math inline">\(k\)</span> <span
 class="math display">\[\begin{align*}
   n^{2m} = \sum_{k=1}^{m} \frac{n^{[2k]}}{(2k)!} \cdot \delta^{2k}
 0^{2m}.
 \end{align*}\]</span> By definition of central factorial numbers of the
 second kind, yields <span class="math display">\[\begin{align*}
   n^{2m} = \sum_{k=1}^{m} n^{[2k]} T(2m,2k).
-\end{align*}\]</span> By applying identity <a
+\end{align*}\]</span> By applying Lemma <a
 href="#lem:central-factorials-binomial-form" data-reference-type="eqref"
 data-reference="lem:central-factorials-binomial-form">[lem:central-factorials-binomial-form]</a>,
 we get <span class="math display">\[\begin{align*}
@@ -782,11 +785,13 @@ class="math inline">\(\sum_{k=0}^{n} \binom{k}{j} =
 class="math display">\[\begin{align*}
   \Sigma^{1}\,{n}^{2m-1} = \sum_{k=1}^{m} (2k-1)! \binom{n+k}{2k}
 T(2m,2k),
-\end{align*}\]</span> which is exactly the Proposition <a
+\end{align*}\]</span> which matches the Proposition <a
 href="#prop:knuth-odd-powers-sum" data-reference-type="eqref"
-data-reference="prop:knuth-odd-powers-sum">[prop:knuth-odd-powers-sum]</a>.
-Clearly, sum of odd powers above can be generalized to multifold case,
-by applying hockey stick pattern repeatedly</p>
+data-reference="prop:knuth-odd-powers-sum">[prop:knuth-odd-powers-sum]</a>
+precisely. Clearly, the formula for sums of odd powers can be
+generalized to multifold case, by applying hockey-stick identity <span
+class="math inline">\(\sum_{k=0}^{n} \binom{k}{j} =
+\binom{n+1}{j+1}\)</span> repeatedly</p>
 <div class="proposition">
 <p><strong>Proposition 17</strong> (Knuth’s odd powers sum multifold).
 <em>For non-negative integers <span class="math inline">\(r,n,m\)</span>
@@ -1638,7 +1643,7 @@ differences). <em><span class="math display">\[\begin{align*}
 <h1
 id="multifold-sums-of-powers-in-terms-of-central-differences">Multifold
 sums of powers in terms of central differences</h1>
-<div id="prop:multifold-sums-of-powers" class="theorem">
+<div id="thm:multifold-sums-of-powers" class="theorem">
 <p><strong>Theorem 24</strong> (Multifold sums of powers). <em>For
 integers <span class="math inline">\(n,m \geq 0\)</span>, and an
 arbitrary integer <span class="math inline">\(t\)</span>, <span
@@ -1876,8 +1881,8 @@ data-reference="tab:central-factorial-numbers-t3">[tab:central-factorial-numbers
 <h1 id="multifold-sums-of-powers-in-binomial-form">Multifold sums of
 powers in binomial form</h1>
 <div id="prop:multifold-sum-of-zero-powers" class="lemma">
-<p><strong>Lemma 29</strong> (Multifold sum of zero powers). <em>For
-integers <span class="math inline">\(r \geq 0\)</span> and <span
+<p><strong>Lemma 29</strong> (Multifold sums of zero powers). <em>For
+integers <span class="math inline">\(r \geq 0\)</span>, and <span
 class="math inline">\(n\geq 1\)</span> <span
 class="math display">\[\begin{align*}
     \Sigma^{r}\,{n}^{0} = \binom{r+n-1}{r}
@@ -2112,7 +2117,7 @@ formula)}\\
 \quad \alpha=0, \quad \beta =0,  \quad \text{(Taylor&#39;s formula)}
   \end{cases}
 \end{align*}\]</span> More precisely, the algorithm for closed formulas
-for sums of powers is:</p>
+for sums of powers is</p>
 <div id="alg:sums-of-powers" class="algorithm">
 <p><strong>Algorithm 33</strong> (Algorithm for closed formulas).
 <em></em></p>
@@ -2132,8 +2137,10 @@ data-reference-type="eqref"
 data-reference="eq:newtons-formulas-casess">[eq:newtons-formulas-casess]</a>.</em></p></li>
 <li><p><em>Find an identity that connects respective factorials <span
 class="math inline">\(\left(x\mid \alpha, \beta\right)_{n}\)</span> with
-binomial coefficients (as per Newton’s formula for powers), for
-example <a href="#eq:factorial-identities" data-reference-type="eqref"
+binomial coefficients of the form <span
+class="math inline">\(\binom{x}{k}\)</span>, so that upper index is
+expression in <span class="math inline">\(x\)</span>, for example <a
+href="#eq:factorial-identities" data-reference-type="eqref"
 data-reference="eq:factorial-identities">[eq:factorial-identities]</a>.</em></p></li>
 <li><p><em>Apply hockey stick identities <a
 href="#lem:generalized-hockey-stick-identity"
@@ -2193,9 +2200,8 @@ class="math display">\[\begin{align*}
     \binom{t+k}{m-j} \genfrac{\langle}{\rangle}{0pt}{}{m}{k}.
 \end{align*}\]</span></em></p>
 </div>
-<p>Remarkably, the work entitled <em>Sums of powers of integers and
-generalized Stirling numbers of the second kind</em>  <span
-class="citation"
+<p>The work entitled <em>Sums of powers of integers and generalized
+Stirling numbers of the second kind</em>  <span class="citation"
 data-cites="cereceda2022sumspowersintegersgeneralized">(Cereceda
 2022)</span> discusses closed formulas for sums of powers in terms of
 generalized Stirling numbers of the second kind, which originates from
@@ -2365,7 +2371,7 @@ data-reference="lem:centered-hockey-stick-identity">[lem:centered-hockey-stick-i
 <tr>
 <td
 style="text-align: left;"><code>ValidateOrdinarySumsOfPowersDecomposition[10]</code></td>
-<td style="text-align: left;">Validates Thm. <a
+<td style="text-align: left;">Validates Prop. <a
 href="#prop:ordinary-sums-of-powers-decomposition"
 data-reference-type="eqref"
 data-reference="prop:ordinary-sums-of-powers-decomposition">[prop:ordinary-sums-of-powers-decomposition]</a></td>
@@ -2390,15 +2396,15 @@ data-reference="prop:triple-sums-of-powers-decomposition">[prop:triple-sums-of-p
 <td
 style="text-align: left;"><code>ValidateMultifoldSumsOfPowers[3]</code></td>
 <td style="text-align: left;">Validates Thm. <a
-href="#prop:multifold-sums-of-powers" data-reference-type="eqref"
-data-reference="prop:multifold-sums-of-powers">[prop:multifold-sums-of-powers]</a></td>
+href="#thm:multifold-sums-of-powers" data-reference-type="eqref"
+data-reference="thm:multifold-sums-of-powers">[thm:multifold-sums-of-powers]</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <p><span><strong>Metadata</strong></span></p>
 <ul>
-<li><p><strong>Initial release date:</strong> N/A</p></li>
+<li><p><strong>Initial release date:</strong> June 2026.</p></li>
 <li><p><strong>Current release date:</strong> 2026-06-04.</p></li>
 <li><p><strong>Version:</strong> <code>Local-0.1.0</code> .</p></li>
 <li><p><strong>MSC2010:</strong> 05A10, 11B68, 11B73, 11B83 .</p></li>
@@ -2409,10 +2415,10 @@ factorial numbers, Stirling numbers, Eulerian numbers, OEIS .</p></li>
 <li><p><strong>License:</strong> This work is licensed under a <a
 href="https://creativecommons.org/licenses/by/4.0/"><code>CC BY 4.0 License</code></a>.</p></li>
 <li><p><strong>DOI:</strong> <a
-href="https://doi.org/10.5281/zenodo.18040979"><code>https://doi.org/10.5281/zenodo.18040979</code></a></p></li>
+href="https://doi.org/10.5281/zenodo.20548019"><code>https://doi.org/10.5281/zenodo.20548019</code></a></p></li>
 <li><p><strong>Web Version:</strong> <a
 href="https://kolosovpetro.github.io/math/sums-of-powers-framework-for-closed-forms/"><code>kolosovpetro.github.io/math/sums-of-powers-framework-for-closed-forms</code></a></p></li>
-<li><p><strong>Sources:</strong> <a
+<li><p><strong>GitHub:</strong> <a
 href="https://github.com/kolosovpetro/NewtonsInterpolationFormulaAndSumsOfPowers"><code>github.com/kolosovpetro/NewtonsFormulaAndSumsOfPowers</code></a></p></li>
 <li><p><strong>ORCID:</strong> <a
 href="https://orcid.org/0000-0002-6544-8880"><code>0000-0002-6544-8880</code></a></p></li>
@@ -2504,10 +2510,13 @@ href="https://doi.org/10.5281/zenodo.18361364">https://doi.org/10.5281/zenodo.18
 <div id="ref-luschny2020introduction" class="csl-entry" role="listitem">
 Luschny, Peter HN. 2020. <span>“<span class="nocase">An introduction to
 the Bernoulli function</span>.”</span> <em><span class="nocase">arXiv
-preprint arXiv:2009.06743</span></em>.
+preprint arXiv:2009.06743</span></em>. <a
+href="https://arxiv.org/abs/2009.06743">https://arxiv.org/abs/2009.06743</a>.
 </div>
 <div id="ref-luschny2021manifesto" class="csl-entry" role="listitem">
 Luschny, Peter HN. 2021. <em><span>The Bernoulli Manifesto</span></em>.
+<a
+href="http://luschny.de/math/zeta/The-Bernoulli-Manifesto.html">http://luschny.de/math/zeta/The-Bernoulli-Manifesto.html</a>.
 </div>
 <div id="ref-Marko2020" class="csl-entry" role="listitem">
 Marko, František, and Semyon Litvinov. 2020. <span>“Geometry of Figurate
@@ -2517,7 +2526,8 @@ href="https://www.researchgate.net/publication/338054650_Geometry_of_Figurate_Nu
 </div>
 <div id="ref-Norlund1924" class="csl-entry" role="listitem">
 Nörlund, Niels Erik. 1924. <em>Vorlesungen <span
-class="nocase">ü</span>ber Differenzenrechnung</em>. Springer.
+class="nocase">ü</span>ber Differenzenrechnung</em>. Springer. <a
+href="https://link.springer.com/book/10.1007/978-3-642-50824-0">https://link.springer.com/book/10.1007/978-3-642-50824-0</a>.
 </div>
 <div id="ref-pengelley2002bridge" class="csl-entry" role="listitem">
 Pengelley, David J. 2002. <span>“The Bridge Between the Continuous and

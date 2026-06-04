@@ -37,7 +37,7 @@ This manuscript originates from the historical development of the sums of powers
 - **License:** This work is licensed under a [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/)
 - **DOI:** https://doi.org/10.5281/zenodo.20548019
 - **Web Version:** https://kolosovpetro.github.io/math/sums-of-powers-framework-for-closed-forms
-- **Sources:** https://github.com/kolosovpetro/SumsOfPowersACompleteFrameworkForClosedForms
+- **GitHub:** https://github.com/kolosovpetro/SumsOfPowersACompleteFrameworkForClosedForms
 - **ORCID:** https://orcid.org/0000-0002-6544-8880
 - **Email:** kolosovp94@gmail.com
 
