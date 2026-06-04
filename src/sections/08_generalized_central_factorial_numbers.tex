@@ -1,0 +1,38 @@
+\begin{definition}[Generalized central factorial numbers of the second kind]
+  For integers $0 \leq k \leq m$, and an arbitrary integer $t$, the generalized
+  central factorial numbers of the second kind are defined by the relation
+  \begin{align*}
+    n^m = \sum_{k=0}^{\infty} T_t(m,k) \cdot \centralFactorial{(n-t)}{k}.
+  \end{align*}
+\end{definition}
+It is also straightforward that
+\begin{align*}
+  T_t (m,k) = \frac{\delta^{k} t^m}{k!},
+\end{align*}
+by Newton's
+formula~\eqref{lem:central-newtons-formula-for-powers}.
+For example,
+\input{sections/tables/02_fig_central_factorial_numbers_t_0.tex}
+
+\input{sections/tables/03_fig_central_factorial_numbers_t_1.tex}
+
+\input{sections/tables/04_fig_central_factorial_numbers_t_2.tex}
+
+\input{sections/tables/05_fig_central_factorial_numbers_t_3.tex}
+
+\input{sections/tables/01_fig_oeis_central_factorial_numbers_2n_2k.tex}
+
+Thus, we have the formula for sums of powers in terms of
+generalized central factorial numbers of the second kind
+
+\begin{proposition}[Generalized Central factorial sums]
+  \label{prop:generalized-central-factorial-sums}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{1}{n}{m} = \frac{1}{2} \sum_{k=0}^{m}
+    \left[
+      \binom{n -t + \frac{k}{2} +1}{k+1} - \binom{1 -t + \tfrac{k}{2}}{k+1}
+      + \binom{n -t + \frac{k}{2}}{k+1} - \binom{-t + \tfrac{k}{2}}{k+1}
+    \right] k! T_t (m,k).
+  \end{align*}
+\end{proposition}

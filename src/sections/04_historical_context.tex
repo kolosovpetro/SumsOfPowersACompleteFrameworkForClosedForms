@@ -1,0 +1,81 @@
+The story begins in ancient Greek times,
+with discrete approximations to obtain continuous areas by the method of exhaustion.
+In particular, Archimedes (287-212 BC) evaluated sums of squares while finding
+the spiral's area~\cite{pengelley2002bridge},
+analogous to what we have nowadays
+\begin{align*}
+  1^2 + 2^2 + 3^2 + \cdots n^2 = \frac{n(n+1)(2n+1)}{6}.
+\end{align*}
+
+Moving to early modern Europe (1636),
+Pierre de Fermat (1601-1665) referred to the problem
+of finding formulas for sums of powers
+\textit{... perhaps the most beautiful problem of all arithmetics},
+in his correspondence with Blaise Pascal (1623-1662).
+Fermat's contribution to the topic was quite remarkable indeed,
+as he revived the study of figurate numbers and investigated
+their arithmetic properties,
+including what is now known as Fermat's polygonal number theorem.
+Application of polygonal numbers in sums of powers
+is extensively discussed in~\cite[(2020)]{Marko2020}.
+
+Meanwhile, Johann Faulhaber (1580-1635) worked on the problem of sums of powers,
+writing his famous book \textit{Academia Algebrae}~\cite[(1631)]{faulhaberacademia}.
+Faulhaber's contribution was great indeed, because Johann managed
+to compute formulas up to
+$\KnuthRFoldSum{1}{n}{25} = 1^{25}+2^{25}+ \cdots + n^{25}$,
+which is quite impressive.
+Imagine to derive the formula back in 17-th century, without computers.
+Faulhaber explicitly tabulated formulas through the seventeenth
+power and provided sufficient information for determining higher cases,
+including the twenty-fifth power.
+Knuth later reconstructed the latter computation.
+Faulhaber actually discovered deep structural patterns,
+particularly for odd powers expressed as polynomials
+in triangular numbers.
+What he lacked was a completely general symbolic formula.
+
+The major breakthrough was achieved by Jacob Bernoulli (1665-1705) in his work
+entitled
+\textit{Ars coniectandi}~\cite[(1713)]{bernoulli1713ars}, published postmortem.
+In the work, Jacob introduced Bernoulli numbers (named after him later),
+thus allowing for arbitrary powers to be summed up
+\begin{align*}
+  \sum_{k=1}^{n} k^p = \frac{1}{p+1} \sum_{r=0}^{p} \binom{p+1}{r} B_r n^{p+1-r}
+\end{align*}
+It assumes that $B_1 = +\frac{1}{2}$.
+The choice of convention for $B_1$ has a long historical background;
+see~\cite{luschny2021manifesto,luschny2020introduction}
+for a detailed discussion.
+Therefore, Bernoulli managed to contribute the missing capstone to
+Faulhaber's work, making it symbolically complete.
+In fact, the formula above is commonly referred to as Faulhaber's formula,
+although the modern Bernoulli-number formulation originates with Bernoulli's
+great work.
+
+During the eighteenth and nineteenth centuries,
+the theory was further developed by Euler, Stirling, Jacobi,
+and others through connections with finite differences, interpolation,
+and special number sequences.
+
+In 1993, Donald Knuth revisited the topic of sums of powers,
+giving it a new direction of development.
+Based on works of Carl Gustav Jacobi (1804-1851),
+and Gessel-Viennot~\cite[(1989)]{gessel1989determinants}, Knuth reviewed Faulhaber's
+work from a completely different angle, by using modern
+enumerative combinatorics techniques.
+Remarkably, Knuth's contribution does not necessarily involve Bernoulli numbers,
+instead he derived formulas for power sums
+by utilizing special numbers (e.g Stirling, central factorial),
+and Binomial coefficients.
+In addition, Knuth introduced
+a remarkably convenient notation for $r$-fold sums of powers $\KnuthRFoldSum{r}{n}{m}$,
+which we use in this work.
+
+In this manuscript, we reveal the role of Newton's interpolation formula
+in the process of computing formulas for sums of powers.
+As the main result, this paper proposes an algorithm to derive closed formulas
+for sums of powers, by utilizing variations of Newton's interpolation formula,
+combined with hockey-stick family binomial identities.
+As results show, there are infinitely
+many variations of closed formulas for sums of powers.

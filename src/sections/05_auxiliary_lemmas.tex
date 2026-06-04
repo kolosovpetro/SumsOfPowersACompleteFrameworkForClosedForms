@@ -1,0 +1,144 @@
+\begin{lemma}[Central Newton's formula]
+  % {\normalfont
+  % (Central Newton's formula \cite[p.~462]{butzer1989central}).}
+  For a function $f$ defined on integers and arbitrary integers $x,t$
+  \label{lem:centra-newtons-formula}
+  \begin{align*}
+    f(x)
+    = \sum_{k=0}^{\infty} \frac{\centralFactorial{(x-t)}{k}}{k!} \delta^{k} f(t),
+  \end{align*}
+  where $\delta^{k} f(t)$ denotes the $k$-th central finite difference
+  \begin{align*}
+    \delta^{k} f(t) = \tsum_{j=0}^{k} (-1)^j \tbinom{k}{j} f\!\left(t+\tfrac{k}{2} - j\right),
+  \end{align*}
+  and $\centralFactorial{(x-t)}{k}$ are central factorials
+  defined by~\eqref{def:central-factorials}.
+  \begin{proof}
+    See~\cite[p.~462]{butzer1989central}, and~\cite[section 2, eq. (19)]{steffensen1927interpolation},
+    and~\cite[section 6, eq. (21)]{riordan1968combinatorial}.
+  \end{proof}
+\end{lemma}
+
+
+\begin{lemma}[Newton's formula for powers]
+  \label{lem:central-newtons-formula-for-powers}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    n^m = \sum_{k=0}^{m} \frac{\centralFactorial{(n-t)}{k}}{k!} \delta^{k} t^m.
+  \end{align*}
+\end{lemma}
+
+\begin{lemma}[Central factorials binomial form]
+  \label{lem:central-factorials-binomial-form}
+  For integers $n$ and $k \geq 1$,
+  \begin{align*}
+    \frac{\centralFactorial{n}{k}}{k!}
+    = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}.
+  \end{align*}
+  \begin{proof}
+    We have
+    \begin{align*}
+      \frac{\centralFactorial{n}{k}}{k!}
+      &= \frac{n}{k!}\fallingFactorial{n+\frac{k}{2}-1}{k-1}
+      = \frac{n}{k (k-1)!} \fallingFactorial{n+\frac{k}{2}-1}{k-1}
+      = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1},
+    \end{align*}
+    because of the identity in falling factorials
+    $\frac{\fallingFactorial{x}{n}}{n!} = \binom{x}{n}$.
+  \end{proof}
+\end{lemma}
+
+\begin{lemma}[Central factorials binomial form decomposition]
+  \label{lem:central-factorials-binomial-form-decomposition}
+  For integers $n,k\geq 0$,
+  \begin{align*}
+    \frac{\centralFactorial{n}{k}}{k!}
+    = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}
+    = \frac{1}{2} \binom{n+\frac{k}{2}}{k} + \frac{1}{2} \binom{n+\frac{k}{2}-1}{k}.
+  \end{align*}
+  \begin{proof}
+    We have $\binom{a}{k} = \frac{a}{k} \binom{a-1}{k-1}$.
+    Let $a=n + \frac{k}{2}$, then
+    \begin{align*}
+      \tbinom{n + \frac{k}{2}}{k} = \tfrac{n + \tfrac{k}{2}}{k} \tbinom{n+\frac{k}{2}-1}{k-1}
+      = \tfrac{n}{k} \tbinom{n+\frac{k}{2}-1}{k-1} + \tfrac{1}{2} \tbinom{n+\frac{k}{2}-1}{k-1}.
+    \end{align*}
+    Thus,
+    \begin{align*}
+      \tfrac{n}{k} \tbinom{n+\frac{k}{2}-1}{k-1} = \tbinom{n + \frac{k}{2}}{k} - \tfrac{1}{2} \tbinom{n+\frac{k}{2}-1}{k-1}.
+    \end{align*}
+    By moving under common denominator, and applying binomial recurrence yields
+    \begin{align*}
+      \tfrac{n}{k} \tbinom{n+\frac{k}{2}-1}{k-1}
+      = \tfrac{1}{2}
+      \left[
+        2 \tbinom{n + \frac{k}{2}}{k} - \tbinom{n+\frac{k}{2}-1}{k-1}
+      \right]
+      = \tfrac{1}{2}
+      \left[
+        \tbinom{n + \frac{k}{2}}{k} + \tbinom{n + \frac{k}{2}-1}{k} + \tbinom{n + \frac{k}{2}-1}{k-1} - \tbinom{n+\frac{k}{2}-1}{k-1}
+      \right].
+    \end{align*}
+    Thus, the statement follows.
+  \end{proof}
+\end{lemma}
+
+\begin{lemma}[Newton's formula for powers decomposition]
+  \label{lem:central-newtons-formula-for-powers-decomposition}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    n^m = \frac{1}{2} \sum_{k=0}^{m}
+    \left[
+      \binom{n-t+\frac{k}{2}}{k} + \binom{n-t+\frac{k}{2}-1}{k}
+    \right] \delta^{k} t^m.
+  \end{align*}
+\end{lemma}
+
+\begin{lemma}[Generalized hockey-stick identity]
+  \label{lem:generalized-hockey-stick-identity}
+  For integers $a,b$ and $j$,
+  \begin{align*}
+    \sum_{k=a}^{b} \binom{k}{j} = \binom{b+1}{j+1} - \binom{a}{j+1}.
+  \end{align*}
+  \begin{proof}
+    We have,
+    $\sum_{k=a}^{b} \binom{k}{j}
+    = \binom{a}{j} + \binom{a+1}{j} + \cdots + \binom{b}{j}
+    = \left( \sum_{k=0}^{b} \binom{k}{j} \right) - \left( \sum_{k=0}^{a-1} \binom{k}{j} \right)$.
+    By hockey-stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$ yields,
+    \begin{align*}
+      \tsum_{k=a}^{b} \tbinom{k}{j}
+      = \left( \tsum_{k=0}^{b} \tbinom{k}{j} \right) - \left( \tsum_{k=0}^{a-1} \tbinom{k}{j} \right)
+      = \tbinom{b+1}{j+1} - \tbinom{a}{j+1}.
+    \end{align*}
+    This completes the proof.
+  \end{proof}
+\end{lemma}
+
+\begin{lemma}[Centered hockey-stick identity]
+  \label{lem:centered-hockey-stick-identity}
+  For integers $n\geq1$, and arbitrary integers $t,k,r$
+  \begin{align*}
+    \sum_{j=1}^{n} \binom{j -t + \frac{k}{2} +r}{k}
+    = \binom{n -t + \frac{k}{2} + r +1}{k+1} - \binom{1 -t + \tfrac{k}{2} +r}{k+1}.
+  \end{align*}
+  \begin{proof}
+    By setting $a=1 -t + \tfrac{k}{2} +r$, and $b=n-t+ \tfrac{k}{2} +r$
+    into Lemma~\eqref{lem:generalized-hockey-stick-identity} yields
+    \begin{align*}
+      \tsum_{j=1}^{n} \tbinom{j -t + \tfrac{k}{2} +r}{k} =
+      \tsum_{j=1 -t + \tfrac{k}{2} +r}^{n -t + \tfrac{k}{2} +r} \tbinom{j}{k}
+      = \tbinom{n -t + \tfrac{k}{2} + r +1}{k+1} - \tbinom{1 -t + \tfrac{k}{2} +r}{k+1}.
+    \end{align*}
+    This completes the proof.
+  \end{proof}
+\end{lemma}
+
+\begin{convention} For all $x$
+  \begin{align*}
+    x^0 = 1.
+  \end{align*}
+\end{convention}
+Donald Knuth give extensive discussion on the convention $x^0=1$ for
+all $x$ in Concrete Mathematics~\cite[~p. 162]{graham1994concrete},
+and in~\cite{knuth1992notesnotation}.

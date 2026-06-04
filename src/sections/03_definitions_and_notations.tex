@@ -1,0 +1,47 @@
+Allow us to define the mathematical objects we utilize throughout the manuscript.
+For multifold sums of powers, we use the notation provided by Donald Knuth in~\cite{knuth1993johann},
+because it is simple and beautiful.
+\begin{definition} [Multifold sums of powers]
+  \label{def:multifold-sums-of-powers-recurrence}
+  For non-negative integers $r,n,m$
+  \begin{align*}
+    \KnuthRFoldSum{0}{n}{m}   &= n^m, \\
+    \KnuthRFoldSum{1}{n}{m}   &= \KnuthRFoldSum{0}{1}{m}
+    + \KnuthRFoldSum{0}{2}{m} + \cdots + \KnuthRFoldSum{0}{n}{m}, \\
+    \KnuthRFoldSum{r+1}{n}{m} &= \KnuthRFoldSum{r}{1}{m}
+    + \KnuthRFoldSum{r}{2}{m} + \cdots + \KnuthRFoldSum{r}{n}{m}.
+  \end{align*}
+\end{definition}
+We utilize the following notation for falling factorials
+\begin{definition} [Falling factorials] For integers $x,n$
+  \begin{align*}
+    \fallingFactorial{x}{n} =
+    \begin{cases}
+      1, & \mathrm{if \; } k = 0, \\
+      x(x-1)(x-2)\cdots(x-n+1) = \prod_{k=0}^{n-1} (x-k), & \mathrm{if \; } k > 0, \\
+      0, & \mathrm{else}.
+    \end{cases}
+  \end{align*}
+\end{definition}
+We utilize the following notation for central factorials
+\begin{definition}[Central factorials]
+  \label{def:central-factorials}
+  For integers $n,k$
+  \begin{align*}
+    \centralFactorial{n}{k} =
+    \begin{cases}
+      0, \quad & \mathrm{if \; } k < 0, \\
+      1, \quad & \mathrm{if \; } k = 0, \\
+      n \left( n + \frac{k}{2} -1 \right)\left( n + \frac{k}{2} -2 \right)
+      \cdots \left( n - \frac{k}{2} +1 \right)
+      = n \fallingFactorial{n+\frac{k}{2}-1}{k-1}, \quad & \mathrm{if \; } k>0,
+    \end{cases}
+  \end{align*}
+  where
+  $\fallingFactorial{n+\frac{k}{2}-1}{k-1}
+  = \prod_{j=0}^{k-2} \left( n+\frac{k}{2}-1 -j \right)$
+  are falling factorials.
+\end{definition}
+We encourage the audience to read
+J. F. Steffensen's work on the definition of
+generalized factorials~\cite{steffensen1933definition}.

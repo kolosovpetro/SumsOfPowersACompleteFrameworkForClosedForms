@@ -43,6 +43,7 @@ tests
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
+*Copy.pdf
 
 ## Build tool directories for auxiliary files
 # latexrun
@@ -288,3 +289,5 @@ TSWLatexianTemp*
 # option is specified. Footnotes are the stored in a file with suffix Notes.bib.
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
+
+plot

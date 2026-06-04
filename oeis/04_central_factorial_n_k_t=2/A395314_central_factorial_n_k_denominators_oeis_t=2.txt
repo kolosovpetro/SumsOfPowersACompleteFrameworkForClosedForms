@@ -1,0 +1,62 @@
+====================================== NAME ========================================
+
+Triangle read by rows: T(n,k) = denominator(CF(n,k)), where CF(n,k) = (1/k!) * Sum_{j=0..k} (-1)^j * binomial(k,j) * (2+k/2-j)^n.
+
+====================================== DATA ========================================
+
+1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 16, 1, 2, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 64, 1, 16, 1, 4, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 256, 1, 16, 1, 8, 1, 1, 1, 1, 1, 64, 1, 4, 1, 2, 1, 1, 1, 1, 1, 1, 1024, 1, 256, 1, 32, 1, 8, 1, 4, 1, 1, 1, 128, 1, 32, 1, 4, 1, 1, 1, 1, 1, 1, 1
+
+====================================== REFERENCES ==================================
+
+P. L. Butzer, K. Schmidt, E. L. Stark, and L. Vogt, Central factorial numbers; their main properties and some applications. Numerical Functional Analysis and Optimization, 10(5-6), (1989), 419-488.
+J. Riordan, Combinatorial identities (Vol. 217), Wiley, New York, 1968.
+
+====================================== LINKS =======================================
+
+José L. Cereceda, <a href="https://arxiv.org/abs/2211.11648">Sums of powers of integers and generalized Stirling numbers of the second kind</a>, arXiv:2211.11648 [math.NT], 2022.
+M. W. Coffey and M. C. Lettington, <a href="https://arxiv.org/abs/1510.05402">On Fibonacci Polynomial Expressions for Sums of m-th Powers, their implications for Faulhaber's Formula and some Theorems of Fermat</a>, arXiv:1510.05402 [math.NT], 2015.
+Donald E. Knuth, <a href="https://arxiv.org/abs/math/9207222">Johann Faulhaber and Sums of Powers</a>, arXiv:math/9207222 [math.CA], 1992.
+Petro Kolosov, <a href="https://doi.org/10.5281/zenodo.18096789">Sums of powers via central finite differences and Newton's formula</a>, Zenodo, 2026.
+
+====================================== FORMULA =====================================
+
+Let F(t, n, k) be generalized central factorial numbers of the second kind: F(t,n,k) = (1/k!) * Sum_{j=0..k} (-1)^j * binomial(k,j) * (t+k/2-j)^n, then:
+  F(0,2n,2k) = A387597(n,k)/k! = A269945(n,k);
+  F(1,2n,2k) = A392337(n,k)/k! = A394692(n,k);
+  F(2,2n,2k) = A390029(n,k)/k! = A395456(n,k);
+  F(3,2n,2k) = A395457(n,k);
+  numerators(F(0,n,k)) = A395862(n,k);
+  denominators(F(0,n,k)) = A370703(n,k);
+  numerators(F(1,n,k)) = A395860(n,k);
+  denominators(F(1,n,k)) = A395861(n,k);
+  numerators(F(2,n,k)) = A394466(n,k);
+  denominators(F(2,n,k)) = T(n,k) (this sequence).
+G.f. for CF(n,k) is centered Newton's polynomial for f(s) = s^n: s^n = Sum_{k=0..n} CF(n,k) * (s-2)^[k], where (s-2)^[k] are central factorials.
+
+====================================== EXAMPLE =====================================
+
+Triangle begins:
+
+[0]  1;
+[1]  1,   1;
+[2]  1,   1, 1;
+[3]  1,   4, 1,  1;
+[4]  1,   1, 1,  1, 1;
+[5]  1,  16, 1,  2, 1, 1;
+[6]  1,   4, 1,  1, 1, 1, 1;
+[7]  1,  64, 1, 16, 1, 4, 1, 1;
+[8]  1,   4, 1,  1, 1, 1, 1, 1, 1;
+[9]  1, 256, 1, 16, 1, 8, 1, 1, 1, 1;
+[10] 1,  64, 1,  4, 1, 2, 1, 1, 1, 1, 1;
+
+====================================== MATHEMATICA =================================
+
+T[t_, n_, k_] := 1/ k!* Sum[(-1)^j * Binomial[k, j] * (t + k/2 - j)^n, {j, 0, k}]; Column[Table[Denominator[T[2, n, k]], {n, 0, 10}, {k, 0, n}]]
+
+====================================== CROSSREFS ===================================
+
+Cf. A036969, A269945, A008957, A390029, A392337, A387597, A395456, A395457, A370703, A370705, A395860, A395861, A394466.
+
+====================================== KEYWORD =====================================
+
+easy,tabl,frac

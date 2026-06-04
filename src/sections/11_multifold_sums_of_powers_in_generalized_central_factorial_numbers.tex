@@ -1,0 +1,35 @@
+
+\begin{proposition}[Multifold central factorial sums of powers]
+  \label{prop:multifold-central-factorial-sums-of-powers}
+  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    &= \frac{1}{2} \sum_{k=0}^{m}
+    \Bigg \{
+      \binom{n-t+\frac{k}{2}+r}{k+r} + \binom{n-t+\frac{k}{2}+r-1}{k+r} \\
+      &-
+      \sum_{s=0}^{r-1}
+      \left[
+        \binom{r-s-t+\frac{k}{2}}{k+r-s} + \binom{r-1-s-t+\frac{k}{2}}{k+r-s}
+      \right] \KnuthRFoldSum{s}{n}{0}
+    \Bigg \} k! T_t(m,k).
+  \end{align*}
+\end{proposition}
+
+\input{sections/examples/06_example_sums_of_squares_central_factorial_numbers.tex}
+From the example above, we may observe that
+\begin{itemize}
+  \item For $t=0$ the coefficients $0,0,1$ correspond to the second row of the triangle~\eqref{tab:central-factorial-numbers-t0}.
+  \item For $t=1$ the coefficients $1,2,1$ correspond to the second row of the triangle~\eqref{tab:central-factorial-numbers-t1}.
+  \item For $t=2$ the coefficients $4,4,1$ correspond to the second row of the triangle~\eqref{tab:central-factorial-numbers-t2}.
+  \item For $t=3$ the coefficients $9,6,1$ correspond to the second row of the triangle~\eqref{tab:central-factorial-numbers-t3}.
+\end{itemize}
+
+\input{sections/examples/07_example_sums_of_cubes_central_factorial_numbers.tex}
+From the example above, we may observe that
+\begin{itemize}
+  \item For $t=0$ the coefficients $0,0,1,0,1$ correspond to the fourth row of the triangle~\eqref{tab:central-factorial-numbers-t0}.
+  \item For $t=1$ the coefficients $1,5,7,4,1$ correspond to the fourth row of the triangle~\eqref{tab:central-factorial-numbers-t1}.
+  \item For $t=2$ the coefficients $16,34,25,8,1$ correspond to the fourth row of the triangle~\eqref{tab:central-factorial-numbers-t2}.
+  \item For $t=3$ the coefficients $81,111,55,12,1$ correspond to the fourth row of the triangle~\eqref{tab:central-factorial-numbers-t3}.
+\end{itemize}
