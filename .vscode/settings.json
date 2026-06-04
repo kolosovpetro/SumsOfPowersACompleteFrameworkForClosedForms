@@ -23,6 +23,7 @@
   "latex-workshop.latex.autoBuild.run": "never",
   "cSpell.language": "en",
   "cSpell.enabled": true,
+  "css.validate": false,
   "cSpell.words": [
     "Blaise",
     "Bohner",
