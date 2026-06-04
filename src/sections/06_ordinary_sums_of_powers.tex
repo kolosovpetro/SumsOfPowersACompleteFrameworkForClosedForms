@@ -25,9 +25,19 @@ Therefore,
     \right] \delta^{k} t^m.
   \end{align*}
 \end{theorem}
-For example,
+Note that we should note worry about fractions in upper index of binomial
+coefficients $\binom{n -t + \frac{k}{2} +1}{k+1}$, because binomial coefficient
+$\binom{n}{k}$ is
+a polynomial in $n$.
+The well-known identity in unsigned Stirling numbers of the first kind $\stirlingi{n}{k}$
+shows it clearly
+\begin{align*}
+  \binom{n}{k}
+  = \sum_{j=0}^{k} \frac{(-1)^{k-j}}{k!} \stirlingi{k}{j} n^j.
+\end{align*}
+For example, the sums of squares are
 \input{sections/examples/01_example_sum_of_squares.tex}
-
+While the sums of cubes
 \input{sections/examples/02_example_sum_of_cubes.tex}
 
 It is indeed interesting to notice the connection between
