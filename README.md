@@ -12,26 +12,9 @@ This manuscript originates from the historical development of the sums of powers
 - [Sums of powers via backward finite differences and Newton's formula (2026)](https://github.com/kolosovpetro/SumsOfPowersViaBackwardFiniteDifferencesAndNewtonFormula)
 - [Sums of powers of integers: A complete framework for closed formulas (2026)](https://github.com/kolosovpetro/SumsOfPowersACompleteFrameworkForClosedForms)
 
-## Related OEIS sequences
-
-- https://oeis.org/A036969
-- https://oeis.org/A269945
-- https://oeis.org/A008957
-- https://oeis.org/A395862
-- https://oeis.org/A370703
-- https://oeis.org/A395860
-- https://oeis.org/A395861
-- https://oeis.org/A394466
-- https://oeis.org/A395314
-- https://oeis.org/A396559
-- https://oeis.org/A269945
-- https://oeis.org/A394692
-- https://oeis.org/A395456
-- https://oeis.org/A395457
-
 ## Metadata
 
-- **Initial release date:** June 2026.
+- **Initial release date:** 04-Jun-2026.
 - **MSC2010:** 05A10, 11B68, 11B73, 11B83
 - **Keywords:** Sums of powers, Newton's interpolation formula, Finite differences, Binomial coefficients, Faulhaber's formula, Bernoulli numbers, Bernoulli polynomials, Interpolation, Central factorial numbers, Stirling numbers, Eulerian numbers, OEIS.
 - **License:** This work is licensed under a [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/)
@@ -40,6 +23,23 @@ This manuscript originates from the historical development of the sums of powers
 - **GitHub:** https://github.com/kolosovpetro/SumsOfPowersACompleteFrameworkForClosedForms
 - **ORCID:** https://orcid.org/0000-0002-6544-8880
 - **Email:** kolosovp94@gmail.com
+
+## Related OEIS sequences
+
+- https://oeis.org/A036969 — Triangle read by rows: T(n,k) = T(n-1,k-1) + k^2*T(n-1,k), 1 < k <= n, T(n,1) = 1.
+- https://oeis.org/A269945 — Triangle read by rows. Stirling set numbers of order 2, T(n, n) = 1, T(n, k) = 0 if k < 0 or k > n, otherwise T(n, k) = T(n-1, k-1) + k^2*T(n-1, k), for 0 <= k <= n.
+- https://oeis.org/A008957 — Triangle of central factorial numbers T(2*n,2*n-2*k), k >= 0, n >= 1 (in Riordan's notation).
+- https://oeis.org/A395862 — Triangle read by rows: T(n,k) = numerator(CF(n,k)), where CF(n,k) = (1/k!) * Sum_{j=0..k} (-1)^j * binomial(k,j) * (k/2-j)^n.
+- https://oeis.org/A370703 — Triangle read by rows: T(n, k) = denominator([x^k] n! [t^n] (t/2 + sqrt(1 + (t/2)^2))^(2*x)).
+- https://oeis.org/A395860 — Triangle read by rows: T(n,k) = numerator(CF(n,k)), where CF(n,k) = (1/k!) * Sum_{j=0..k} (-1)^j * binomial(k,j) * (1+k/2-j)^n.
+- https://oeis.org/A395861 — Triangle read by rows: T(n,k) = denominator(CF(n,k)), where CF(n,k) = (1/k!) * Sum_{j=0..k} (-1)^j * binomial(k,j) * (1+k/2-j)^n.
+- https://oeis.org/A394466 — Triangle read by rows: T(n,k) = numerator(CF(n,k)), where CF(n,k) = (1/k!) * Sum_{j=0..k} (-1)^j * binomial(k,j) * (2+k/2-j)^n.
+- https://oeis.org/A395314 — Triangle read by rows: T(n,k) = denominator(CF(n,k)), where CF(n,k) = (1/k!) * Sum_{j=0..k} (-1)^j * binomial(k,j) * (2+k/2-j)^n.
+- https://oeis.org/A396559 — Triangle read by rows: T(n,k) = numerator(CF(n,k)), where CF(n,k) = (1/k!) * Sum_{j=0..k} (-1)^j * binomial(k,j) * (3+k/2-j)^n.
+- https://oeis.org/A269945 — Triangle read by rows. Stirling set numbers of order 2, T(n, n) = 1, T(n, k) = 0 if k < 0 or k > n, otherwise T(n, k) = T(n-1, k-1) + k^2*T(n-1, k), for 0 <= k <= n.
+- https://oeis.org/A394692 — Triangle read by rows: T(n,k) = (1/(2k)!) * Sum_{j=0..2k} (-1)^j * binomial(2k,j) * (1+k-j)^(2n).
+- https://oeis.org/A395456 — Triangle read by rows: T(n,k) = (1/(2k)!) * Sum_{j=0..2k} (-1)^j * binomial(2k,j) * (2+k-j)^(2n).
+- https://oeis.org/A395457 — Triangle read by rows: T(n,k) = (1/(2k)!) * Sum_{j=0..2k} (-1)^j * binomial(2k,j) * (3+k-j)^(2n).
 
 ## References
 
