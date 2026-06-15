@@ -135,19 +135,22 @@ integer point $t$.
 It is quite remarkable that both~\cite{cereceda2022sumspowersintegersgeneralized},
 and~\cite{kolosov_2026_forward} reached the same result independently.
 In~\cite{cereceda2022sumspowersintegersgeneralized} we get
-\begin{align}
-  \KnuthRFoldSum{1}{n}{k} &= \sum_{j=0}^{k} j!
-  \left[
-    \binom{n+1-r}{j+1} + (-1)^j \binom{r+j-1}{j+1}
-  \right] \stirlingii{k}{j}_{r},
-  \label{eq:cereceda-sums-1}
-  \\
-  \KnuthRFoldSum{1}{n}{k} &= \sum_{j=0}^{k} j!
-  \left[
-    \binom{n+1-r}{j+1} + \binom{r+1}{j+1}
-  \right] \stirlingii{k}{j}_{-r}.
-  \label{eq:cereceda-sums-2}
-\end{align}
+\begin{proposition}[Cereceda (2022)]
+  \begin{align}
+    \label{eq:cereceda-sums-1}
+    \KnuthRFoldSum{1}{n}{k} = \sum_{j=0}^{k} j!
+    \left[
+      \binom{n+1-r}{j+1} + (-1)^j \binom{r+j-1}{j+1}
+    \right] \stirlingii{k}{j}_{r},
+  \end{align}
+  \begin{align}
+    \label{eq:cereceda-sums-2}
+    \KnuthRFoldSum{1}{n}{k} = \sum_{j=0}^{k} j!
+    \left[
+      \binom{n+1-r}{j+1} + \binom{r+1}{j+1}
+    \right] \stirlingii{k}{j}_{-r}.
+  \end{align}
+\end{proposition}
 Formula~\eqref{eq:cereceda-sums-1}
 is a special case of proposition~\cite[Prop. (1.9)]{kolosov_2026_forward}
 \begin{proposition}

@@ -2,13 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <link rel="canonical" href="https://kolosovpetro.github.io/math/sums-of-powers-framework-for-closed-forms/" />
-  <meta name="keywords" content="Sums of powers, Newton's interpolation formula, Finite differences, Binomial coefficients, Faulhaber's formula, Bernoulli numbers, Bernoulli polynomials, Interpolation, Central factorial numbers, Stirling numbers, Eulerian numbers, OEIS" />
-  <meta name="description" content="Using Newton's interpolation formula to invent an algorithm for formulas for sums of powers." />
+  <meta name="generator" content="pandoc 3.10" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Petro Kolosov" />
-  <meta name="dcterms.date" content="2026-06-04" />
+  <meta name="dcterms.date" content="2026-06-15" />
   <title>Sums of powers of integers: A complete framework for closed formulas</title>
   <style>
     /* Default styles provided by pandoc.
@@ -172,8 +169,12 @@
       text-decoration: none;
     }
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -205,7 +206,7 @@
       margin-left: 2em;
     }  </style>
   <script defer=""
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
   type="text/javascript"></script>
 </head>
 <body>
@@ -213,7 +214,7 @@
 <h1 class="title">Sums of powers of integers: A complete framework for
 closed formulas</h1>
 <p class="author">Petro Kolosov</p>
-<p class="date">2026-06-04</p>
+<p class="date">2026-06-15</p>
 <div class="abstract">
 <div class="abstract-title">Abstract</div>
 <p>This manuscript originates from the historical development of the
@@ -792,7 +793,7 @@ precisely. Clearly, the formula for sums of odd powers can be
 generalized to multifold case, by applying hockey-stick identity <span
 class="math inline">\(\sum_{k=0}^{n} \binom{k}{j} =
 \binom{n+1}{j+1}\)</span> repeatedly</p>
-<div class="proposition">
+<div id="prop:knuth-odd-powers-sum-multifold" class="proposition">
 <p><strong>Proposition 17</strong> (Knuth’s odd powers sum multifold).
 <em>For non-negative integers <span class="math inline">\(r,n,m\)</span>
 <span class="math display">\[\begin{align*}
@@ -847,8 +848,7 @@ data-reference-type="eqref"
 data-reference="lem:central-newtons-formula-for-powers">[lem:central-newtons-formula-for-powers]</a>.
 For example,</p>
 <div class="center">
-<div id="tab:central-factorial-numbers-t0">
-<table>
+<table id="tab:central-factorial-numbers-t0">
 <caption>Values of generalized central factorial numbers <span
 class="math inline">\(T_0(n,k)\)</span>. See also the sequences <a
 href="https://oeis.org/A395862"><code>A395862</code></a>, and <a
@@ -988,10 +988,8 @@ class="math inline">\(\tfrac{35}{4}\)</span></td>
 </tbody>
 </table>
 </div>
-</div>
 <div class="center">
-<div id="tab:central-factorial-numbers-t1">
-<table>
+<table id="tab:central-factorial-numbers-t1">
 <caption> Values of generalized central factorial numbers <span
 class="math inline">\(T_1(n,k)\)</span>. See also the sequences <a
 href="https://oeis.org/A395860"><code>A395860</code></a>, and <a
@@ -1134,10 +1132,8 @@ class="math inline">\(\tfrac{483}{2}\)</span></td>
 </tbody>
 </table>
 </div>
-</div>
 <div class="center">
-<div id="tab:central-factorial-numbers-t2">
-<table>
+<table id="tab:central-factorial-numbers-t2">
 <caption>Values of generalized central factorial numbers <span
 class="math inline">\(T_2(n,k)\)</span>. See also the sequences <a
 href="https://oeis.org/A394466"><code>A394466</code></a>, and <a
@@ -1279,10 +1275,8 @@ class="math inline">\(\tfrac{6001}{4}\)</span></td>
 </tbody>
 </table>
 </div>
-</div>
 <div class="center">
-<div id="tab:central-factorial-numbers-t3">
-<table>
+<table id="tab:central-factorial-numbers-t3">
 <caption>Values of generalized central factorial numbers <span
 class="math inline">\(T_3(n,k)\)</span>. See also the sequences <a
 href="https://oeis.org/A396559"><code>A396559</code></a>, and <a
@@ -1425,7 +1419,6 @@ class="math inline">\(\tfrac{35049}{2}\)</span></td>
 </tbody>
 </table>
 </div>
-</div>
 <table>
 <caption>Sequences of <span
 class="math inline">\(T_t(2m,2k)\)</span>.</caption>
@@ -1478,7 +1471,7 @@ href="https://oeis.org/A395457"><code>A395457</code></a></td>
 </tbody>
 </table>
 <p>Thus, we have the formula for sums of powers in terms of generalized
-central factorial numbers of the second kind.</p>
+central factorial numbers of the second kind</p>
 <div id="prop:generalized-central-factorial-sums" class="proposition">
 <p><strong>Proposition 19</strong> (Generalized Central factorial sums).
 <em>For integers <span class="math inline">\(n,m \geq 0\)</span>, and an
@@ -2213,27 +2206,30 @@ data-cites="cereceda2022sumspowersintegersgeneralized">(Cereceda
 data-cites="kolosov_2026_forward">(Kolosov 2026a)</span> reached the
 same result independently. In <span class="citation"
 data-cites="cereceda2022sumspowersintegersgeneralized">(Cereceda
-2022)</span> we get <span class="math display">\[\begin{align}
-  \Sigma^{1}\,{n}^{k} &amp;= \sum_{j=0}^{k} j!
-  \left[
-    \binom{n+1-r}{j+1} + (-1)^j \binom{r+j-1}{j+1}
-  \right] \genfrac{\{}{\}}{0pt}{}{k}{j}_{r},
-  \label{eq:cereceda-sums-1}
-  \\
-  \Sigma^{1}\,{n}^{k} &amp;= \sum_{j=0}^{k} j!
-  \left[
-    \binom{n+1-r}{j+1} + \binom{r+1}{j+1}
-  \right] \genfrac{\{}{\}}{0pt}{}{k}{j}_{-r}.
-  \label{eq:cereceda-sums-2}
-\end{align}\]</span> Formula <a href="#eq:cereceda-sums-1"
-data-reference-type="eqref"
+2022)</span> we get</p>
+<div class="proposition">
+<p><strong>Proposition 36</strong> (Cereceda (2022)). <em><span
+class="math display">\[\begin{align}
+    \label{eq:cereceda-sums-1}
+    \Sigma^{1}\,{n}^{k} = \sum_{j=0}^{k} j!
+    \left[
+      \binom{n+1-r}{j+1} + (-1)^j \binom{r+j-1}{j+1}
+    \right] \genfrac{\{}{\}}{0pt}{}{k}{j}_{r},
+\end{align}\]</span> <span class="math display">\[\begin{align}
+    \label{eq:cereceda-sums-2}
+    \Sigma^{1}\,{n}^{k} = \sum_{j=0}^{k} j!
+    \left[
+      \binom{n+1-r}{j+1} + \binom{r+1}{j+1}
+    \right] \genfrac{\{}{\}}{0pt}{}{k}{j}_{-r}.
+\end{align}\]</span></em></p>
+</div>
+<p>Formula <a href="#eq:cereceda-sums-1" data-reference-type="eqref"
 data-reference="eq:cereceda-sums-1">[eq:cereceda-sums-1]</a> is a
 special case of proposition <span class="citation"
 data-cites="kolosov_2026_forward">(Kolosov 2026a, Prop.
 (1.9))</span></p>
-<div id="prop:negation-of-ordinary-sums-of-powers-via-newtons-formula"
-class="proposition">
-<p><strong>Proposition 36</strong>. <em>For integers <span
+<div class="proposition">
+<p><strong>Proposition 37</strong>. <em>For integers <span
 class="math inline">\(n\geq 0\)</span>, and <span
 class="math inline">\(m\geq 0\)</span>, and an arbitrary integer <span
 class="math inline">\(t\)</span> <span
@@ -2253,9 +2249,8 @@ data-reference="eq:cereceda-sums-2">[eq:cereceda-sums-2]</a> is a
 special case of proposition <span class="citation"
 data-cites="kolosov_2026_forward">(Kolosov 2026a, Prop.
 (1.8))</span></p>
-<div id="prop:ordinary-sums-of-powers-via-newtons-formula"
-class="proposition">
-<p><strong>Proposition 37</strong>. <em>For integers <span
+<div class="proposition">
+<p><strong>Proposition 38</strong>. <em>For integers <span
 class="math inline">\(n\geq 0\)</span>, and <span
 class="math inline">\(m\geq 0\)</span>, and an arbitrary integer <span
 class="math inline">\(t\)</span>, <span
@@ -2271,7 +2266,7 @@ algorithm <a href="#alg:sums-of-powers" data-reference-type="eqref"
 data-reference="alg:sums-of-powers">[alg:sums-of-powers]</a> in terms of
 backward differences, providing another remarkable formula</p>
 <div class="proposition">
-<p><strong>Proposition 38</strong>. <em>For non-negative integers <span
+<p><strong>Proposition 39</strong>. <em>For non-negative integers <span
 class="math inline">\(r,n,m\)</span> and an arbitrary integer <span
 class="math inline">\(t\)</span>, <span
 class="math display">\[\begin{align*}
@@ -2291,7 +2286,7 @@ Essentially, it achieves similar formulas for sums of powers as current
 paper, but using different binomial identities to reach the closed form.
 For instance,</p>
 <div class="proposition">
-<p><strong>Proposition 39</strong>. <em>For integers <span
+<p><strong>Proposition 40</strong>. <em>For integers <span
 class="math inline">\(n\geq 0, \; m \geq 0\)</span>, and an arbitrary
 integer <span class="math inline">\(t\)</span> <span
 class="math display">\[\begin{align*}
@@ -2314,6 +2309,40 @@ class="math display">\[\begin{align*}
 \end{align*}\]</span></em></p>
 </div>
 <h1 id="conclusions">Conclusions</h1>
+<p>This manuscript reviews historical development of the sums of powers
+problem, briefly tracing its evolution from Archimedes (287-212 BC) to
+Donald Knuth’s work <em>Johann Faulhaber and sums of powers (1993)</em>,
+highlighting the transition from purely arithmetic methods to modern
+enumerative and algebraic-combinatorial approaches. The main results
+establish an algorithm <a href="#alg:sums-of-powers"
+data-reference-type="eqref"
+data-reference="alg:sums-of-powers">[alg:sums-of-powers]</a> for
+deriving closed formulas for multifold sums of powers of integers by
+combining variations of Newton’s interpolation formula with hockey-stick
+family identities for binomial coefficients. Using the algorithm, some
+remarkable formulas were obtained, closed formula for sums of powers <a
+href="#prop:ordinary-sums-of-powers-decomposition"
+data-reference-type="eqref"
+data-reference="prop:ordinary-sums-of-powers-decomposition">[prop:ordinary-sums-of-powers-decomposition]</a>,
+formula for <span class="math inline">\(r-\)</span>fold sums of
+powers <a href="#thm:multifold-sums-of-powers"
+data-reference-type="eqref"
+data-reference="thm:multifold-sums-of-powers">[thm:multifold-sums-of-powers]</a>,
+formula for <span class="math inline">\(r-\)</span>fold sums of powers
+in pure binomial view <a href="#prop:multifold-binomial-sums-of-powers"
+data-reference-type="eqref"
+data-reference="prop:multifold-binomial-sums-of-powers">[prop:multifold-binomial-sums-of-powers]</a>.
+In addition, we have shown that famous Knuth’s formula for sums of odd
+powers <a href="#prop:knuth-odd-powers-sum" data-reference-type="eqref"
+data-reference="prop:knuth-odd-powers-sum">[prop:knuth-odd-powers-sum]</a>
+originates from Newton’s interpolation formula <a
+href="#lem:central-newtons-formula-for-powers"
+data-reference-type="eqref"
+data-reference="lem:central-newtons-formula-for-powers">[lem:central-newtons-formula-for-powers]</a>,
+thus generalizing it for <span class="math inline">\(r-\)</span>fold
+case <a href="#prop:knuth-odd-powers-sum-multifold"
+data-reference-type="eqref"
+data-reference="prop:knuth-odd-powers-sum-multifold">[prop:knuth-odd-powers-sum-multifold]</a>.</p>
 <h1 class="unnumbered" id="mathematica-programs">Mathematica
 programs</h1>
 <p>Use this <a
@@ -2404,8 +2433,8 @@ data-reference="thm:multifold-sums-of-powers">[thm:multifold-sums-of-powers]</a>
 </div>
 <p><span><strong>Metadata</strong></span></p>
 <ul>
-<li><p><strong>Initial release date:</strong> June 2026.</p></li>
-<li><p><strong>Current release date:</strong> 2026-06-04.</p></li>
+<li><p><strong>Initial release date:</strong> 04-Jun-2026.</p></li>
+<li><p><strong>Current release date:</strong> 2026-06-15.</p></li>
 <li><p><strong>Version:</strong> <code>Local-0.1.0</code> .</p></li>
 <li><p><strong>MSC2010:</strong> 05A10, 11B68, 11B73, 11B83 .</p></li>
 <li><p><strong>Keywords:</strong> Sums of powers, Newton’s interpolation
