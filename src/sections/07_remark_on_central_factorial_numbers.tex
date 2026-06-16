@@ -27,10 +27,14 @@ By definition of central factorial numbers of the second kind, yields
 \begin{align*}
   n^{2m} = \sum_{k=1}^{m} \centralFactorial{n}{2k} T(2m,2k).
 \end{align*}
-By applying Lemma~\eqref{lem:central-factorials-binomial-form}, we get
+Thus,
+\begin{align*}
+  n^{2m} = \sum_{k=1}^{m} (2k)! \frac{\centralFactorial{n}{2k}}{(2k)!} T(2m,2k)
+\end{align*}
+By simplifying $\frac{\centralFactorial{n}{2k}}{(2k)!}$
+using Lemma~\eqref{lem:central-factorials-binomial-form}, we get
 \begin{align*}
   n^{2m}
-  = \sum_{k=1}^{m} \frac{(2k)!}{(2k)!} \centralFactorial{n}{2k} T(2m,2k)
   &= \sum_{k=1}^{m} (2k)!  \frac{n}{2k} \binom{n+k-1}{2k-1} T(2m,2k) \\
   &= \sum_{k=1}^{m} (2k-1)!  n \binom{n+k-1}{2k-1} T(2m,2k).
 \end{align*}
@@ -39,11 +43,12 @@ By factoring out $n$, we obtain
   n^{2m-1}
   &= \sum_{k=1}^{m} (2k-1)! \binom{n+k-1}{2k-1} T(2m,2k).
 \end{align*}
-By hockey stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$ yields
+By hockey stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$
+formula for sums of powers yields
 \begin{align*}
-  \KnuthRFoldSum{1}{n}{2m-1} = \sum_{k=1}^{m} (2k-1)! \binom{n+k}{2k} T(2m,2k),
+  \KnuthRFoldSum{1}{n}{2m-1} = \sum_{k=1}^{m} (2k-1)! \binom{n+k}{2k} T(2m,2k).
 \end{align*}
-which matches the Proposition~\eqref{prop:knuth-odd-powers-sum} precisely.
+The formula above matches the Proposition~\eqref{prop:knuth-odd-powers-sum} precisely.
 Clearly, the formula for sums of odd powers can be generalized to multifold case,
 by applying hockey-stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$
 repeatedly
@@ -58,21 +63,17 @@ repeatedly
 \end{proposition}
 For example,
 \begin{align*}
-  \KnuthRFoldSum{1}{n}{1} &= \tbinom{n+1}{2}, \\
-  \KnuthRFoldSum{1}{n}{3} &= 6 \tbinom{n+2}{4} + \tbinom{n+1}{2}, \\
-  \KnuthRFoldSum{1}{n}{5} &= 120 \tbinom{n+3}{6} + 30 \tbinom{n+2}{4}
-  + \tbinom{n+1}{2}, \\
-  \KnuthRFoldSum{1}{n}{7} &= 5040 \tbinom{n+4}{8} + 1680 \tbinom{n+3}{6}
-  + 126 \tbinom{n+2}{4} + \tbinom{n+1}{2}.
+  \KnuthRFoldSum{1}{n}{1} &= \tbinom{n+1}{2} 1, \\
+  \KnuthRFoldSum{1}{n}{3} &= \tbinom{n+2}{4} 6    + \tbinom{n+1}{2} 1, \\
+  \KnuthRFoldSum{1}{n}{5} &= \tbinom{n+3}{6} 120  + \tbinom{n+2}{4} 30   + \tbinom{n+1}{2}, \\
+  \KnuthRFoldSum{1}{n}{7} &= \tbinom{n+4}{8} 5040 + \tbinom{n+3}{6} 1680 + \tbinom{n+2}{4} 126 + \tbinom{n+1}{2} 1.
 \end{align*}
 While multifold sums of odd powers are,
 \begin{align*}
-  \KnuthRFoldSum{r}{n}{1} &= \tbinom{n+1+r}{2+r}, \\
-  \KnuthRFoldSum{r}{n}{3} &= 6 \tbinom{n+2+r}{4+r} + \tbinom{n+1+r}{2+r}, \\
-  \KnuthRFoldSum{r}{n}{5} &= 120 \tbinom{n+3+r}{6+r} + 30 \tbinom{n+2+r}{4+r}
-  + \tbinom{n+1+r}{2+r}, \\
-  \KnuthRFoldSum{r}{n}{7} &= 5040 \tbinom{n+4+r}{8+r} + 1680 \tbinom{n+3+r}{6+r}
-  + 126 \tbinom{n+2+r}{4+r} + \tbinom{n+1+r}{2+r}.
+  \KnuthRFoldSum{r}{n}{1} &= \tbinom{n+0+r}{1+r} 1, \\
+  \KnuthRFoldSum{r}{n}{3} &= \tbinom{n+1+r}{3+r} 6    + \tbinom{n+0+r}{1+r} 1, \\
+  \KnuthRFoldSum{r}{n}{5} &= \tbinom{n+2+r}{5+r} 120  + \tbinom{n+1+r}{3+r} 30   + \tbinom{n+0+r}{1+r} 1, \\
+  \KnuthRFoldSum{r}{n}{7} &= \tbinom{n+3+r}{7+r} 5040 + \tbinom{n+3+r}{5+r} 1680 + \tbinom{n+1+r}{3+r} 126 + \tbinom{n+0+r}{1+r} 1.
 \end{align*}
 The coefficients $1, 6, 1, 120, 30, 1,\ldots$
 is the sequence \href{https://oeis.org/A303675}{\texttt{A303675}}
