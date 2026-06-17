@@ -1,0 +1,62 @@
+(* ================================================================ *)
+(*  Validates Central Factorials Binomial Decomposition             *)
+(* ================================================================ *)
+
+ClearAll[
+  CentralFactorial,
+  CentralFactorialsBinomialFormDecomposition
+];
+
+(* --------------------------------------------------------------- *)
+(*  Central factorials                                              *)
+(*                                                                   *)
+(*      x^[k]                                                        *)
+(*        = x ∏ (x + k/2 - j)                                        *)
+(* --------------------------------------------------------------- *)
+
+CentralFactorial[x_, k_] := 0 /; k < 0;
+
+CentralFactorial[x_, 0] := 1;
+
+CentralFactorial[x_, k_] :=
+  x *
+    Product[
+      x + k/2 - j,
+      {j, 1, k - 1}
+    ] /; k > 0;
+
+
+(* --------------------------------------------------------------- *)
+(*  Binomial decomposition                                          *)
+(*                                                                   *)
+(*      x^[k] / k!                                                   *)
+(*        = 1/2 (                                                    *)
+(*            Binomial[x + k/2,     k]                               *)
+(*            +                                                      *)
+(*            Binomial[x + k/2 - 1, k]                               *)
+(*          )                                                        *)
+(* --------------------------------------------------------------- *)
+
+CentralFactorialsBinomialFormDecomposition[max_] :=
+  Flatten[
+    Table[
+      FullSimplify[
+        CentralFactorial[n, k] / k!
+          -
+        1/2 (
+          Binomial[n + k/2,     k]
+            +
+          Binomial[n + k/2 - 1, k]
+        )
+      ],
+      {n, 0, max},
+      {k, 0, max}
+    ]
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Run validation                                                  *)
+(* --------------------------------------------------------------- *)
+
+CentralFactorialsBinomialFormDecomposition[10]

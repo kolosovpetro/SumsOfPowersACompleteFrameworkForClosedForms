@@ -1,28 +1,25 @@
 (* ================================================================ *)
-(*  Validates Theorem: Multifold Sums of Powers                     *)
+(*  Validates Newton's Formula for Powers                           *)
 (* ================================================================ *)
 
 ClearAll[
-  MultifoldSumOfPowersRecurrence,
   CentralDifference,
-  MultifoldSumsOfPowers,
-  ValidateMultifoldSumsOfPowers
+  CentralFactorial,
+  NewtonsFormulaForPowers,
+  ValidateNewtonsFormulaForPowers
 ];
 
 (* --------------------------------------------------------------- *)
-(*  r-fold sums of powers                                           *)
+(*  Convention: 0^0 = 1                                             *)
 (* --------------------------------------------------------------- *)
 
-MultifoldSumOfPowersRecurrence[r_, n_, m_] := 0;
+Begin["`Private`"]
 
-MultifoldSumOfPowersRecurrence[0, n_, m_] :=
-  n^m;
+Unprotect[Power];
+Power[0 | 0., 0 | 0.] = 1;
+Protect[Power];
 
-MultifoldSumOfPowersRecurrence[r_, n_, m_] :=
-  Sum[
-    MultifoldSumOfPowersRecurrence[r - 1, k, m],
-    {k, 1, n}
-  ] /; r > 0;
+End[];
 
 
 (* --------------------------------------------------------------- *)
@@ -40,63 +37,51 @@ CentralDifference[x_, n_, k_] :=
 
 
 (* --------------------------------------------------------------- *)
-(*  Convention: 0^0 = 1                                             *)
+(*  Central factorials                                              *)
+(*      x^[k]                                                       *)
 (* --------------------------------------------------------------- *)
 
-Begin["`Private`"]
+CentralFactorial[x_, k_] := 0 /; k < 0;
 
-Unprotect[Power];
-Power[0 | 0., 0 | 0.] = 1;
-Protect[Power];
+CentralFactorial[x_, 0] := 1;
 
-End[];
+CentralFactorial[x_, k_] :=
+  x *
+    Product[
+      x + k/2 - j,
+      {j, 1, k - 1}
+    ] /; k > 0;
 
 
 (* --------------------------------------------------------------- *)
-(*  Closed-form expression from thm:multifold-sums-of-powers        *)
+(*  Newton's expansion for powers                                   *)
+(*      n^m = Σ x^[k]/k! · δ^k t^m                                  *)
 (* --------------------------------------------------------------- *)
 
-MultifoldSumsOfPowers[r_, n_, m_, t_] :=
-  1/2 *
-    Sum[
-      (
-        Binomial[n - t + k/2 + r,     k + r] +
-        Binomial[n - t + k/2 + r - 1, k + r]
-
-        -
-
-        Sum[
-          (
-            Binomial[r - s - t + k/2,     k + r - s] +
-            Binomial[r - 1 - s - t + k/2, k + r - s]
-          )
-          *
-          MultifoldSumOfPowersRecurrence[s, n, 0],
-          {s, 0, r - 1}
-        ]
-      )
+NewtonsFormulaForPowers[n_, m_, t_] :=
+  Sum[
+    CentralFactorial[n - t, k] / k!
       *
-      CentralDifference[t, m, k],
-      {k, 0, m}
-    ];
+    CentralDifference[t, m, k],
+    {k, 0, m}
+  ];
 
 
 (* --------------------------------------------------------------- *)
 (*  Validation routine                                              *)
 (* --------------------------------------------------------------- *)
 
-ValidateMultifoldSumsOfPowers[max_] :=
+ValidateNewtonsFormulaForPowers[max_] :=
   Flatten[
     Table[
       FullSimplify[
-        MultifoldSumOfPowersRecurrence[r, n, m]
+        n^m
           -
-        MultifoldSumsOfPowers[r, n, m, t]
+        NewtonsFormulaForPowers[n, m, t]
       ],
-      {r, 0, max},
-      {n, 1, max},
+      {n, 0, max},
       {m, 0, max},
-      {t, -max, max}
+      {t, 0, max}
     ]
   ];
 
@@ -105,4 +90,4 @@ ValidateMultifoldSumsOfPowers[max_] :=
 (*  Run validation                                                  *)
 (* --------------------------------------------------------------- *)
 
-ValidateMultifoldSumsOfPowers[3]
+ValidateNewtonsFormulaForPowers[10]
