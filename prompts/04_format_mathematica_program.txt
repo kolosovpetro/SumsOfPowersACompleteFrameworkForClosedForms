@@ -1,17 +1,3 @@
 Please format this program fancy, give response in a code block so that I easily copy paste it
 
-(*BEGIN: Define 0^x = 1 for all x *)
-Begin["`Private`"]
-Unprotect[Power];
-Power[0|0., 0|0.] = 1;
-Protect[Power];
-(*END: Define 0^x = 1 for all x *)
-
-CentralDifference[x_, n_, k_] := Sum[(-1)^j * Binomial[k, j] * (x + k/2 -j)^n, {j, 0, k}];
-
-CentralFactorial[x_, k_] := 0 /; k<0;
-CentralFactorial[x_, k_] := 1 /; k==0;
-CentralFactorial[x_, k_] := x * Product[(x + k/2 -j), {j, 1, k-1}] /; k>0;
-
-NewtonsFormulaForPowers[n_, m_, t_] := Sum[CentralFactorial[n-t, k] / k! * CentralDifference[t, m, k], {k, 0, m}];
-ValidateNewtonsFormulaForPowers[max_] := Table[n^m - NewtonsFormulaForPowers[n, m, t], {n, 0, max}, {m, 0, max}, {t, 0, max}] //Flatten
+ValidateCenteredHockeyStickIdentity[max_] := Table[Sum[Binomial[j-t+k/2+r, k], {j, 1, n}] - (Binomial[n-t+k/2+r+1, k+1]- Binomial[1-t+k/2+r, k+1]), {n, 1, max}, {t, -max, max}, {k, -max, max}, {r, -max, max}] //Flatten;

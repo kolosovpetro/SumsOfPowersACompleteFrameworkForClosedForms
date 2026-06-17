@@ -1,0 +1,33 @@
+(* ================================================================ *)
+(*  Validates Centered Hockey Stick Identity                        *)
+(* ================================================================ *)
+
+ClearAll[ValidateCenteredHockeyStickIdentity];
+
+(* --------------------------------------------------------------- *)
+(*  Identity check                                                  *)
+(* --------------------------------------------------------------- *)
+
+ValidateCenteredHockeyStickIdentity[max_] :=
+  Flatten[
+    Table[
+      FullSimplify[
+        Sum[
+          Binomial[j - t + k/2 + r, k],
+          {j, 1, n}
+        ]
+        -
+        (
+          Binomial[n - t + k/2 + r + 1, k + 1]
+          -
+          Binomial[1 - t + k/2 + r, k + 1]
+        )
+      ],
+      {n, 1, max},
+      {t, -max, max},
+      {k, -max, max},
+      {r, -max, max}
+    ]
+  ];
+
+ValidateCenteredHockeyStickIdentity[10]
