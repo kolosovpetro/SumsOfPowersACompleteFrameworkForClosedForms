@@ -16,6 +16,9 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Add test `ValidateCentralFactorialsBinomialDecomposition.txt`
 - Update test `ValidateNewtonsFormulaForPowers.txt`
 - Add test `ValidateOrdinarySumsOfPowersDecomposition.txt`
+- Add test `ValidateDoubleSumsOfPowersDecomposition.txt`
+- Add test `ValidateTripleSumsOfPowersDecomposition.txt`
+- Format test `ValidateMultifoldBinomialSumsOfPowersProposition.txt`
 
 ## [1.0.2] - 16-Jun-2026
 
