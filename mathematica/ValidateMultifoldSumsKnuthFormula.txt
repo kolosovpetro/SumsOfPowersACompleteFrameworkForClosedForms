@@ -1,52 +1,96 @@
-(* Validates Proposition: Knuth's odd powers sum multifold *)
+(* ================================================================ *)
+(*  Validates Proposition: Knuth's Odd Powers Sum Multifold         *)
+(* ================================================================ *)
 
 ClearAll[
   KnuthRFoldSum,
+  CentralDifferenceAtZero,
   CentralFactorialSecond,
   KnuthOddPowersSumMultifold,
   ValidateKnuthOddPowersSumMultifold
 ];
 
-(* r-fold sum recurrence *)
+(* --------------------------------------------------------------- *)
+(*  r-fold sums of odd powers                                       *)
+(* --------------------------------------------------------------- *)
+
 KnuthRFoldSum[r_, n_, p_] := 0 /; n <= 0;
 
-KnuthRFoldSum[0, n_, p_] := n^p;
+KnuthRFoldSum[0, n_, p_] :=
+  n^p;
 
 KnuthRFoldSum[r_, n_, p_] :=
-  Sum[KnuthRFoldSum[r - 1, k, p], {k, 1, n}] /; r > 0;
+  Sum[
+    KnuthRFoldSum[r - 1, k, p],
+    {k, 1, n}
+  ] /; r > 0;
 
-(* Central difference δ^k 0^n *)
+
+(* --------------------------------------------------------------- *)
+(*  Central difference at zero                                      *)
+(*      δ^k 0^n                                                     *)
+(* --------------------------------------------------------------- *)
+
 CentralDifferenceAtZero[n_, k_] :=
   Sum[
-    (-1)^j Binomial[k, j] (k/2 - j)^n,
+    (-1)^j
+      Binomial[k, j]
+      (k/2 - j)^n,
     {j, 0, k}
   ];
 
-(* Central factorial numbers of the second kind
-   T(n,k) = δ^k 0^n / k!
-*)
-CentralFactorialSecond[n_, k_] :=
-  CentralDifferenceAtZero[n, k]/k!;
 
-(* RHS of Proposition *)
+(* --------------------------------------------------------------- *)
+(*  Central factorial numbers of the second kind                    *)
+(*                                                                   *)
+(*      T(n,k) = δ^k 0^n / k!                                        *)
+(* --------------------------------------------------------------- *)
+
+CentralFactorialSecond[n_, k_] :=
+  CentralDifferenceAtZero[n, k] / k!;
+
+
+(* --------------------------------------------------------------- *)
+(*  Proposition                                                     *)
+(*                                                                   *)
+(*      Σ^(r+1) n^(2m-1)                                             *)
+(*        = Σ (2k-1)! Binomial[n+k+r,2k+r] T(2m,2k)                  *)
+(* --------------------------------------------------------------- *)
+
 KnuthOddPowersSumMultifold[r_, n_, m_] :=
   Sum[
-    (2 k - 1)! *
-      Binomial[n + k + r, 2 k + r] *
-      CentralFactorialSecond[2 m, 2 k],
+    (2 k - 1)!
+      *
+    Binomial[n + k + r, 2 k + r]
+      *
+    CentralFactorialSecond[2 m, 2 k],
     {k, 1, m}
   ];
 
-(* Validation table:
-   all entries should evaluate to 0
-*)
+
+(* --------------------------------------------------------------- *)
+(*  Validation routine                                              *)
+(*                                                                   *)
+(*  All entries should evaluate to 0                                *)
+(* --------------------------------------------------------------- *)
+
 ValidateKnuthOddPowersSumMultifold[max_] :=
-  Table[
-      KnuthRFoldSum[r + 1, n, 2 m - 1] -
-      KnuthOddPowersSumMultifold[r, n, m],
-    {r, 0, max},
-    {n, 1, max},
-    {m, 1, max}
-  ] // Flatten;
+  Flatten[
+    Table[
+      FullSimplify[
+        KnuthRFoldSum[r + 1, n, 2 m - 1]
+          -
+        KnuthOddPowersSumMultifold[r, n, m]
+      ],
+      {r, 0, max},
+      {n, 1, max},
+      {m, 1, max}
+    ]
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Run validation                                                  *)
+(* --------------------------------------------------------------- *)
 
 ValidateKnuthOddPowersSumMultifold[5]

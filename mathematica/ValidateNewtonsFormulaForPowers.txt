@@ -1,0 +1,93 @@
+(* ================================================================ *)
+(*  Validates Newton's Formula for Powers                           *)
+(* ================================================================ *)
+
+ClearAll[
+  CentralDifference,
+  CentralFactorial,
+  NewtonsFormulaForPowers,
+  ValidateNewtonsFormulaForPowers
+];
+
+(* --------------------------------------------------------------- *)
+(*  Convention: 0^0 = 1                                             *)
+(* --------------------------------------------------------------- *)
+
+Begin["`Private`"]
+
+Unprotect[Power];
+Power[0 | 0., 0 | 0.] = 1;
+Protect[Power];
+
+End[];
+
+
+(* --------------------------------------------------------------- *)
+(*  Central difference operator                                     *)
+(*      δ^k x^n                                                     *)
+(* --------------------------------------------------------------- *)
+
+CentralDifference[x_, n_, k_] :=
+  Sum[
+    (-1)^j
+      Binomial[k, j]
+      (x + k/2 - j)^n,
+    {j, 0, k}
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Central factorials                                              *)
+(*      x^[k]                                                       *)
+(* --------------------------------------------------------------- *)
+
+CentralFactorial[x_, k_] := 0 /; k < 0;
+
+CentralFactorial[x_, 0] := 1;
+
+CentralFactorial[x_, k_] :=
+  x *
+    Product[
+      x + k/2 - j,
+      {j, 1, k - 1}
+    ] /; k > 0;
+
+
+(* --------------------------------------------------------------- *)
+(*  Newton's expansion for powers                                   *)
+(*      n^m = Σ x^[k]/k! · δ^k t^m                                  *)
+(* --------------------------------------------------------------- *)
+
+NewtonsFormulaForPowers[n_, m_, t_] :=
+  Sum[
+    CentralFactorial[n - t, k] / k!
+      *
+    CentralDifference[t, m, k],
+    {k, 0, m}
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Validation routine                                              *)
+(* --------------------------------------------------------------- *)
+
+ValidateNewtonsFormulaForPowers[max_] :=
+  Flatten[
+    Table[
+      FullSimplify[
+        n^m
+          -
+        NewtonsFormulaForPowers[n, m, t]
+      ],
+      {n, 0, max},
+      {m, 0, max},
+      {t, 0, max}
+    ]
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Run validation                                                  *)
+(* --------------------------------------------------------------- *)
+
+ValidateNewtonsFormulaForPowers[10]

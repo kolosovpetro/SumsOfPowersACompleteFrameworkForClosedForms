@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 ### Changed
 
 - Mathematica programs
+- Newton's formula for powers validation
+- Knuth formula formatting
 
 ## [1.0.2] - 16-Jun-2026
 
