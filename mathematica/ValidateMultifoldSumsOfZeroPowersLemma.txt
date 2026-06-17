@@ -1,17 +1,77 @@
-MultifoldSumOfPowersRecurrence[r_, n_, m_]:= 0;
-MultifoldSumOfPowersRecurrence[r_, n_, m_]:= n^m /; r==0;
-MultifoldSumOfPowersRecurrence[r_, n_, m_]:= Sum[MultifoldSumOfPowersRecurrence[r-1, k, m], {k, 1, n}] /; r>0;
+(* ================================================================ *)
+(*  Validates Lemma: Multifold Sums of Zero Powers                  *)
+(* ================================================================ *)
 
-CentralDifference[x_, n_, k_] := Sum[(-1)^j * Binomial[k, j] * (x + k/2 -j)^n, {j, 0, k}];
+ClearAll[
+  MultifoldSumOfPowersRecurrence,
+  CentralDifference,
+  ValidateMultifoldSumsOfZeroPowersLemma
+];
 
-(*BEGIN: Define 0^x = 1 for all x *)
+(* --------------------------------------------------------------- *)
+(*  r-fold sums of powers                                           *)
+(* --------------------------------------------------------------- *)
+
+MultifoldSumOfPowersRecurrence[r_, n_, m_] := 0;
+
+MultifoldSumOfPowersRecurrence[0, n_, m_] :=
+  n^m;
+
+MultifoldSumOfPowersRecurrence[r_, n_, m_] :=
+  Sum[
+    MultifoldSumOfPowersRecurrence[r - 1, k, m],
+    {k, 1, n}
+  ] /; r > 0;
+
+
+(* --------------------------------------------------------------- *)
+(*  Central difference operator                                     *)
+(*      δ^k x^n                                                     *)
+(* --------------------------------------------------------------- *)
+
+CentralDifference[x_, n_, k_] :=
+  Sum[
+    (-1)^j
+      Binomial[k, j]
+      (x + k/2 - j)^n,
+    {j, 0, k}
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Convention: 0^0 = 1                                             *)
+(* --------------------------------------------------------------- *)
+
 Begin["`Private`"]
-Unprotect[Power];
-Power[0|0., 0|0.] = 1;
-Protect[Power];
-(*END: Define 0^x = 1 for all x *)
 
-ValidateMultifoldSumsOfZeroPowersLemma[max_] := 
-Table[MultifoldSumOfPowersRecurrence[r, n, 0] - Binomial[r+n-1, r], {r, 0, max}, {n, 0, max}] //Flatten;
+Unprotect[Power];
+Power[0 | 0., 0 | 0.] = 1;
+Protect[Power];
+
+End[];
+
+
+(* --------------------------------------------------------------- *)
+(*  Lemma                                                           *)
+(*      S_r(n,0) = Binomial[r+n-1,r]                               *)
+(* --------------------------------------------------------------- *)
+
+ValidateMultifoldSumsOfZeroPowersLemma[max_] :=
+  Flatten[
+    Table[
+      FullSimplify[
+        MultifoldSumOfPowersRecurrence[r, n, 0]
+          -
+        Binomial[r + n - 1, r]
+      ],
+      {r, 0, max},
+      {n, 0, max}
+    ]
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Run validation                                                  *)
+(* --------------------------------------------------------------- *)
 
 ValidateMultifoldSumsOfZeroPowersLemma[10]
