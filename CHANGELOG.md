@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Add test `ValidateCenteredHockeyStickIdentity.txt`
 - Add test `ValidateCentralFactorialsBinomialDecomposition.txt`
 - Update test `ValidateNewtonsFormulaForPowers.txt`
+- Add test `ValidateOrdinarySumsOfPowersDecomposition.txt`
 
 ## [1.0.2] - 16-Jun-2026
 
