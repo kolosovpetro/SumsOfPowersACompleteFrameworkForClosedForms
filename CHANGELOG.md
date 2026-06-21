@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Fixes for OEIS sequences
 - Add remark on parity of central differences
 - Improvements in Cereceda mention
+- Update abstract
 
 ## [1.0.3] - 17-Jun-2026
 
