@@ -34,9 +34,9 @@ shows it clearly
   \binom{n}{k}
   = \sum_{j=0}^{k} \frac{(-1)^{k-j}}{k!} \stirlingi{k}{j} n^j.
 \end{align*}
-For example, the sums of squares are
+For example, for $\KnuthRFoldSum{1}{n}{2}$ we have
 \input{sections/examples/01_example_sum_of_squares.tex}
-While the sums of cubes
+For example, for $\KnuthRFoldSum{1}{n}{3}$ we have
 \input{sections/examples/02_example_sum_of_cubes.tex}
 
 It is indeed interesting to notice the connection between
@@ -53,7 +53,7 @@ and Riordan's central factorial numbers of the second kind, that is
       + \binom{n + \frac{k}{2}}{k+1} - \binom{\tfrac{k}{2}}{k+1}
     \right] k! T(m,k),
   \end{align*}
-  where $T(m,k)$ denote the central factorial numbers
+  where $T(m,k)$ are central factorial numbers
   of the second kind
   (in Riordan's notation). See~\cite[p. 213]{riordan1968combinatorial},
   and~\cite{carlitz1963divided}.

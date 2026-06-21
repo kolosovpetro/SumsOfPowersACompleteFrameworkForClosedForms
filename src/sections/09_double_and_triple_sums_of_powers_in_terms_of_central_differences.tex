@@ -1,3 +1,10 @@
+By following similarly, it is easy to compute closed forms of
+double sums of powers,
+by using Lemma~\eqref{lem:centered-hockey-stick-identity} on
+Proposition~\eqref{prop:ordinary-sums-of-powers-decomposition}.
+Thus, we have to compute closed forms for sums
+$\sum_{j=1}^{n} \binom{j -t + \frac{k}{2} +1}{k+1}$,
+and $\sum_{j=1}^{n} \binom{j -t + \frac{k}{2}}{k+1}$, thus
 \begin{proposition}[Double sums of powers decomposition]
   \label{prop:double-sums-of-powers-decomposition}
   For integers $n,m \geq 0$, and an arbitrary integer $t$,
@@ -9,9 +16,10 @@
     \Bigg] \delta^{k} t^m.
   \end{align*}
 \end{proposition}
-For example,
+For example, for $\KnuthRFoldSum{2}{n}{2}$ we have
 \input{sections/examples/03_example_double_sum_of_squares.tex}
-
+Repeating the procedure above, we easily obtain
+the formula for triple sums of powers
 \begin{proposition}[Triple sums of powers decomposition]
   \label{prop:triple-sums-of-powers-decomposition}
   For integers $n,m \geq 0$, and an arbitrary integer $t$,
@@ -24,5 +32,5 @@ For example,
     \Bigg] \delta^{k} t^m.
   \end{align*}
 \end{proposition}
-For example,
+For example, for $\KnuthRFoldSum{3}{n}{2}$ we have
 \input{sections/examples/04_example_triple_sum_of_squares.tex}
