@@ -12,14 +12,24 @@ It is quite interesting to notice that Proposition~\eqref{prop:knuth-odd-powers-
 originates from centered
 Newton's formula for powers~\eqref{lem:central-newtons-formula-for-powers}
 evaluated at zero.
-By Newton's formula, we have
+By Newton's formula, for $m\geq 1$, we have
 \begin{align*}
-  n^{2m} = \sum_{k=0}^{2m} \frac{\centralFactorial{n}{k}}{k!} \cdot \delta^{k} 0^{2m}
+  n^{2m} = \sum_{k=1}^{2m} \frac{\centralFactorial{n}{k}}{k!} \cdot \delta^{k} 0^{2m}
 \end{align*}
-The iteration for $k=0$ can be omitted because $\delta^{0} 0^{2m} = 0$,
-for integer $m \geq 1$.
-Next, we observe that $\delta^{k} 0^{2m} = 0$ for every odd $k$, thus
-we can omit odd iterations of $k$
+The iteration for $k=0$ can be omitted because $\delta^{0} 0^{2m} = 0$.
+Now, we observe that central difference $\delta^k 0^m$ satisfies the parity of
+arguments $m$ and $k$, such that
+\begin{align*}
+  \begin{cases}
+    \delta^{k} 0^m \neq 0, \quad &\text{when} \quad m \equiv k \pmod{2}, \\
+    \delta^{k} 0^m = 0, \quad &\text{when} \quad m \not\equiv k \pmod{2},
+  \end{cases}
+\end{align*}
+meaning that $\delta^{k} 0^m$ is zero whether $k,m$ are odd and even, and vise versa.
+Note that the parity property holds only for central difference of powers
+evaluated in zero, by contrast $\delta^{3} 1^{4} = 24  \neq 0$.
+Thus, the parity of $\delta^{k} 0^{2m}$ allows us
+to omit odd iterations of $k$, because $\delta^{k} 0^{2m}$ is zero for odd $k$
 \begin{align*}
   n^{2m} = \sum_{k=1}^{m} \frac{\centralFactorial{n}{2k}}{(2k)!} \cdot \delta^{2k} 0^{2m}.
 \end{align*}
