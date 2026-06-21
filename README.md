@@ -14,7 +14,7 @@ This manuscript provides an algorithm for deriving closed formulas for multifold
 
 ## Metadata
 
-- **Initial release date:** 04-Jun-2026.
+- **Initial release date:** June 04, 2026.
 - **MSC2010:** 05A10, 11B68, 11B73, 11B83
 - **Keywords:** Sums of powers, Newton's interpolation formula, Finite differences, Binomial coefficients, Faulhaber's formula, Bernoulli numbers, Bernoulli polynomials, Interpolation, Central factorial numbers, Stirling numbers, Eulerian numbers, OEIS.
 - **License:** This work is licensed under a [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/)
