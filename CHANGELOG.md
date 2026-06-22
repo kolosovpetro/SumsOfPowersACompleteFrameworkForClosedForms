@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Flow improvements
 - Date format
 - Fix grammar
+- Add negated multifold sums formula
+- Add negated multifold sums test
 
 ## [1.0.3] - 17-Jun-2026
 
