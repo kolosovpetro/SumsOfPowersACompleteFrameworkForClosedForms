@@ -1,0 +1,113 @@
+(* ================================================================ *)
+(*  Validates Proposition: Multifold Binomial Sums of Powers        *)
+(*                         (Negated Form)                           *)
+(* ================================================================ *)
+
+ClearAll[
+  MultifoldSumOfPowersRecurrence,
+  CentralDifference,
+  MultifoldBinomialSumsOfPowersNegated,
+  ValidateMultifoldBinomialSumsOfPowersNegated
+];
+
+(* --------------------------------------------------------------- *)
+(*  Convention: 0^x = 1                                             *)
+(* --------------------------------------------------------------- *)
+
+Begin["`Private`"]
+
+Unprotect[Power];
+Power[0 | 0., 0 | 0.] = 1;
+Protect[Power];
+
+End[];
+
+
+(* --------------------------------------------------------------- *)
+(*  r-fold sums of powers                                           *)
+(* --------------------------------------------------------------- *)
+
+MultifoldSumOfPowersRecurrence[r_, n_, m_] := 0;
+
+MultifoldSumOfPowersRecurrence[0, n_, m_] :=
+  n^m;
+
+MultifoldSumOfPowersRecurrence[r_, n_, m_] :=
+  Sum[
+    MultifoldSumOfPowersRecurrence[r - 1, k, m],
+    {k, 1, n}
+  ] /; r > 0;
+
+
+(* --------------------------------------------------------------- *)
+(*  Central difference operator                                     *)
+(*      δ^k t^m                                                     *)
+(* --------------------------------------------------------------- *)
+
+CentralDifference[t_, m_, k_] :=
+  Sum[
+    (-1)^j
+      Binomial[k, j]
+      (t + k/2 - j)^m,
+    {j, 0, k}
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Negated multifold binomial sums of powers                       *)
+(* --------------------------------------------------------------- *)
+
+MultifoldBinomialSumsOfPowersNegated[r_, n_, m_, t_] :=
+  1/2 *
+    Sum[
+      (-1)^(m + k)
+      *
+      (
+        Binomial[n + t + k/2 + r, k + r]
+        +
+        Binomial[n + t + k/2 + r - 1, k + r]
+
+        -
+
+        Sum[
+          (
+            Binomial[r - s + t + k/2, k + r - s]
+            +
+            Binomial[r - 1 - s + t + k/2, k + r - s]
+          )
+          *
+          Binomial[s + n - 1, s],
+          {s, 0, r - 1}
+        ]
+      )
+      *
+      CentralDifference[t, m, k],
+      {k, 0, m}
+    ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Validation routine                                              *)
+(* --------------------------------------------------------------- *)
+
+ValidateMultifoldBinomialSumsOfPowersNegated[max_] :=
+  Flatten[
+    Table[
+      FullSimplify[
+        MultifoldSumOfPowersRecurrence[r, n, m]
+          -
+        MultifoldBinomialSumsOfPowersNegated[r, n, m, t]
+      ],
+      {r, 0, max},
+      {n, 1, max},
+      {m, 0, max},
+      {t, -max, max}
+    ]
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Run validation                                                  *)
+(* --------------------------------------------------------------- *)
+
+ValidateMultifoldBinomialSumsOfPowersNegated[5]

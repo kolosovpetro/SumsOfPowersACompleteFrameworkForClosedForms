@@ -1,8 +1,9 @@
-In~\cite{knuth1993johann} Donald Knuth gives a remarkable formula for
-sums of odd powers
+In~\cite{knuth1993johann} Donald Knuth provides a remarkable formula for
+sums of odd powers,
+in terms of central factorial numbers of the second kind $T(n,k)$
 \begin{proposition}[Knuth's odd powers sum]
   \label{prop:knuth-odd-powers-sum}
-  For non-negative integers $n,m$
+  For integers $n \geq 0$, and $m\geq 1$
   \begin{align*}
     \KnuthRFoldSum{1}{n}{2m-1} = \sum_{k=1}^{m} (2k-1)! \binom{n+k}{2k} T(2m,2k),
   \end{align*}
@@ -12,14 +13,24 @@ It is quite interesting to notice that Proposition~\eqref{prop:knuth-odd-powers-
 originates from centered
 Newton's formula for powers~\eqref{lem:central-newtons-formula-for-powers}
 evaluated at zero.
-By Newton's formula, we have
+By Newton's formula, for $m\geq 1$, we have
 \begin{align*}
-  n^{2m} = \sum_{k=0}^{2m} \frac{\centralFactorial{n}{k}}{k!} \cdot \delta^{k} 0^{2m}
+  n^{2m} = \sum_{k=1}^{2m} \frac{\centralFactorial{n}{k}}{k!} \cdot \delta^{k} 0^{2m}
 \end{align*}
-The iteration for $k=0$ can be omitted because $\delta^{0} 0^{2m} = 0$,
-for integer $m \geq 1$.
-Next, we observe that $\delta^{k} 0^{2m} = 0$ for every odd $k$, thus
-we can omit odd iterations of $k$
+The iteration for $k=0$ can be omitted because $\delta^{0} 0^{2m} = 0$.
+Now, we observe that central difference $\delta^k 0^m$ satisfies the parity of
+arguments $m$ and $k$, such that
+\begin{align*}
+  \begin{cases}
+    \delta^{k} 0^m \neq 0, \quad &\text{when} \quad m \equiv k \pmod{2}, \\
+    \delta^{k} 0^m = 0, \quad &\text{when} \quad m \not\equiv k \pmod{2},
+  \end{cases}
+\end{align*}
+meaning that $\delta^{k} 0^m$ is zero whether $k,m$ are odd and even, and vise versa.
+Note that the parity property holds only for central difference of powers
+evaluated at zero, by contrast $\delta^{3} 1^{4} = 24  \neq 0$.
+Thus, the parity of $\delta^{k} 0^{2m}$ allows us
+to omit odd iterations of $k$, because $\delta^{k} 0^{2m}$ is zero for odd $k$
 \begin{align*}
   n^{2m} = \sum_{k=1}^{m} \frac{\centralFactorial{n}{2k}}{(2k)!} \cdot \delta^{2k} 0^{2m}.
 \end{align*}
@@ -34,17 +45,19 @@ Thus,
 By simplifying $\frac{\centralFactorial{n}{2k}}{(2k)!}$
 using Lemma~\eqref{lem:central-factorials-binomial-form}, we get
 \begin{align*}
-  n^{2m}
-  &= \sum_{k=1}^{m} (2k)!  \frac{n}{2k} \binom{n+k-1}{2k-1} T(2m,2k) \\
-  &= \sum_{k=1}^{m} (2k-1)!  n \binom{n+k-1}{2k-1} T(2m,2k).
+  n^{2m} = \sum_{k=1}^{m} (2k)!  \frac{n}{2k} \binom{n+k-1}{2k-1} T(2m,2k).
+\end{align*}
+Therefore,
+\begin{align*}
+  n^{2m} = \sum_{k=1}^{m} (2k-1)!  n \binom{n+k-1}{2k-1} T(2m,2k).
 \end{align*}
 By factoring out $n$, we obtain
 \begin{align*}
   n^{2m-1}
   &= \sum_{k=1}^{m} (2k-1)! \binom{n+k-1}{2k-1} T(2m,2k).
 \end{align*}
-By hockey stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$
-formula for sums of powers yields
+By using hockey stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$
+yields
 \begin{align*}
   \KnuthRFoldSum{1}{n}{2m-1} = \sum_{k=1}^{m} (2k-1)! \binom{n+k}{2k} T(2m,2k).
 \end{align*}
@@ -54,27 +67,27 @@ by applying hockey-stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1
 repeatedly
 \begin{proposition}[Knuth's odd powers sum multifold]
   \label{prop:knuth-odd-powers-sum-multifold}
-  For non-negative integers $r,n,m$
+  For non-negative integers $r,n$, and $m \geq 1$
   \begin{align*}
     \KnuthRFoldSum{r+1}{n}{2m-1}
     = \sum_{k=1}^{m} (2k-1)! \binom{n+k+r}{2k+r} T(2m,2k),
   \end{align*}
   where $T(2m,2k)$ are central factorial numbers of the second kind.
 \end{proposition}
-For example,
+For example, for $r=0$ we have
 \begin{align*}
   \KnuthRFoldSum{1}{n}{1} &= \tbinom{n+1}{2} 1, \\
   \KnuthRFoldSum{1}{n}{3} &= \tbinom{n+2}{4} 6    + \tbinom{n+1}{2} 1, \\
   \KnuthRFoldSum{1}{n}{5} &= \tbinom{n+3}{6} 120  + \tbinom{n+2}{4} 30   + \tbinom{n+1}{2}, \\
   \KnuthRFoldSum{1}{n}{7} &= \tbinom{n+4}{8} 5040 + \tbinom{n+3}{6} 1680 + \tbinom{n+2}{4} 126 + \tbinom{n+1}{2} 1.
 \end{align*}
-While multifold sums of odd powers are,
+For example, for arbitrary integer $r$ we have
 \begin{align*}
   \KnuthRFoldSum{r}{n}{1} &= \tbinom{n+0+r}{1+r} 1, \\
   \KnuthRFoldSum{r}{n}{3} &= \tbinom{n+1+r}{3+r} 6    + \tbinom{n+0+r}{1+r} 1, \\
   \KnuthRFoldSum{r}{n}{5} &= \tbinom{n+2+r}{5+r} 120  + \tbinom{n+1+r}{3+r} 30   + \tbinom{n+0+r}{1+r} 1, \\
   \KnuthRFoldSum{r}{n}{7} &= \tbinom{n+3+r}{7+r} 5040 + \tbinom{n+3+r}{5+r} 1680 + \tbinom{n+1+r}{3+r} 126 + \tbinom{n+0+r}{1+r} 1.
 \end{align*}
-The coefficients $1, 6, 1, 120, 30, 1,\ldots$
+The coefficients $1, 6, 1, 120, 30, 1, 5040, 1680, 126, 1,\ldots$
 is the sequence \href{https://oeis.org/A303675}{\texttt{A303675}}
 in the OEIS~\cite{sloane2003line}.

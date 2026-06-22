@@ -2,7 +2,7 @@
 
 ## Abstract
 
-This manuscript originates from the historical development of the sums of powers problem, briefly tracing its evolution from Archimedes (287-212 BC) to Donald Knuth's work *Johann Faulhaber and sums of powers (1993)*, highlighting the transition from purely arithmetic methods to modern enumerative and algebraic-combinatorial approaches. The main results establish an algorithm for deriving closed formulas for multifold sums of powers of integers by combining variations of Newton's interpolation formula with hockey-stick family identities for binomial coefficients.
+This manuscript provides an algorithm for deriving closed formulas for multifold sums of powers of integers by combining variations of Newton's interpolation formula with hockey-stick family identities for binomial coefficients.
 
 
 ## Related projects
@@ -14,7 +14,7 @@ This manuscript originates from the historical development of the sums of powers
 
 ## Metadata
 
-- **Initial release date:** 04-Jun-2026.
+- **Initial release date:** June 04, 2026.
 - **MSC2010:** 05A10, 11B68, 11B73, 11B83
 - **Keywords:** Sums of powers, Newton's interpolation formula, Finite differences, Binomial coefficients, Faulhaber's formula, Bernoulli numbers, Bernoulli polynomials, Interpolation, Central factorial numbers, Stirling numbers, Eulerian numbers, OEIS.
 - **License:** This work is licensed under a [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/)

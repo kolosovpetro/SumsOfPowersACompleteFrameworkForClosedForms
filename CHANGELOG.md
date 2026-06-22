@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] - 22-June-2026
+
+### Changed
+
+- Fixes for OEIS sequences
+- Add remark on parity of central differences
+- Improvements in Cereceda mention
+- Update abstract
+- Flow improvements
+- Date format
+- Fix grammar
+- Add negated multifold sums formula
+- Add negated multifold sums test
+
 ## [1.0.3] - 17-Jun-2026
 
 ### Changed
