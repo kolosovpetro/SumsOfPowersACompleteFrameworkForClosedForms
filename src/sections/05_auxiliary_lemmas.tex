@@ -30,7 +30,7 @@
 
 \begin{lemma}[Central factorials binomial form]
   \label{lem:central-factorials-binomial-form}
-  For integers $n$ and $k \geq 1$,
+  For integers $n$ and $k\neq0$,
   \begin{align*}
     \frac{\centralFactorial{n}{k}}{k!}
     = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}.
@@ -50,7 +50,7 @@
 
 \begin{lemma}[Central factorials binomial form decomposition]
   \label{lem:central-factorials-binomial-form-decomposition}
-  For integers $n,k\geq 0$,
+  For  non-negative integers $n,k$,
   \begin{align*}
     \frac{\centralFactorial{n}{k}}{k!}
     = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1}
@@ -86,7 +86,7 @@
 
 \begin{lemma}[Newton's formula for powers decomposition]
   \label{lem:central-newtons-formula-for-powers-decomposition}
-  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  For non-negative integers $n,m$, and an arbitrary integer $t$,
   \begin{align*}
     n^m = \frac{1}{2} \sum_{k=0}^{m}
     \left[
@@ -97,7 +97,7 @@
 
 \begin{lemma}[Generalized hockey-stick identity]
   \label{lem:generalized-hockey-stick-identity}
-  For integers $a,b$ and $j$,
+  For arbitrary integers $a,b$ and $j$,
   \begin{align*}
     \sum_{k=a}^{b} \binom{k}{j} = \binom{b+1}{j+1} - \binom{a}{j+1}.
   \end{align*}
@@ -118,7 +118,7 @@
 
 \begin{lemma}[Centered hockey-stick identity]
   \label{lem:centered-hockey-stick-identity}
-  For integers $n\geq1$, and arbitrary integers $t,k,r$
+  For integer $n\geq1$, and arbitrary integers $t,k,r$
   \begin{align*}
     \sum_{j=1}^{n} \binom{j -t + \frac{k}{2} +r}{k}
     = \binom{n -t + \frac{k}{2} + r +1}{k+1} - \binom{1 -t + \tfrac{k}{2} +r}{k+1}.
@@ -141,5 +141,5 @@
   \end{align*}
 \end{convention}
 Donald Knuth give extensive discussion on the convention $x^0=1$ for
-all $x$ in Concrete Mathematics~\cite[~p. 162]{graham1994concrete},
+all $x$, including zero, in Concrete Mathematics~\cite[~p. 162]{graham1994concrete},
 and in~\cite{knuth1992notesnotation}.

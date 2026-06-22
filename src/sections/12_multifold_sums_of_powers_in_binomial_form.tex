@@ -1,6 +1,6 @@
 \begin{lemma}[Multifold sums of zero powers]
   \label{lem:multifold-sum-of-zero-powers}
-  For integers $r \geq 0$, and $n\geq 1$
+  For non-negative integers $r,n$
   \begin{align*}
     \KnuthRFoldSum{r}{n}{0} = \binom{r+n-1}{r}.
   \end{align*}
@@ -15,7 +15,6 @@
       \item Let $r=2$, then we have
         $\KnuthRFoldSum{2}{n}{0}
         = \sum_{k=1}^{n} \binom{k}{1}
-        % = \sum_{k=1}^{n} k
         = \binom{n+1}{2}$.
       \item Let $r=3$, then we have
         $\KnuthRFoldSum{3}{n}{0}
@@ -52,3 +51,34 @@ by Theorem~\eqref{thm:multifold-sums-of-powers} yields
 \end{proposition}
 For example,
 \input{sections/examples/05_example_multifold_sums_of_powers_binomial_form.tex}
+By setting $t \rightarrow -t$ we get negated version
+of Proposition~\eqref{prop:multifold-binomial-sums-of-powers}
+\begin{proposition}[Multifold binomial sums of powers negated]
+  \label{prop:multifold-binomial-sums-of-powers-negated}
+  For non-negative integers $n,m$, and an arbitrary integer $t$,
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    &= \frac{1}{2} \sum_{k=0}^{m} (-1)^{m+k}
+    \Bigg \{
+      \binom{n+t+\frac{k}{2}+r}{k+r} + \binom{n+t+\frac{k}{2}+r-1}{k+r} \\
+      &-
+      \sum_{s=0}^{r-1}
+      \left[
+        \binom{r-s+t+\frac{k}{2}}{k+r-s} + \binom{r-1-s+t+\frac{k}{2}}{k+r-s}
+      \right] \binom{s+n-1}{s}
+    \Bigg \} \delta^{k} t^m.
+  \end{align*}
+  \begin{proof}
+    By setting $t \rightarrow -t$ into
+    Proposition~\eqref{prop:multifold-binomial-sums-of-powers}, and by
+    $\delta^k (-t)^m = (-1)^{m+k} \delta^{k} t^{m}$.
+  \end{proof}
+\end{proposition}
+There are indeed many (infinitely) variations of such formulas as above,
+at least for every integer $t$.
+However, this entropy can be even wilder, by recalling the fundamental properties
+of binomial coefficients, such as
+\begin{align*}
+  \binom{-x}{k} &= (-1)^{k} \binom{x+k-1}{k}, \\
+  \binom{x}{k}  &= \binom{x}{x-k}.
+\end{align*}

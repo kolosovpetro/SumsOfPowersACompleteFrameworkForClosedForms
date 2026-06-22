@@ -1,13 +1,13 @@
 By decomposition of Newton's formula
 for powers~\eqref{lem:central-newtons-formula-for-powers-decomposition},
-for integers $n,m \geq 0$, and an arbitrary integer $t$, we get
+for non-negative integers $n,m$, and an arbitrary integer $t$, we have
 \begin{align*}
   \KnuthRFoldSum{1}{n}{m} = \frac{1}{2} \sum_{k=0}^{m}
   \left[
     \sum_{j=1}^{n} \binom{j-t+\frac{k}{2}}{k} + \sum_{j=1}^{n} \binom{j-t+\frac{k}{2}-1}{k}
   \right] \delta^{k} t^m.
 \end{align*}
-Now we reach the transition to closed form of ordinary sums of powers.
+Now, the closed form of ordinary sums of powers becomes straightforward.
 By setting $r=0$, and $r=-1$ into
 Lemma~\eqref{lem:centered-hockey-stick-identity}, we get closed forms of
 the sums $\sum_{j=1}^{n} \binom{j -t + \frac{k}{2}}{k}$,
@@ -24,12 +24,12 @@ Therefore,
     \right] \delta^{k} t^m.
   \end{align*}
 \end{proposition}
-Note that we should note worry about fractions in upper index of binomial
+Note that we do not bother about fractions in upper index of binomial
 coefficients $\binom{n -t + \frac{k}{2} +1}{k+1}$, because binomial coefficient
 $\binom{n}{k}$ is
 a polynomial in $n$.
 The well-known identity in unsigned Stirling numbers of the first kind $\stirlingi{n}{k}$
-shows it clearly
+shows it explicitly
 \begin{align*}
   \binom{n}{k}
   = \sum_{j=0}^{k} \frac{(-1)^{k-j}}{k!} \stirlingi{k}{j} n^j.
@@ -40,12 +40,11 @@ For example, for $\KnuthRFoldSum{1}{n}{3}$ we have
 \input{sections/examples/02_example_sum_of_cubes.tex}
 
 It is indeed interesting to notice the connection between
-the decomposition of ordinary sums of
-powers~\eqref{prop:ordinary-sums-of-powers-decomposition}
-and Riordan's central factorial numbers of the second kind, that is
+Proposition~\eqref{prop:ordinary-sums-of-powers-decomposition},
+and central factorial numbers of the second kind $T(n,k)$
 \begin{proposition}[Central factorial numbers sums]
   \label{prop:central-factorial-numbers-sums}
-  For integers $n,m \geq 0$, and an arbitrary integer $t$,
+  For non-negative integers $n,m$, and an arbitrary integer $t$,
   \begin{align*}
     \KnuthRFoldSum{1}{n}{m} = \frac{1}{2} \sum_{k=0}^{m}
     \left[

@@ -103,8 +103,7 @@ The algorithm above has already been utilized in practice.
 For instance, the work~\cite{kolosov_2026_forward} provides remarkable
 formulas for sums of powers, based on forward difference Newton's formula,
 \begin{proposition}
-  For integers $r\geq 0$, and $n\geq 0$, and $m\geq 0$,
-  and an arbitrary integer $t$,
+  For non-negative integers $r,n,m$ and an arbitrary integer $t$,
   \begin{align*}
     \KnuthRFoldSum{r}{n}{m}
     &= \sum_{j=0}^{m}
@@ -115,8 +114,7 @@ formulas for sums of powers, based on forward difference Newton's formula,
 \end{proposition}
 Also, in terms of Eulerian numbers $\eulerian{n}{k}$
 \begin{proposition}
-  For integers $r\geq0$, and $n\geq 0$, and $m\geq 0$,
-  and an arbitrary integer $t$,
+  For non-negative integers $r,n,m$ and an arbitrary integer $t$,
   \begin{align*}
     \KnuthRFoldSum{r}{n}{m}
     = \sum_{j=0}^{m} \sum_{k=0}^{m}
@@ -129,14 +127,14 @@ Also, in terms of Eulerian numbers $\eulerian{n}{k}$
 The work entitled
 \textit{Sums of powers of integers and generalized Stirling numbers of the second kind}
 ~\cite{cereceda2022sumspowersintegersgeneralized} discusses closed formulas for sums of powers
-in terms of generalized Stirling numbers of the second kind,
-which originates from forward Newton's formula for powers, around arbitrary
-integer point $t$.
-It is quite remarkable that both~\cite{cereceda2022sumspowersintegersgeneralized},
+in terms of generalized Stirling numbers of the second kind $\stirlingii{k}{j}_{r}$
+which originates from forward Newton's formula for powers, evaluated at arbitrary
+integer $t$.
+It is quite interesting that both~\cite{cereceda2022sumspowersintegersgeneralized},
 and~\cite{kolosov_2026_forward} reached the same result independently.
 In~\cite{cereceda2022sumspowersintegersgeneralized}, we read
 \begin{proposition}[Cereceda (2022)]
-  For non-negative integers $n,k$
+  For non-negative integers $n,k$, and an arbitrary integer $r$
   \begin{align}
     \label{eq:cereceda-sums-1}
     \KnuthRFoldSum{1}{n}{k} = \sum_{j=0}^{k} j!
@@ -155,7 +153,7 @@ In~\cite{cereceda2022sumspowersintegersgeneralized}, we read
 Formula~\eqref{eq:cereceda-sums-1}
 is a special case of proposition~\cite[Prop. (1.9)]{kolosov_2026_forward}
 \begin{proposition}
-  For integers $n\geq 0$, and $m\geq 0$, and an arbitrary integer $t$
+  For non-negative integers $n,m$, and an arbitrary integer $t$
   \begin{align*}
     \KnuthRFoldSum{1}{n}{m} = \sum_{j=0}^{m}
     \left[ \binom{n-t+1}{j+1} + (-1)^j \binom{j+t-1}{j+1} \right] \Delta^{j} t^m.
@@ -169,7 +167,7 @@ Formula~\eqref{eq:cereceda-sums-2} is a special case
 of proposition~\cite[Prop. (1.8)]{kolosov_2026_forward}
 with setting $t=-r$
 \begin{proposition}
-  For integers $n\geq 0$, and $m\geq 0$, and an arbitrary integer $t$,
+  For non-negative integers $n,m$, and an arbitrary integer $t$,
   \begin{align*}
     \KnuthRFoldSum{1}{n}{m} = \sum_{j=0}^{m}
     \left[ \binom{n+t+1}{j+1} - \binom{1+t}{j+1} \right] \Delta^{j} (-t)^m.
@@ -194,7 +192,7 @@ Essentially, it achieves similar formulas for sums of powers as current paper,
 but using different binomial identities to reach the closed form.
 For instance,
 \begin{proposition}
-  For integers $n\geq 0, \; m \geq 0$, and an arbitrary integer $t$
+  For non-negative integers $r,n,m$ and an arbitrary integer $t$,
   \begin{align*}
     \KnuthRFoldSum{r}{n}{m}
     &= \binom{r+n-1}{r} t^m
