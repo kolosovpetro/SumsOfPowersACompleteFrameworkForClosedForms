@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Use `hockey-stick` everywhere
 - Edit conclusions
 - Edits in algorithm
+- Fix overfull margins
 
 ## [1.0.4] - 22-June-2026
 
