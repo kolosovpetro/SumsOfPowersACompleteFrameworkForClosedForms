@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Historical context mathematical writing improvements
 - Update conclusions
 - Fix falling factorial notation
+- Fix link in metadata
 
 ## [1.0.4] - 22-June-2026
 
