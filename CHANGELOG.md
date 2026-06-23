@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Edits in algorithm
 - Fix overfull margins
 - Historical context mathematical writing improvements
+- Update conclusions
 
 ## [1.0.4] - 22-June-2026
 
