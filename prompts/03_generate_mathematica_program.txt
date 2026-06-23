@@ -1,26 +1,20 @@
 Generate Mathematica program to validate the identity
 
-\begin{proposition}[Multifold binomial sums of powers negated]
-  \label{prop:multifold-binomial-sums-of-powers-negated}
-  For non-negative integers $n,m$, and an arbitrary integer $t$,
+\begin{proposition}
+  [Double sums of powers at zero]
+  For non-negative integers $n,m$
   \begin{align*}
-    \KnuthRFoldSum{r}{n}{m}
-    &= \frac{1}{2} \sum_{k=0}^{m} (-1)^{m+k}
-    \Bigg \{
-      \binom{n+t+\frac{k}{2}+r}{k+r} + \binom{n+t+\frac{k}{2}+r-1}{k+r} \\
-      &-
-      \sum_{s=0}^{r-1}
-      \left[
-        \binom{r-s+t+\frac{k}{2}}{k+r-s} + \binom{r-1-s+t+\frac{k}{2}}{k+r-s}
-      \right] \binom{s+n-1}{s}
-    \Bigg \} \delta^{k} t^m.
+    \KnuthRFoldSum{2}{n}{m}
+    = \sum_{k=0}^{m} \frac{1}{k+1}
+    \left[
+      \binom{n+\frac{k}{2}+\frac{3}{2}}{k+2}
+      - \binom{\frac{k}{2}+\frac{1}{2}}{k+1} \KnuthRFoldSum{1}{n}{0}
+      - \binom{\frac{k}{2}+\frac{3}{2}}{k+2} \KnuthRFoldSum{0}{n}{0}
+    \right]
+    \delta^{k+1} 0^{m+1}.
   \end{align*}
-  \begin{proof}
-    By setting $t \rightarrow -t$ into
-    Proposition~\eqref{prop:multifold-binomial-sums-of-powers}, and by
-    $\delta^k (-t)^m = (-1)^{m+k} \delta^{k} t^{m}$.
-  \end{proof}
 \end{proposition}
+
 
 Use the example below, give your response in a separate code block so that I 
 copy paste it easily
@@ -32,7 +26,7 @@ copy paste it easily
 ClearAll[ValidateCenteredHockeyStickIdentity];
 
 (* --------------------------------------------------------------- *)
-(*  Identity check                                                  *)
+(*  Identity check                                                 *)
 (* --------------------------------------------------------------- *)
 
 ValidateCenteredHockeyStickIdentity[max_] :=

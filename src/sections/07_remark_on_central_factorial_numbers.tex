@@ -91,3 +91,59 @@ For example, for arbitrary integer $r$ we have
 The coefficients $1, 6, 1, 120, 30, 1, 5040, 1680, 126, 1,\ldots$
 is the sequence \href{https://oeis.org/A303675}{\texttt{A303675}}
 in the OEIS~\cite{sloane2003line}.
+However, Proposition~\eqref{prop:knuth-odd-powers-sum-multifold} serves
+as the source of inspiration for one more remarkable identity.
+By Newton's formula~\eqref{lem:central-newtons-formula-for-powers},
+and by Lemma~\eqref{lem:central-factorials-binomial-form}, we have
+\begin{align*}
+  n^m = \sum_{k=1}^{m} \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1} \delta^{k} 0^m
+\end{align*}
+By factoring out $n$
+\begin{align*}
+  n^{m-1} = \sum_{k=1}^{m} \frac{1}{k} \binom{n+\frac{k}{2}-1}{k-1} \delta^{k} 0^m
+\end{align*}
+By shifting
+\begin{align*}
+  n^{m} = \sum_{k=1}^{m+1} \frac{1}{k} \binom{n+\frac{k}{2}-1}{k-1} \delta^{k} 0^{m+1}
+\end{align*}
+By re-indexing
+\begin{align*}
+  n^{m} = \sum_{k=0}^{m} \frac{1}{k+1} \binom{n+\frac{k}{2}-\frac{1}{2}}{k} \delta^{k+1} 0^{m+1}
+\end{align*}
+Thus, by setting $r=0$ and $t=\frac{1}{2}$
+into Lemma~\eqref{lem:centered-hockey-stick-identity} yields
+\begin{proposition}
+  [Ordinary sums of powers at zero]
+  For non-negative integers $n,m$
+  \begin{align*}
+    \KnuthRFoldSum{1}{n}{m}
+    = \sum_{k=0}^{m} \frac{1}{k+1}
+    \left[ \binom{n+\frac{k}{2}+\frac{1}{2}}{k+1} - \binom{\frac{k}{2}+\frac{1}{2}}{k+1}\right]
+    \delta^{k+1} 0^{m+1}.
+  \end{align*}
+\end{proposition}
+Which can also be rewritten in terms of central factorial numbers
+of the second kind
+\begin{align*}
+  \KnuthRFoldSum{1}{n}{m}
+  = \sum_{k=0}^{m} k!
+  \left[ \binom{n+\frac{k}{2}+\frac{1}{2}}{k+1} - \binom{\frac{k}{2}+\frac{1}{2}}{k+1}\right]
+  T(k+1, m+1).
+\end{align*}
+By setting $r=1$ and $t=\frac{1}{2}$
+into Lemma~\eqref{lem:centered-hockey-stick-identity},
+we get formula for double sums of powers
+\begin{proposition}
+  [Double sums of powers at zero]
+  For non-negative integers $n,m$
+  \begin{align*}
+    \KnuthRFoldSum{2}{n}{m}
+    = \sum_{k=0}^{m} \frac{1}{k+1}
+    \left[
+      \binom{n+\frac{k}{2}+\frac{3}{2}}{k+2}
+      - \binom{\frac{k}{2}+\frac{1}{2}}{k+1} \KnuthRFoldSum{1}{n}{0}
+      - \binom{\frac{k}{2}+\frac{3}{2}}{k+2} \KnuthRFoldSum{0}{n}{0}
+    \right]
+    \delta^{k+1} 0^{m+1}.
+  \end{align*}
+\end{proposition}
