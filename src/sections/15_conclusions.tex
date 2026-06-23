@@ -1,12 +1,28 @@
-This manuscript reviews historical development of the sums of powers problem, briefly tracing its evolution from Archimedes (287-212 BC) to Donald Knuth's work \textit{Johann Faulhaber and sums of powers (1993)}, highlighting the transition from purely arithmetic methods to modern enumerative and algebraic-combinatorial approaches.
 The main results establish an algorithm~\eqref{alg:sums-of-powers}
 for deriving closed formulas for multifold sums of powers of integers
 by combining variations of Newton's interpolation formula with
-hockey-stick family identities for binomial coefficients.
-Using the algorithm, some remarkable formulas were obtained,
-closed formula for sums of powers~\eqref{prop:ordinary-sums-of-powers-decomposition},
-formula for $r-$fold sums of powers~\eqref{thm:multifold-sums-of-powers}, formula
-for $r-$fold sums of powers in pure binomial view~\eqref{prop:multifold-binomial-sums-of-powers}.
-In addition, we have shown that famous Knuth's formula for sums of odd powers~\eqref{prop:knuth-odd-powers-sum}
-originates from Newton's interpolation formula~\eqref{lem:central-newtons-formula-for-powers},
-thus generalizing it for $r-$fold case~\eqref{prop:knuth-odd-powers-sum-multifold}.
+hockey-stick identities for binomial coefficients.
+
+Using this algorithm, we obtain several notable results, including
+a closed formula for sums of powers
+in Proposition~\eqref{prop:ordinary-sums-of-powers-decomposition},
+a formula for $r$-fold sums of powers in
+Theorem~\eqref{thm:multifold-sums-of-powers},
+and a pure binomial representation of $r$-fold sums of powers,
+in Proposition~\eqref{prop:multifold-binomial-sums-of-powers}.
+
+Furthermore, we show that Knuth's famous formula for sums
+of odd powers~\eqref{prop:knuth-odd-powers-sum}
+originates from Newton's interpolation
+formula~\eqref{lem:central-newtons-formula-for-powers},
+thereby obtaining its $r$-fold generalization
+in Proposition~\eqref{prop:knuth-odd-powers-sum-multifold}.
+
+Motivated by Knuth's formula for odd powers, we also employ
+the centered Newton interpolation formula evaluated at zero
+to derive another closed formula for sums of
+powers in Proposition~\eqref{prop:ordinary-sums-of-powers-at-zero}.
+This approach is extended to the $r$-fold case in
+Theorem~\eqref{thm:multifold-sums-of-powers-at-zero},
+and its pure binomial counterpart is established in
+Proposition~\eqref{prop:multifold-sums-of-powers-at-zero-binomial-form}.

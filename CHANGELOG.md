@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 23-June-2026
+
+### Changed
+
+- Add ordinary sums of powers formula at zero
+- Add double sums of powers formula at zero
+- Add multifold sums of powers formula at zero
+- Add Mathematica validation for new formulas
+- Add multifold sums of powers formula at zero binomial form
+- Move `lem:multifold-sum-of-zero-powers` to auxiliary lemmas
+- Use `hockey-stick` everywhere
+- Edit conclusions
+- Edits in algorithm
+- Fix overfull margins
+- Historical context mathematical writing improvements
+- Update conclusions
+- Fix falling factorial notation
+- Fix link in metadata
+
 ## [1.0.4] - 22-June-2026
 
 ### Changed

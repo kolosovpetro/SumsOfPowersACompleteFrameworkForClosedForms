@@ -86,17 +86,22 @@ More precisely, the algorithm for closed formulas for sums of powers is
   \begin{enumerate}
     \item Define the function $f(x) = x^m$.
     \item Pick generalized difference operator $D_g f(x)$, see~\eqref{eq:dynamic-difference-operator}.
+      In this paper, we use central difference $\delta^k f(x)$.
     \item Derive generalized Newton's formula~\eqref{eq:generalized-newtons-formula}
-      in terms of $D_g f(x)$, for example~\eqref{eq:newtons-formulas-casess}.
+      in terms of $D_g f(x)$, for example one of~\eqref{eq:newtons-formulas-casess}.
     \item Find an identity that connects respective factorials $\generalizedFactorial{x}{\alpha, \beta}{n}$
       with binomial coefficients of the form $\binom{x}{k}$,
-      so that upper index is expression in $x$, for example~\eqref{eq:factorial-identities}.
-    \item Apply hockey stick identities \eqref{lem:generalized-hockey-stick-identity},
+      so that upper index is expression in $x$. In this manuscript, we use Lemma~\eqref{lem:central-factorials-binomial-form},
+      and Lemma~\eqref{lem:central-factorials-binomial-form-decomposition},
+      however they may vary, based on selected difference operator,
+      which is central difference $\delta^k f(x)$ for this work.
+    \item Apply hockey-stick identities, to derive closed form for sums of powers $\KnuthRFoldSum{1}{n}{m}$.
+      The precise hockey-stick identities may vary, depending on factorials $\generalizedFactorial{x}{\alpha, \beta}{n}$,
+      in this work we use Lemma~\eqref{lem:generalized-hockey-stick-identity},
       and
-      \eqref{lem:centered-hockey-stick-identity} to derive closed form for sums of powers $\KnuthRFoldSum{1}{n}{m}$.
-    \item Apply identities \eqref{lem:generalized-hockey-stick-identity},
-      and
-      \eqref{lem:centered-hockey-stick-identity} $r$-times to reach $r$-fold closed form for sums of powers $\KnuthRFoldSum{r}{n}{m}$.
+      Lemma~\eqref{lem:centered-hockey-stick-identity}.
+    \item Apply hockey-stick identities repeatedly, to get formula for multifold sums of powers $\KnuthRFoldSum{r}{n}{m}$,
+      for example, Theorem~\eqref{thm:multifold-sums-of-powers-at-zero}, and Theorem~\eqref{thm:multifold-sums-of-powers}.
   \end{enumerate}
 \end{algorithm}
 The algorithm above has already been utilized in practice.
@@ -212,3 +217,9 @@ For instance,
     \Bigg \}.
   \end{align*}
 \end{proposition}
+Which matches Theorem~\eqref{thm:multifold-sums-of-powers}, derived however using
+the following binomial identity, for non-negative integers $r,n,m$
+\begin{align*}
+  n \binom{n+r}{m} = (m+1) \binom{n+r}{m+1} - (r-m) \binom{n+r}{m},
+\end{align*}
+instead of hockey-stick approach we utilize in this manuscript.

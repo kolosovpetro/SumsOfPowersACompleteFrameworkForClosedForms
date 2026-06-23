@@ -15,10 +15,10 @@ because it is simple and beautiful.
 We utilize the following notation for falling factorials
 \begin{definition} [Falling factorials] For integers $x,n$
   \begin{align*}
-    \fallingFactorial{x}{n} =
+    \fallingFactorial{n}{k} =
     \begin{cases}
       1, & \mathrm{if \; } k = 0, \\
-      x(x-1)(x-2)\cdots(x-n+1) = \prod_{k=0}^{n-1} (x-k), & \mathrm{if \; } k > 0, \\
+      n(n-1)(n-2)\cdots(n-k+1) = \prod_{j=0}^{k-1} (n-j), & \mathrm{if \; } k > 0, \\
       0, & \mathrm{else}.
     \end{cases}
   \end{align*}

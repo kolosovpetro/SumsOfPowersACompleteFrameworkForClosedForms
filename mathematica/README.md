@@ -11,3 +11,7 @@
 - .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateMultifoldSumsOfZeroPowersLemma.txt"
 - .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateMultifoldBinomialSumsOfPowersProposition.txt"
 - .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateMultifoldBinomialSumsOfPowersNegated.txt"
+- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateOrdinarySumsOfPowersAtZero.txt"
+- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateDoubleSumsOfPowersAtZero.txt"
+- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateMultifoldSumsOfPowersAtZero.txt"
+- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateMultifoldSumsOfPowersAtZeroBinomialForm.txt"
