@@ -107,13 +107,14 @@ By shifting
   n^{m} = \sum_{k=1}^{m+1} \frac{1}{k} \binom{n+\frac{k}{2}-1}{k-1} \delta^{k} 0^{m+1}
 \end{align*}
 By re-indexing
-\begin{align*}
+\begin{align}
+  \label{eq:power-identity-at-zero}
   n^{m} = \sum_{k=0}^{m} \frac{1}{k+1} \binom{n+\frac{k}{2}-\frac{1}{2}}{k} \delta^{k+1} 0^{m+1}
-\end{align*}
+\end{align}
 Thus, by setting $r=0$ and $t=\frac{1}{2}$
 into Lemma~\eqref{lem:centered-hockey-stick-identity} yields
-\begin{proposition}
-  [Ordinary sums of powers at zero]
+\begin{proposition}[Ordinary sums of powers at zero]
+  \label{prop:ordinary-sums-of-powers-at-zero}
   For non-negative integers $n,m$
   \begin{align*}
     \KnuthRFoldSum{1}{n}{m}
@@ -133,8 +134,8 @@ of the second kind
 By setting $r=1$ and $t=\frac{1}{2}$
 into Lemma~\eqref{lem:centered-hockey-stick-identity},
 we get formula for double sums of powers
-\begin{proposition}
-  [Double sums of powers at zero]
+\begin{proposition}[Double sums of powers at zero]
+  \label{prop:double-sums-of-powers-at-zero}
   For non-negative integers $n,m$
   \begin{align*}
     \KnuthRFoldSum{2}{n}{m}
@@ -147,3 +148,23 @@ we get formula for double sums of powers
     \delta^{k+1} 0^{m+1}.
   \end{align*}
 \end{proposition}
+In general, we have
+\begin{theorem}[Multifold sums of powers at zero]
+  \label{thm:multifold-sums-of-powers-at-zero}
+  For non-negative integers $r,n,m$
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    =
+    \sum_{k=0}^{m}
+    \left[
+      \binom{n+\frac{k}{2}+\frac{2r-1}{2}}{k+r}
+      -
+      \sum_{s=0}^{r-1} \binom{\frac{k}{2} + \frac{2(r-s)-1}{2}}{k+r-s}
+      \KnuthRFoldSum{s}{n}{0}
+    \right] \frac{\delta^{k+1} 0^{m+1}}{k+1}.
+  \end{align*}
+  \begin{proof}
+    By repeatedly applied Lemma~\eqref{lem:centered-hockey-stick-identity},
+    and Equation~\eqref{eq:power-identity-at-zero}.
+  \end{proof}
+\end{theorem}
