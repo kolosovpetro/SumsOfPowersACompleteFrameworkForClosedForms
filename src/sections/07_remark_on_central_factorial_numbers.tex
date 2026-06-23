@@ -168,3 +168,39 @@ In general, we have
     and Equation~\eqref{eq:power-identity-at-zero}.
   \end{proof}
 \end{theorem}
+By Lemma~\eqref{lem:multifold-sum-of-zero-powers}, from
+Theorem~\eqref{thm:multifold-sums-of-powers-at-zero} follows
+\begin{proposition}[Multifold sums of powers at zero binomial form]
+  \label{prop:multifold-sums-of-powers-at-zero-binomial-form}
+  For non-negative integers $r,n,m$
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    =
+    \sum_{k=0}^{m}
+    \left[
+      \binom{n+\frac{k}{2}+\frac{2r-1}{2}}{k+r}
+      -
+      \sum_{s=0}^{r-1} \binom{\frac{k}{2} + \frac{2(r-s)-1}{2}}{k+r-s}
+      \binom{s+n-1}{s}
+    \right] \frac{\delta^{k+1} 0^{m+1}}{k+1}.
+  \end{align*}
+  \begin{proof}
+    By repeatedly applied Lemma~\eqref{lem:centered-hockey-stick-identity},
+    and Equation~\eqref{eq:power-identity-at-zero}.
+  \end{proof}
+\end{proposition}
+Which, as well, can be expressed in terms of central
+factorial numbers of the second kind
+\begin{align*}
+  \KnuthRFoldSum{r}{n}{m}
+  =
+  \sum_{k=0}^{m}
+  \left[
+    \binom{n+\frac{k}{2}+\frac{2r-1}{2}}{k+r}
+    -
+    \sum_{s=0}^{r-1} \binom{\frac{k}{2} + \frac{2(r-s)-1}{2}}{k+r-s}
+    \binom{s+n-1}{s}
+  \right] k! T(k+1, m+1).
+\end{align*}
+Thus, we have discussed quite remarkable results, that follow from
+centered Newton's formula evaluated at zero.

@@ -1,8 +1,6 @@
 \begin{lemma}[Central Newton's formula]
-  % {\normalfont
-  % (Central Newton's formula \cite[p.~462]{butzer1989central}).}
   For a function $f$ defined on integers and arbitrary integers $x,t$
-  \label{lem:centra-newtons-formula}
+  \label{lem:central-newtons-formula}
   \begin{align*}
     f(x)
     = \sum_{k=0}^{\infty} \frac{\centralFactorial{(x-t)}{k}}{k!} \delta^{k} f(t),
@@ -19,13 +17,15 @@
   \end{proof}
 \end{lemma}
 
-
 \begin{lemma}[Newton's formula for powers]
   \label{lem:central-newtons-formula-for-powers}
   For integers $n,m \geq 0$, and an arbitrary integer $t$,
   \begin{align*}
     n^m = \sum_{k=0}^{m} \frac{\centralFactorial{(n-t)}{k}}{k!} \delta^{k} t^m.
   \end{align*}
+  \begin{proof}
+    Special case of Lemma~\eqref{lem:central-newtons-formula} for $f(n) = n^m$.
+  \end{proof}
 \end{lemma}
 
 \begin{lemma}[Central factorials binomial form]
@@ -93,6 +93,10 @@
       \binom{n-t+\frac{k}{2}}{k} + \binom{n-t+\frac{k}{2}-1}{k}
     \right] \delta^{k} t^m.
   \end{align*}
+  \begin{proof}
+    By Lemma~\eqref{lem:central-newtons-formula-for-powers}, and
+    by Lemma~\eqref{lem:central-factorials-binomial-form-decomposition}.
+  \end{proof}
 \end{lemma}
 
 \begin{lemma}[Generalized hockey-stick identity]
@@ -131,6 +135,40 @@
       \tsum_{j=1 -t + \tfrac{k}{2} +r}^{n -t + \tfrac{k}{2} +r} \tbinom{j}{k}
       = \tbinom{n -t + \tfrac{k}{2} + r +1}{k+1} - \tbinom{1 -t + \tfrac{k}{2} +r}{k+1}.
     \end{align*}
+    This completes the proof.
+  \end{proof}
+\end{lemma}
+
+\begin{lemma}[Multifold sums of zero powers]
+  \label{lem:multifold-sum-of-zero-powers}
+  For non-negative integers $r,n$
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{0} = \binom{r+n-1}{r}.
+  \end{align*}
+  \begin{proof}
+    \leavevmode\par
+    \begin{enumerate}
+      \item Let $r=0$, then we have $\KnuthRFoldSum{0}{n}{0} = 1$,
+        by definition~\eqref{def:multifold-sums-of-powers-recurrence}.
+      \item Let $r=1$, then we have
+        $\KnuthRFoldSum{1}{n}{0}
+        = \sum_{k=1}^{n} 1 = \binom{n}{1}$.
+      \item Let $r=2$, then we have
+        $\KnuthRFoldSum{2}{n}{0}
+        = \sum_{k=1}^{n} \binom{k}{1}
+        = \binom{n+1}{2}$.
+      \item Let $r=3$, then we have
+        $\KnuthRFoldSum{3}{n}{0}
+        = \sum_{k=1}^{n} \binom{k+1}{2}
+        = \binom{n+2}{3}$.
+      \item Similarly, for arbitrary integer $r$, by hockey stick identity
+        $\sum_{k=1}^{n} \binom{k}{r} = \binom{n+1}{r+1}$,
+        yields
+        $\KnuthRFoldSum{r}{n}{0}
+        =  \sum_{k=1}^{n} \KnuthRFoldSum{r-1}{k}{0}
+        =  \sum_{k=1}^{n} \binom{k+r-2}{r-1}
+        = \binom{r+n-1}{r}$.
+    \end{enumerate}
     This completes the proof.
   \end{proof}
 \end{lemma}

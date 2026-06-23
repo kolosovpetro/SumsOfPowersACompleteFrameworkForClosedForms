@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Add double sums of powers formula at zero
 - Add multifold sums of powers formula at zero
 - Add Mathematica validation for new formulas
+- Add multifold sums of powers formula at zero binomial form
+- Move `lem:multifold-sum-of-zero-powers` to auxiliary lemmas
 
 ## [1.0.4] - 22-June-2026
 
