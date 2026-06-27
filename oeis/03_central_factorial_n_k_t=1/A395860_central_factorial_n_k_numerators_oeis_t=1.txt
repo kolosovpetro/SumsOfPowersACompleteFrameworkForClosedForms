@@ -36,13 +36,13 @@ Triangle begins:
 
 FORMULA
 
-Let F(t, n, k) be generalized central factorial numbers of the second kind: F(t,n,k) = (delta^k t^n)/k! = (1/(2k)!) * Sum_{j=0..2k} (-1)^j * binomial(2k,j) * (t+k-j)^(2n), then:
-  F(0,2n,2k) = A387597(n,k)/k! = A269945(n,k);
-  F(1,2n,2k) = A392337(n,k)/k! = A394692(n,k);
-  F(2,2n,2k) = A390029(n,k)/k! = A395456(n,k);
-  F(3,2n,2k) = A395457(n,k);
-  numerators(F(0,n,k)) = <TO_UPDATE>;
+Let F(t, n, k) be generalized central factorial numbers of the second kind: F(t,n,k) = (1/(2k)!) * Sum_{j=0..2k} (-1)^j * binomial(2k,j) * (t+k-j)^(2n), then:
+  F(0,n,k) = A387597(n,k)/k! = A269945(n,k);
+  F(1,n,k) = A392337(n,k)/k! = A394692(n,k);
+  F(2,n,k) = A390029(n,k)/k! = A395456(n,k);
+  F(3,n,k) = A395457(n,k);
+  numerators(F(0,n,k)) = A395862(n,k);
   denominators(F(0,n,k)) = A370703(n,k);
   numerators(F(1,n,k)) = T(n,k) (this sequence);
-  denominators(F(1,n,k)) = <TO_UPDATE>.
-G.f. for CF(n,k) is centered Newton's polynomial for f(s) = s^(n): s^(n) = Sum_{k=0..n} T(n,k) (s-1)^[k], where (s-1)^[k] are central factorials.
+  denominators(F(1,n,k)) = A395861(n,k).
+G.f. for CF(n,k) is centered Newton's polynomial for f(s) = s^(n): s^(n) = Sum_{k=0..n} CF(n,k) (s-1)^[k], where (s-1)^[k] are central factorials.
