@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Expand the Knuth formula section with its derivation, even central factorial number table, and ordinary and multifold examples
 - Revise mathematical exposition, section titles, result references, metadata, and the Mathematica programs table
 - Synchronize repository configuration and development tooling with the LaTeX template
-- Update the local manuscript version to 0.2.0
+- Format manuscript title
 
 ### Fixed
 
