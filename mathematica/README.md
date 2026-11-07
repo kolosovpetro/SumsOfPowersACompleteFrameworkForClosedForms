@@ -1,17 +1,30 @@
-# Run equation tests
+# Run in Docker
 
-- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateCentralFactorialsBinomialDecomposition.txt"
-- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateNewtonsFormulaForPowers.txt"
-- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateCenteredHockeyStickIdentity.txt"
-- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateOrdinarySumsOfPowersDecomposition.txt"
-- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateMultifoldSumsKnuthFormula.txt"
-- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateDoubleSumsOfPowersDecomposition.txt"
-- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateTripleSumsOfPowersDecomposition.txt"
-- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateMultifoldSumsOfPowersTheorem.txt"
-- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateMultifoldSumsOfZeroPowersLemma.txt"
-- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateMultifoldBinomialSumsOfPowersProposition.txt"
-- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateMultifoldBinomialSumsOfPowersNegated.txt"
-- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateOrdinarySumsOfPowersAtZero.txt"
-- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateDoubleSumsOfPowersAtZero.txt"
-- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateMultifoldSumsOfPowersAtZero.txt"
-- .\mathematica\Run-Mathematica.ps1 -MathematicaFileName "ValidateMultifoldSumsOfPowersAtZeroBinomialForm.txt"
+## Image
+
+- Image: `wolframresearch/wolframengine:15.0`
+- Url: https://hub.docker.com/r/wolframresearch/wolframengine
+
+## Get Free Developer License
+
+- Register user account in Wolfram (https://account.wolfram.com/login/oauth2/sign-in)
+- Follow the steps: https://www.wolfram.com/engine/free-license/
+- Run `docker run -it --name wolfram-licensed wolframresearch/wolframengine:15.0 bash`
+- Inside interactive container: `wolframscript`
+  - Enter login
+  - Enter password
+- Copy license file from the repository root: `./copy-wolfram-license.sh`
+- Mount license file and test wolframscript: `./Validate-Wolfram-Container.sh`
+
+# Run equation tests (Docker: Bash)
+
+- ./Run-Wolfram-Container.sh "GenerateExamplesInPolynomialForm.txt"
+- ./Run-Wolfram-Container.sh "GenerateExamplesInPolynomialFormR0.txt"
+- ./Run-Wolfram-Container.sh "ValidateOrdinarySumsOfPowers.txt"
+- ./Run-Wolfram-Container.sh "ValidateDoubleSumsOfPowers.txt"
+- ./Run-Wolfram-Container.sh "ValidateMultifoldSumsOfPowers.txt"
+- ./Run-Wolfram-Container.sh "ValidateMultifoldBinomialSumsOfPowers.txt"
+- ./Run-Wolfram-Container.sh "ValidateOrdinarySumsOfPowersAtZero.txt"
+- ./Run-Wolfram-Container.sh "ValidateDoubleSumsOfPowersAtZero.txt"
+- ./Run-Wolfram-Container.sh "ValidateMultifoldSumsOfPowersAtZero.txt"
+- ./Run-Wolfram-Container.sh "ValidateMultifoldSumsOfPowersAtZeroBinomialForm.txt"
