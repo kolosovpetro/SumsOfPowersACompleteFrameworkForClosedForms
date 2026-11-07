@@ -41,10 +41,10 @@
       \frac{\centralFactorial{n}{k}}{k!}
       &= \frac{n}{k!}\fallingFactorial{n+\frac{k}{2}-1}{k-1}
       = \frac{n}{k (k-1)!} \fallingFactorial{n+\frac{k}{2}-1}{k-1}
-      = \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1},
+      = \frac{n}{k} \tbinom{n+\frac{k}{2}-1}{k-1},
     \end{align*}
     because of the identity in falling factorials
-    $\frac{\fallingFactorial{x}{n}}{n!} = \binom{x}{n}$.
+    $\frac{\fallingFactorial{x}{n}}{n!} = \tbinom{x}{n}$.
   \end{proof}
 \end{lemma}
 
@@ -58,7 +58,7 @@
     \left[ \binom{n+\frac{k}{2}}{k} + \binom{n+\frac{k}{2}-1}{k} \right].
   \end{align*}
   \begin{proof}
-    We have $\binom{a}{k} = \frac{a}{k} \binom{a-1}{k-1}$.
+    We have $\tbinom{a}{k} = \frac{a}{k} \tbinom{a-1}{k-1}$.
     Let $a=n + \frac{k}{2}$, then
     \begin{align*}
       \tbinom{n + \frac{k}{2}}{k} = \tfrac{n + \tfrac{k}{2}}{k} \tbinom{n+\frac{k}{2}-1}{k-1}
@@ -107,10 +107,10 @@
   \end{align*}
   \begin{proof}
     We have,
-    $\sum_{k=a}^{b} \binom{k}{j}
-    = \binom{a}{j} + \binom{a+1}{j} + \cdots + \binom{b}{j}
-    = \left( \sum_{k=0}^{b} \binom{k}{j} \right) - \left( \sum_{k=0}^{a-1} \binom{k}{j} \right)$.
-    By hockey-stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$ yields,
+    $\tsum_{k=a}^{b} \tbinom{k}{j}
+    = \tbinom{a}{j} + \tbinom{a+1}{j} + \cdots + \tbinom{b}{j}
+    = \left( \tsum_{k=0}^{b} \tbinom{k}{j} \right) - \left( \tsum_{k=0}^{a-1} \tbinom{k}{j} \right)$.
+    By hockey-stick identity $\tsum_{k=0}^{n} \tbinom{k}{j} = \tbinom{n+1}{j+1}$ yields,
     \begin{align*}
       \tsum_{k=a}^{b} \tbinom{k}{j}
       = \left( \tsum_{k=0}^{b} \tbinom{k}{j} \right) - \left( \tsum_{k=0}^{a-1} \tbinom{k}{j} \right)
@@ -152,22 +152,22 @@
         by definition~\eqref{def:multifold-sums-of-powers-recurrence}.
       \item Let $r=1$, then we have
         $\KnuthRFoldSum{1}{n}{0}
-        = \sum_{k=1}^{n} 1 = \binom{n}{1}$.
+        = \tsum_{k=1}^{n} 1 = \tbinom{n}{1}$.
       \item Let $r=2$, then we have
         $\KnuthRFoldSum{2}{n}{0}
-        = \sum_{k=1}^{n} \binom{k}{1}
-        = \binom{n+1}{2}$.
+        = \tsum_{k=1}^{n} \tbinom{k}{1}
+        = \tbinom{n+1}{2}$.
       \item Let $r=3$, then we have
         $\KnuthRFoldSum{3}{n}{0}
-        = \sum_{k=1}^{n} \binom{k+1}{2}
-        = \binom{n+2}{3}$.
+        = \tsum_{k=1}^{n} \tbinom{k+1}{2}
+        = \tbinom{n+2}{3}$.
       \item Similarly, for arbitrary integer $r$, by hockey-stick identity
-        $\sum_{k=1}^{n} \binom{k}{r} = \binom{n+1}{r+1}$,
+        $\tsum_{k=1}^{n} \tbinom{k}{r} = \tbinom{n+1}{r+1}$,
         yields
         $\KnuthRFoldSum{r}{n}{0}
-        =  \sum_{k=1}^{n} \KnuthRFoldSum{r-1}{k}{0}
-        =  \sum_{k=1}^{n} \binom{k+r-2}{r-1}
-        = \binom{r+n-1}{r}$.
+        =  \tsum_{k=1}^{n} \KnuthRFoldSum{r-1}{k}{0}
+        =  \tsum_{k=1}^{n} \tbinom{k+r-2}{r-1}
+        = \tbinom{r+n-1}{r}$.
     \end{enumerate}
     This completes the proof.
   \end{proof}
@@ -178,6 +178,6 @@
     x^0 = 1.
   \end{align*}
 \end{convention}
-Donald Knuth give extensive discussion on the convention $x^0=1$ for
-all $x$, including zero, in Concrete Mathematics~\cite[~p. 162]{graham1994concrete},
+Donald Knuth gives an extensive discussion of the convention $x^0=1$ for
+all $x$, including zero, in Concrete Mathematics~\cite[p. 162]{graham1994concrete},
 and in~\cite{knuth1992notesnotation}.

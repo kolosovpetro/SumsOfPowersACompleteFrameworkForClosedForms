@@ -20,10 +20,10 @@ For example, for $T_2(n,k)$ we have
 \input{sections/tables/04_fig_central_factorial_numbers_t_2.tex}
 For example, for $T_3(n,k)$ we have
 \input{sections/tables/05_fig_central_factorial_numbers_t_3.tex}
-For example, for $T_t (2n, 2k)$, such that $0 \leq t \leq 3$, we have
+Table~\ref{tab:central-factorial-numbers-even} lists values of $T_t(2n,2k)$ for $0 \leq t \leq 3$.
 \input{sections/tables/01_fig_oeis_central_factorial_numbers_2n_2k.tex}
 
-Thus, yields the formula for sums of powers in terms of
+Thus, we obtain the formula for sums of powers in terms of
 generalized central factorial numbers of the second kind
 
 \begin{proposition}[Generalized Central factorial sums]
@@ -33,7 +33,7 @@ generalized central factorial numbers of the second kind
     \KnuthRFoldSum{1}{n}{m} = \frac{1}{2} \sum_{k=0}^{m}
     \left[
       \binom{n -t + \frac{k}{2} +1}{k+1} - \binom{1 -t + \tfrac{k}{2}}{k+1}
-      + \binom{n -t + \frac{k}{2}}{k+1} - \binom{-t + \tfrac{k}{2}}{k+1}
+      + \binom{n -t + \frac{k}{2}}{k+1} - \binom{0-t + \tfrac{k}{2}}{k+1}
     \right] k! T_t (m,k).
   \end{align*}
 \end{proposition}

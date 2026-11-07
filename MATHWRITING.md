@@ -133,3 +133,8 @@ Use this checklist when drafting, editing, or reviewing the paper. Apply it to p
 27. Do not use period after cases environment
   - Bad: \end{cases}.
   - Good: \end{cases}
+28. Fix paper title in all files.
+  - README
+  - metadata
+  - README the rest paper titles
+29. Analyze file changes and generate changelog entry, bump minor
