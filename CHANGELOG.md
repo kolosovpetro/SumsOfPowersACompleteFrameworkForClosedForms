@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 07-November-2026
+
+### Added
+
+- Add a repository math-writing guide and its Codex skill
+- Add a GitHub Actions workflow for Mathematica validation
+- Add Python orchestration for Mathematica test runs and scripts for Wolfram Engine container setup and license validation
+- Add manuscript screenshots and worked examples for sums of cubes and Knuth's formulas
+
+### Changed
+
+- Port the LaTeX build, HTML generation, and Pandoc metadata scripts from PowerShell to Python
+- Reorganize Mathematica notebooks and validation files into `Notebooks` and `Tests`, and update the Mathematica README
+- Expand the Knuth formula section with its derivation, even central factorial number table, and ordinary and multifold examples
+- Revise mathematical exposition, section titles, result references, metadata, and the Mathematica programs table
+- Synchronize repository configuration and development tooling with the LaTeX template
+- Format manuscript title
+
+### Fixed
+
+- Correct OEIS data for the numerator and denominator sequences A395860 and A395861
+- Add the missing label and text reference for the even central factorial number table
+
 ## [1.1.0] - 23-June-2026
 
 ### Changed

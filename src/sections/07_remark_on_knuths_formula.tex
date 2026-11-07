@@ -1,0 +1,181 @@
+Donald Knuth gives a formula for sums of odd powers in terms of the central factorial numbers of the second kind $T(n,k)$ in~\cite{knuth1993johann}.
+\begin{proposition}[Knuth's odd powers sum]
+  \label{prop:knuth-odd-powers-sum}
+  Let $n$ be a nonnegative integer, and let $m$ be a positive integer.
+  \begin{align*}
+    \KnuthRFoldSum{1}{n}{2m-1} = \sum_{k=1}^{m} (2k-1)! \binom{n+k}{2k} T(2m,2k),
+  \end{align*}
+  where $T(2m,2k)$ are central factorial numbers of the second kind.
+\end{proposition}
+The sequences \href{https://oeis.org/A008957}{\texttt{A008957}}, \href{https://oeis.org/A036969}{\texttt{A036969}}, and \href{https://oeis.org/A269945}{\texttt{A269945}} list central factorial numbers of the second kind $T(n,k)$ in the OEIS, as described in~\cite{sloane2003line}.
+Table~\ref{tab:central-factorial-numbers-t0-even} lists initial values of $T(2n,2k)$.
+\input{sections/tables/01_fig_central_factorial_numbers_2n_2k_t_0.tex}
+It is interesting to notice that Proposition~\eqref{prop:knuth-odd-powers-sum}
+directly follows
+from Central Newton's Formula in Lemma~\eqref{lem:central-newtons-formula-for-powers},
+evaluated
+at zero.
+For $m\geq 1$, the formula gives
+\begin{align*}
+  n^{2m} = \sum_{k=1}^{2m} \frac{\centralFactorial{n}{k}}{k!} \cdot \delta^{k} 0^{2m}.
+\end{align*}
+The term for $k=0$ vanishes because $\delta^{0} 0^{2m} = 0$ when $m\geq1$.
+For positive integers $m$ and $k$, the central difference $\delta^k 0^m$ is nonzero exactly when $k\leq m$ and $m$ and $k$ have the same parity:
+\begin{align*}
+  \begin{cases}
+    \delta^{k} 0^m \neq 0, \quad &\text{when} \quad m \equiv k \pmod{2}, \\
+    \delta^{k} 0^m = 0, \quad &\text{when} \quad m \not\equiv k \pmod{2},
+  \end{cases}
+\end{align*}
+In particular, the difference vanishes when $m$ and $k$ have opposite parity.
+This parity property applies to powers evaluated at zero; for example, $\delta^{3}1^{4}=24\neq0$.
+Since $2m$ is even, the differences $\delta^{k}0^{2m}$ vanish for odd $k$, so we may omit those terms:
+\begin{align*}
+  n^{2m} = \sum_{k=1}^{m} \frac{\centralFactorial{n}{2k}}{(2k)!} \cdot \delta^{2k} 0^{2m}.
+\end{align*}
+By the definition of the central factorial numbers of the second kind, we obtain
+\begin{align*}
+  n^{2m} = \sum_{k=1}^{m} \centralFactorial{n}{2k} T(2m,2k).
+\end{align*}
+Therefore,
+\begin{align*}
+  n^{2m} = \sum_{k=1}^{m} (2k)! \frac{\centralFactorial{n}{2k}}{(2k)!} T(2m,2k).
+\end{align*}
+Applying Lemma~\eqref{lem:central-factorials-binomial-form} to simplify $\frac{\centralFactorial{n}{2k}}{(2k)!}$ gives
+\begin{align*}
+  n^{2m} = \sum_{k=1}^{m} (2k)!  \frac{n}{2k} \binom{n+k-1}{2k-1} T(2m,2k).
+\end{align*}
+Consequently,
+\begin{align*}
+  n^{2m} = \sum_{k=1}^{m} (2k-1)!  n \binom{n+k-1}{2k-1} T(2m,2k).
+\end{align*}
+Factoring out $n$ gives
+\begin{align*}
+  n^{2m-1}
+  &= \sum_{k=1}^{m} (2k-1)! \binom{n+k-1}{2k-1} T(2m,2k).
+\end{align*}
+Applying the hockey-stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$ gives
+\begin{align*}
+  \KnuthRFoldSum{1}{n}{2m-1} = \sum_{k=1}^{m} (2k-1)! \binom{n+k}{2k} T(2m,2k).
+\end{align*}
+This formula agrees with Proposition~\eqref{prop:knuth-odd-powers-sum}.
+Repeated application of the hockey-stick identity $\sum_{k=0}^{n} \binom{k}{j} = \binom{n+1}{j+1}$ generalizes the formula to multifold sums.
+\begin{proposition}[Knuth's odd powers sum multifold]
+  \label{prop:knuth-odd-powers-sum-multifold}
+  Let $r$ and $n$ be nonnegative integers, and let $m$ be a positive integer.
+  \begin{align*}
+    \KnuthRFoldSum{r+1}{n}{2m-1}
+    = \sum_{k=1}^{m} (2k-1)! \binom{n+k+r}{2k+r} T(2m,2k),
+  \end{align*}
+  where $T(2m,2k)$ are central factorial numbers of the second kind.
+\end{proposition}
+The following example illustrates Proposition~\eqref{prop:knuth-odd-powers-sum}.
+\input{sections/examples/04_knuth_ordinary_sums.tex}
+The following example illustrates Proposition~\eqref{prop:knuth-odd-powers-sum-multifold}.
+\input{sections/examples/05_knuth_multifold_sums.tex}
+The coefficients in Proposition~\eqref{prop:knuth-odd-powers-sum-multifold} form the sequence \href{https://oeis.org/A303675}{\texttt{A303675}} in the OEIS, as listed in~\cite{sloane2003line}.
+Proposition~\eqref{prop:knuth-odd-powers-sum-multifold} also motivates the following identity.
+Combining Newton's formula in Lemma~\eqref{lem:central-newtons-formula-for-powers} with Lemma~\eqref{lem:central-factorials-binomial-form} gives
+\begin{align*}
+  n^m = \sum_{k=1}^{m} \frac{n}{k} \binom{n+\frac{k}{2}-1}{k-1} \delta^{k} 0^m.
+\end{align*}
+Factoring out $n$ gives
+\begin{align*}
+  n^{m-1} = \sum_{k=1}^{m} \frac{1}{k} \binom{n+\frac{k}{2}-1}{k-1} \delta^{k} 0^m.
+\end{align*}
+Shifting the exponent gives
+\begin{align*}
+  n^{m} = \sum_{k=1}^{m+1} \frac{1}{k} \binom{n+\frac{k}{2}-1}{k-1} \delta^{k} 0^{m+1}.
+\end{align*}
+Re-indexing the sum gives
+\begin{align}
+  \label{eq:power-identity-at-zero}
+  n^{m} = \sum_{k=0}^{m} \frac{1}{k+1} \binom{n+\frac{k}{2}-\frac{1}{2}}{k} \delta^{k+1} 0^{m+1}.
+\end{align}
+Setting $r=0$ and $t=\frac{1}{2}$ in Lemma~\eqref{lem:centered-hockey-stick-identity} gives the following proposition.
+\begin{proposition}[Ordinary sums of powers at zero]
+  \label{prop:ordinary-sums-of-powers-at-zero}
+  Let $n$ and $m$ be nonnegative integers.
+  \begin{align*}
+    \KnuthRFoldSum{1}{n}{m}
+    = \sum_{k=0}^{m}
+    \left[ \binom{n+\frac{k}{2}+\frac{1}{2}}{k+1} - \binom{\frac{k}{2}+\frac{1}{2}}{k+1}\right]
+    \frac{\delta^{k+1} 0^{m+1}}{k+1}.
+  \end{align*}
+\end{proposition}
+The formula can also be written in terms of central factorial numbers of the second kind:
+\begin{align*}
+  \KnuthRFoldSum{1}{n}{m}
+  = \sum_{k=0}^{m} k!
+  \left[ \binom{n+\frac{k}{2}+\frac{1}{2}}{k+1} - \binom{\frac{k}{2}+\frac{1}{2}}{k+1}\right]
+  T(k+1, m+1).
+\end{align*}
+Setting $r=1$ and $t=\frac{1}{2}$ in Lemma~\eqref{lem:centered-hockey-stick-identity} gives a formula for double sums of powers.
+\begin{proposition}[Double sums of powers at zero]
+  \label{prop:double-sums-of-powers-at-zero}
+  Let $n$ and $m$ be nonnegative integers.
+  \begin{align*}
+    \KnuthRFoldSum{2}{n}{m}
+    = \sum_{k=0}^{m}
+    \left[
+      \binom{n+\frac{k}{2}+\frac{3}{2}}{k+2}
+      - \binom{\frac{k}{2}+\frac{1}{2}}{k+1} \KnuthRFoldSum{1}{n}{0}
+      - \binom{\frac{k}{2}+\frac{3}{2}}{k+2} \KnuthRFoldSum{0}{n}{0}
+    \right]
+    \frac{\delta^{k+1} 0^{m+1}}{k+1}.
+  \end{align*}
+\end{proposition}
+The general formula is as follows.
+\begin{theorem}[Multifold sums of powers at zero]
+  \label{thm:multifold-sums-of-powers-at-zero}
+  Let $r$, $n$, and $m$ be nonnegative integers.
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    =
+    \sum_{k=0}^{m}
+    \left[
+      \binom{n+\frac{k}{2}+\frac{2r-1}{2}}{k+r}
+      -
+      \sum_{s=0}^{r-1} \binom{\frac{k}{2} + \frac{2(r-s)-1}{2}}{k+r-s}
+      \KnuthRFoldSum{s}{n}{0}
+    \right] \frac{\delta^{k+1} 0^{m+1}}{k+1}.
+  \end{align*}
+  \begin{proof}
+    By repeatedly applied Lemma~\eqref{lem:centered-hockey-stick-identity},
+    and Equation~\eqref{eq:power-identity-at-zero}.
+  \end{proof}
+\end{theorem}
+Combining Lemma~\eqref{lem:multifold-sum-of-zero-powers} with Theorem~\eqref{thm:multifold-sums-of-powers-at-zero} gives the following binomial form.
+\begin{proposition}[Multifold sums of powers at zero binomial form]
+  \label{prop:multifold-sums-of-powers-at-zero-binomial-form}
+  Let $r$, $n$, and $m$ be nonnegative integers.
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    =
+    \sum_{k=0}^{m}
+    \left[
+      \binom{n+\frac{k}{2}+\frac{2r-1}{2}}{k+r}
+      -
+      \sum_{s=0}^{r-1} \binom{\frac{k}{2} + \frac{2(r-s)-1}{2}}{k+r-s}
+      \binom{s+n-1}{s}
+    \right] \frac{\delta^{k+1} 0^{m+1}}{k+1}.
+  \end{align*}
+  \begin{proof}
+    By repeatedly applied Lemma~\eqref{lem:centered-hockey-stick-identity},
+    and Equation~\eqref{eq:power-identity-at-zero}.
+  \end{proof}
+\end{proposition}
+This formula can also be expressed in terms of central factorial numbers of the second kind:
+\begin{align*}
+  \KnuthRFoldSum{r}{n}{m}
+  =
+  \sum_{k=0}^{m}
+  \left[
+    \binom{n+\frac{k}{2}+\frac{2r-1}{2}}{k+r}
+    -
+    \sum_{s=0}^{r-1} \binom{\frac{k}{2} + \frac{2(r-s)-1}{2}}{k+r-s}
+    \binom{s+n-1}{s}
+  \right] k! T(k+1, m+1).
+\end{align*}
+The results above follow from evaluating the central Newton formula at zero.
+Table~\ref{tab:central-factorial-numbers-t0} lists initial values of $T(n,k)$.

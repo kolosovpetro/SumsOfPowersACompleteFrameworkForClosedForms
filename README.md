@@ -1,4 +1,4 @@
-# Sums of powers of integers: A complete framework for closed formulas
+# Sums of Powers of Integers: A Complete Framework for Closed Formulas
 
 ## Abstract
 
@@ -7,10 +7,10 @@ This manuscript provides an algorithm for deriving closed formulas for multifold
 
 ## Related projects
 
-- [Newton's interpolation formula and sums of powers (2025)](https://github.com/kolosovpetro/NewtonsInterpolationFormulaAndSumsOfPowers)
-- [Sums of powers via central finite differences and Newton's formula (2025)](https://github.com/kolosovpetro/SumsOfPowersViaCentralFiniteDifferencesAndNewtonFormula)
-- [Sums of powers via backward finite differences and Newton's formula (2026)](https://github.com/kolosovpetro/SumsOfPowersViaBackwardFiniteDifferencesAndNewtonFormula)
-- [Sums of powers of integers: A complete framework for closed formulas (2026)](https://github.com/kolosovpetro/SumsOfPowersACompleteFrameworkForClosedForms)
+- [Newton's Interpolation Formula and Sums of Powers (2025)](https://github.com/kolosovpetro/NewtonsInterpolationFormulaAndSumsOfPowers)
+- [Sums of Powers via Central Finite Differences and Newton's Formula (2025)](https://github.com/kolosovpetro/SumsOfPowersViaCentralFiniteDifferencesAndNewtonFormula)
+- [Sums of Powers via Backward Finite Differences and Newton's Formula (2026)](https://github.com/kolosovpetro/SumsOfPowersViaBackwardFiniteDifferencesAndNewtonFormula)
+- [Sums of Powers of Integers: A Complete Framework for Closed Formulas (2026)](https://github.com/kolosovpetro/SumsOfPowersACompleteFrameworkForClosedForms)
 
 ## Metadata
 
