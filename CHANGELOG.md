@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.0] - 07-November-2026
+## [2.1.0] - Nov 22, 2026
+
+### Changed
+
+- Adjust CI to point to tag v2.1.0
+
+## [2.0.0] - Nov 7, 2026
 
 ### Added
 
@@ -28,7 +34,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Correct OEIS data for the numerator and denominator sequences A395860 and A395861
 - Add the missing label and text reference for the even central factorial number table
 
-## [1.1.0] - 23-June-2026
+## [1.1.0] - Jun 23, 2026
 
 ### Changed
 
@@ -47,7 +53,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Fix falling factorial notation
 - Fix link in metadata
 
-## [1.0.4] - 22-June-2026
+## [1.0.4] - Jun 22, 2026
 
 ### Changed
 
@@ -61,7 +67,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Add negated multifold sums formula
 - Add negated multifold sums test
 
-## [1.0.3] - 17-Jun-2026
+## [1.0.3] - Jun 17, 2026
 
 ### Changed
 
@@ -76,7 +82,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Add test `ValidateTripleSumsOfPowersDecomposition.txt`
 - Format test `ValidateMultifoldBinomialSumsOfPowersProposition.txt`
 
-## [1.0.2] - 16-Jun-2026
+## [1.0.2] - Jun 16, 2026
 
 ### Changed
 
@@ -85,7 +91,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Validate Knuth's formula using Mathematica program (`ValidateMultifoldSumsKnuthFormula.txt`)
 - Fix punctuation
 
-## [1.0.1] - 15-Jun-2026
+## [1.0.1] - Jun 15, 2026
 
 ### Changed
 
@@ -94,7 +100,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Add Zenodo citation file
 - Fix Multiple `\label` in HTML issue
 
-## [1.0.0] - 04-Jun-2026
+## [1.0.0] - Jun 4, 2026
 
 ### Changed
 
